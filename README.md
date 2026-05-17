@@ -300,6 +300,10 @@ When writing copy for this site, avoid overclaiming compliance. **Do not say "SO
 - Components live in `assets/styles.css` — `.card`, `.btn`, `.btn.primary`, `.eyebrow`, `.grid`, `.grid-4`, `.two`, `.comparison`, `.faq`, `.billing-toggle`, etc.
 - Accessibility: skip link, ARIA labels on the nav and menu button, `:focus-visible` rings, scroll-margin so sticky-nav doesn't hide anchors, full `prefers-reduced-motion` support.
 
+## Docs
+
+- [Service Level Agreement](SLA.md)
+
 ## License
 
 © Dinner With Anyone. All rights reserved.
