@@ -1145,42 +1145,80 @@
   const promptEl = document.querySelector("[data-roleplay-prompt]");
   const responseEl = document.querySelector("[data-roleplay-response]");
   const feedbackEl = document.querySelector("[data-roleplay-feedback]");
+  const groundingEl = document.querySelector("[data-roleplay-grounding]");
+  const nextEl = document.querySelector("[data-roleplay-next]");
+  const helperEl = document.querySelector("[data-mode-helper]");
 
   const roleplayModes = {
     teach: {
       title: "Teach me",
-      prompt: "Teach me this week's concept the way you would in office hours.",
+      helper: "Explain the idea patiently, then check understanding.",
+      prompt:
+        "I do not understand switching costs from this week's lecture.",
       response:
-        "Imagine that every decision is made from a frame of reference. The question is not only what you see, but where you are standing when you see it. Walk me through where you are standing on this problem.",
-      feedback: "Concept clarity, examples, follow-up questions."
+        "Let's slow it down. From the uploaded Week 3 transcript, switching costs mean the friction that makes a customer less likely to leave after adopting a workflow. Before I give examples, tell me — what would make it annoying for a company to switch away from a tool it already uses every day?",
+      feedback:
+        "Concept clarity, examples, follow-up questions.",
+      grounding:
+        "Source: Week 3 transcript. Boundary: no specific startup example found in uploaded material.",
+      next:
+        "Reply with one concrete switching-cost example from your own life, then ask the avatar to compare."
     },
     interview: {
       title: "Interview me",
-      prompt: "I'm preparing for a product strategy interview. Ask me a hard question.",
+      helper: "Ask hard questions and score the answer.",
+      prompt:
+        "I'm preparing for a product strategy interview. Ask me a hard question.",
       response:
-        "Good. You are the PM for an AI tutoring product. Retention is falling after week two. What three hypotheses would you test first, and what evidence would change your mind?",
-      feedback: "Structure, assumptions, prioritization, evidence."
+        "Good. You are leading a tutoring product. Students love the first session, but week-two retention is falling. Give me three hypotheses, the evidence you would check, and the first experiment you would run.",
+      feedback:
+        "Strong direction. Sharpen it: separate user behavior from product friction, name the metric you would move first, and say what result would change your mind.",
+      grounding:
+        "Source: public interview-prep frameworks and product-strategy patterns.",
+      next:
+        "Try again in 60 seconds with a clearer three-part structure: hypothesis · evidence · experiment."
     },
     sales: {
       title: "Sell to me",
-      prompt: "I'm practicing a sales discovery call for an enterprise AI product.",
+      helper: "Play the skeptical buyer and push back.",
+      prompt:
+        "I'm practicing a sales discovery call for an enterprise training product.",
       response:
-        "I'm the buyer. I do not care about AI. I care about reducing support cost. Ask me a discovery question that earns the right to continue.",
-      feedback: "Discovery, business pain, objection handling, next step."
+        "I'll play the buyer. I do not care about new technology. I care about reducing ramp time for my sales team. Ask me a discovery question that earns the right to continue.",
+      feedback:
+        "Good opening. Make it more business-specific: ask about current ramp time, the cost of missed quota, and who owns training outcomes.",
+      grounding:
+        "Source: public sales playbooks (discovery, MEDDPICC, SPIN). No customer-specific data used.",
+      next:
+        "Ask one quantified discovery question, then summarize the buyer's pain back to them."
     },
     negotiation: {
       title: "Negotiate with me",
-      prompt: "I'm negotiating a job offer. Help me practice.",
+      helper: "Make the student frame the ask and tradeoffs clearly.",
+      prompt:
+        "I'm negotiating a job offer. Help me practice.",
       response:
-        "I will play the recruiter. You want a higher salary, but I have budget constraints. Make your opening ask.",
-      feedback: "Leverage, framing, tradeoffs, confidence."
+        "I'll play the recruiter. You want a higher salary, but I have budget constraints. Make your opening ask — and tell me what tradeoffs you are willing to consider.",
+      feedback:
+        "Strong opening. Now add leverage: name one competing offer or constraint, then propose a specific tradeoff (equity, sign-on, start date, or scope).",
+      grounding:
+        "Source: public negotiation frameworks (anchors, BATNA, ZOPA). No private compensation data used.",
+      next:
+        "Practice the opening ask one more time with a clear anchor number and one tradeoff."
     },
     quiz: {
       title: "Quiz me",
-      prompt: "Quiz me on this week's lecture.",
+      helper: "Test recall, application, and evidence.",
+      prompt:
+        "Quiz me on this week's lecture.",
       response:
-        "Define switching costs in your own words, then apply the idea to an AI startup that depends on workflow lock-in.",
-      feedback: "Concept mastery, application, evidence."
+        "Define switching costs in your own words, then apply the idea to a startup that depends on workflow lock-in.",
+      feedback:
+        "Concept mastery, application, evidence.",
+      grounding:
+        "Source: uploaded course material from Week 3.",
+      next:
+        "Answer in two sentences: one definition, one applied example."
     }
   };
 
@@ -1196,6 +1234,9 @@
     if (promptEl) promptEl.textContent = mode.prompt;
     if (responseEl) responseEl.textContent = mode.response;
     if (feedbackEl) feedbackEl.textContent = mode.feedback;
+    if (groundingEl) groundingEl.textContent = mode.grounding;
+    if (nextEl) nextEl.textContent = mode.next;
+    if (helperEl) helperEl.textContent = mode.helper;
   }
 
   tabs.forEach((tab) => {

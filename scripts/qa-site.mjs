@@ -262,6 +262,56 @@ async function testContactPaths(page) {
   }
 }
 
+async function testForbiddenLanguage(page) {
+  // Word-boundary \b prevents OpenAI from matching AI-* / AI-dash patterns.
+  const forbiddenPatterns = [
+    { name: "AI-powered", regex: /\bAI-powered\b/i },
+    { name: "AI-driven", regex: /\bAI-driven\b/i },
+    { name: "AI-avatar", regex: /\bAI-avatar\b/i },
+    { name: "AI-tutor", regex: /\bAI-tutor\b/i },
+    { name: "AI - / AI – / AI — (spaced dash)", regex: /\bAI\s+[-–—]/ }
+  ];
+
+  for (const pageName of pages) {
+    await page.goto(`${baseURL}/${pageName}`, { waitUntil: "networkidle" });
+    const body = await page.locator("body").innerText();
+
+    for (const { name, regex } of forbiddenPatterns) {
+      const match = body.match(regex);
+      if (match) {
+        const idx = match.index ?? 0;
+        const start = Math.max(0, idx - 40);
+        const snippet = body.slice(start, idx + match[0].length + 40).replace(/\s+/g, " ");
+        throw new Error(
+          `Forbidden phrase "${name}" on ${pageName}: …${snippet}…`
+        );
+      }
+    }
+  }
+}
+
+async function testAvatarDemoClarity(page) {
+  await page.goto(`${baseURL}/avatar-demo.html`, { waitUntil: "networkidle" });
+  const body = await page.locator("body").innerText();
+
+  const markers = [
+    "Step into the conversation",
+    "Choose who you want at the table",
+    "Choose the mode",
+    "Get better",
+    "Live conversation",
+    "Grounding",
+    "Feedback",
+    "The mouth matters",
+    "The source matters",
+    "The practice loop matters"
+  ];
+
+  for (const marker of markers) {
+    assert(body.includes(marker), `Missing avatar demo clarity marker: "${marker}"`);
+  }
+}
+
 async function testExpertLibrary(page) {
   await page.goto(`${baseURL}/experts.html`, { waitUntil: "networkidle" });
 
@@ -429,7 +479,7 @@ async function testRoleplayModes(page) {
 
   const interviewFeedback = await page.locator("[data-roleplay-feedback]").innerText();
   assert(
-    /structure|assumptions/i.test(interviewFeedback),
+    /sharpen|structure|assumptions|metric/i.test(interviewFeedback),
     "Interview roleplay mode did not update feedback."
   );
 
@@ -687,6 +737,12 @@ async function main() {
 
     await testHomepageFirstImpression(page);
     console.log("Checked homepage first-impression markers and 60 minds wall");
+
+    await testForbiddenLanguage(page);
+    console.log("Checked forbidden AI-hyphen language on every public HTML page");
+
+    await testAvatarDemoClarity(page);
+    console.log("Checked avatar demo clarity markers");
 
     await testTracker(page);
     console.log("Checked outreach tracker");

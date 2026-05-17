@@ -5687,6 +5687,147 @@ body.cinematic-mode .cinematic-toggle {
   color: var(--blue);
 }
 
+/* =========================================================
+   Avatar demo polish: 3-step strip, cockpit labels,
+   mode helper, "why this feels different"
+   ========================================================= */
+
+.demo-three-step {
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.three-step-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.three-step-card {
+  border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0,184,255,.1), transparent 38%),
+    linear-gradient(180deg, #fff, #f6f9ff);
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 16px 50px rgba(11,77,255,.06);
+  display: grid;
+  gap: 8px;
+  position: relative;
+}
+
+.three-step-card .step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--blue), #003ad6);
+  color: white;
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: .04em;
+  box-shadow: 0 8px 22px rgba(11,77,255,.28);
+}
+
+.three-step-card h3 {
+  margin: 4px 0 0;
+  font-size: 18px;
+  letter-spacing: -.02em;
+}
+
+.three-step-card p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+/* Cockpit step label + mode helper */
+
+.cockpit-step-label {
+  margin: 18px 0 8px;
+  color: var(--ink);
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: -.005em;
+}
+
+.cockpit-step-label strong {
+  color: var(--blue);
+  font-weight: 900;
+  letter-spacing: .02em;
+}
+
+.mode-helper {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--blue);
+  background: rgba(11,77,255,.04);
+  border-radius: 0 12px 12px 0;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* Extra fields inside the roleplay mode card */
+
+.roleplay-mode-card p strong + span {
+  display: block;
+}
+
+/* Why this feels different */
+
+.why-different-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.why-different-card {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 22px;
+  padding: 22px;
+  box-shadow: 0 16px 50px rgba(11,77,255,.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.why-different-card h3 {
+  margin: 0;
+  letter-spacing: -.02em;
+}
+
+.why-different-card .icon-pill {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 5px 11px;
+  background: linear-gradient(180deg, #f4f8ff, #e9f1ff);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 980px) {
+  .three-step-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .why-different-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Homepage hero "alive or dead" aside */
 
 .hero-aside {

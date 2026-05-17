@@ -304,7 +304,7 @@ When writing copy for this site, avoid overclaiming compliance. **Do not say "SO
 
 ## Docs
 
-- [Service Level Agreement](SLA.md)
+- [Site Launch Agreement](SLA.md) — quality bar for the public website
 - [Avatar Architecture](AVATAR_ARCHITECTURE.md)
 - [Avatar Realism](AVATAR_REALISM.md)
 - [Grounding and Anti-Hallucination Policy](GROUNDING_POLICY.md)

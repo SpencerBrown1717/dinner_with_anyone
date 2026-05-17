@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Avatar demo | Dinner With Anyone</title>
-  <meta name="description" content="Speak with an AI avatar of Albert Einstein in a live learning room. OpenAI-powered voice, Gemini-generated slides, HeyGen-style avatar — a static prototype of the immersive classroom experience." />
+  <meta name="description" content="Speak with a source-grounded avatar of Albert Einstein in a live learning room. Voice via OpenAI, slides via Gemini, avatar via HeyGen — a static prototype of the immersive classroom experience." />
   <meta name="theme-color" content="#0b4dff" />
   <meta name="color-scheme" content="light" />
   <meta name="robots" content="index, follow" />
@@ -77,30 +77,57 @@
     <section class="page-hero avatar-proof-hero">
       <div class="wrap">
         <span class="eyebrow">Avatar demo</span>
-        <h1>Speak with an avatar. Watch the lesson come alive.</h1>
+        <h1>Step into the conversation.</h1>
         <p class="lead">
-          Pick a historical figure or professor avatar, start a simulated voice conversation,
-          and watch slides, source material, and classroom insights move with the discussion.
+          Choose a mind, pick a mode, and practice a real conversation with a source-grounded
+          avatar that can teach, challenge, roleplay, and give feedback.
         </p>
 
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:18px">
+          <a class="btn primary" href="#demo-cockpit">Start the demo</a>
+          <a class="btn" href="contact.html?path=teacher">Build my avatar</a>
+        </div>
+
         <div class="proof-stack">
-          <span>OpenAI voice</span>
-          <span>Gemini slides</span>
-          <span>HeyGen / Gemini avatar layer</span>
-          <span>Private-server option</span>
-          <span>Education-first workflows</span>
+          <span>Voice synced</span>
+          <span>3D avatar ready</span>
+          <span>Source grounded</span>
+          <span>Feedback active</span>
+          <span>Private mode available</span>
         </div>
       </div>
     </section>
 
-    <section class="section proof-demo-section">
+    <section class="section demo-three-step">
+      <div class="wrap">
+        <ol class="three-step-grid" aria-label="How the avatar demo works">
+          <li class="three-step-card">
+            <span class="step-number">01</span>
+            <h3>Choose who you want at the table</h3>
+            <p>Pick a professor, expert, interviewer, buyer, negotiator, or historical figure.</p>
+          </li>
+          <li class="three-step-card">
+            <span class="step-number">02</span>
+            <h3>Choose the mode</h3>
+            <p>Learn, interview, sell, negotiate, or quiz yourself.</p>
+          </li>
+          <li class="three-step-card">
+            <span class="step-number">03</span>
+            <h3>Get better</h3>
+            <p>Receive feedback on clarity, structure, confidence, evidence, and next steps.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section proof-demo-section demo-cockpit" id="demo-cockpit">
       <div class="wrap">
         <div class="section-head">
-          <span class="eyebrow">Proof mode</span>
+          <span class="eyebrow">Demo cockpit · Avatar choice · Live conversation · Grounding · Feedback</span>
           <h2>Choose who is sitting across the table.</h2>
           <p class="muted">
-            Switch between famous public-source avatars and a private professor avatar built
-            from uploaded course materials.
+            Switch between famous source-grounded avatars and a private professor avatar built
+            from uploaded course materials. Then pick the conversation mode below.
           </p>
         </div>
 
@@ -130,6 +157,8 @@
           </button>
         </div>
 
+        <p class="cockpit-step-label"><strong>Choose the mode.</strong> Five conversation modes — Learn, Interview, Sell, Negotiate, Quiz.</p>
+
         <div class="roleplay-mode-tabs" role="tablist" aria-label="Roleplay mode">
           <button class="roleplay-tab active" type="button" data-roleplay-mode="teach" aria-pressed="true">Teach me</button>
           <button class="roleplay-tab" type="button" data-roleplay-mode="interview" aria-pressed="false">Interview me</button>
@@ -138,9 +167,13 @@
           <button class="roleplay-tab" type="button" data-roleplay-mode="quiz" aria-pressed="false">Quiz me</button>
         </div>
 
+        <p class="mode-helper" data-mode-helper>
+          Explain the idea patiently, then check understanding.
+        </p>
+
         <div class="roleplay-mode-card" data-roleplay-card>
           <div class="roleplay-head">
-            <span class="eyebrow small">Mode brief</span>
+            <span class="eyebrow small">Scenario</span>
             <h4 data-roleplay-title>Teach me</h4>
             <span class="feedback-pill" data-roleplay-feedback>
               Concept clarity, examples, follow-up questions.
@@ -158,6 +191,18 @@
               Imagine that every decision is made from a frame of reference. The question is not only what you see, but where you are standing when you see it. Walk me through where you are standing on this problem.
             </span>
           </p>
+          <p>
+            <strong>Grounding status</strong>
+            <span data-roleplay-grounding>
+              Source: uploaded course material. Boundary: respond only from approved material.
+            </span>
+          </p>
+          <p>
+            <strong>Suggested next move</strong>
+            <span data-roleplay-next>
+              Restate the concept in your own words, then ask a follow-up question.
+            </span>
+          </p>
         </div>
 
         <div class="proof-room" data-proof-room>
@@ -173,7 +218,7 @@
                 Live classroom simulation
               </span>
 
-              <span class="simulation-label">Educational AI simulation</span>
+              <span class="simulation-label">Educational simulation</span>
             </div>
 
             <div class="avatar-frame" data-avatar-frame>
@@ -310,7 +355,7 @@
         </div>
 
         <p class="prototype-note">
-          Dinner With Anyone creates educational AI simulations inspired by public-source or
+          Dinner With Anyone creates educational simulations inspired by public-source or
           teacher-provided material. Avatars are not the real person and may not represent exact
           views, words, or private thoughts.
         </p>
@@ -333,6 +378,57 @@
               A professor avatar must not confidently invent what the professor said. It should
               answer from uploaded materials, show source confidence, and say when the answer
               is outside the approved material.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-different">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Why this feels different</span>
+          <h2>Pick a person. Pick a mode. Start talking. Get better.</h2>
+          <p class="muted">
+            Most chatbots feel transactional. The avatar demo is built around the four things
+            that actually decide whether a learning room works.
+          </p>
+        </div>
+
+        <div class="why-different-grid">
+          <article class="why-different-card">
+            <span class="icon-pill">Realism</span>
+            <h3>The mouth matters.</h3>
+            <p class="muted">
+              Bad lip sync breaks trust. The avatar experience is designed around speech
+              timing, expression, pauses, and believable response rhythm.
+            </p>
+          </article>
+
+          <article class="why-different-card">
+            <span class="icon-pill">Grounding</span>
+            <h3>The source matters.</h3>
+            <p class="muted">
+              A professor avatar should not invent what the professor said. It should answer
+              from uploaded material and say when it does not know.
+            </p>
+          </article>
+
+          <article class="why-different-card">
+            <span class="icon-pill">Practice</span>
+            <h3>The practice loop matters.</h3>
+            <p class="muted">
+              Students get better through repetition, feedback, and safe struggle — not by
+              watching another passive video.
+            </p>
+          </article>
+
+          <article class="why-different-card">
+            <span class="icon-pill">Relationship</span>
+            <h3>The relationship matters.</h3>
+            <p class="muted">
+              A great mentor feels patient, consistent, and invested in helping the student
+              improve.
             </p>
           </article>
         </div>
@@ -543,7 +639,7 @@
     <div class="wrap footer-grid">
       <div>
         <div class="brand"><span class="mark" aria-hidden="true">D</span><span>Dinner With Anyone</span></div>
-        <p class="tiny">AI avatars for conversation and learning — historical figures, expert thinkers, and custom professor avatars.</p>
+        <p class="tiny">Source-grounded avatars for conversation and learning — historical figures, expert thinkers, and custom professor avatars.</p>
       </div>
       <div>
         <b>Product</b>
@@ -571,7 +667,7 @@
       </div>
     </div>
     <div class="wrap tiny footer-legal">
-      <p><strong>Educational AI simulations.</strong> Dinner With Anyone creates educational AI simulations inspired by public-source or teacher-provided material. Avatars are not the real person and may not represent exact views, words, or private thoughts. Private-server deployment is available for sensitive classroom, enterprise, and institutional workflows.</p>
+      <p><strong>Educational simulations.</strong> Dinner With Anyone creates educational simulations inspired by public-source or teacher-provided material. Avatars are not the real person and may not represent exact views, words, or private thoughts. Private-server deployment is available for sensitive classroom, enterprise, and institutional workflows.</p>
       <p>© <span id="year">2026</span> Dinner With Anyone. All rights reserved.</p>
     </div>
   </footer>
