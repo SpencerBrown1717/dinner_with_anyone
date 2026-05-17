@@ -176,3 +176,391 @@
     });
   }
 })();
+
+/* =========================================================
+   Avatar Demo Proof Mode
+   Static prototype only — no backend/API calls.
+   ========================================================= */
+
+(function () {
+  const room = document.querySelector("[data-proof-room]");
+  if (!room) return;
+
+  const avatars = {
+    einstein: {
+      initials: "AE",
+      name: "Albert Einstein",
+      transcriptName: "Albert Einstein",
+      subtitle:
+        "Public-source historical avatar for physics, creativity, scientific intuition, and first-principles thinking.",
+      userSample:
+        "Explain relativity like I am preparing for an MBA class on systems thinking.",
+      avatarSample:
+        "Imagine that every decision is made from a frame of reference. The question is not only what you see, but where you are standing when you see it.",
+      generatedTitle: "Frame of Reference",
+      generatedCopy:
+        "Gemini turns the conversation into a visual teaching frame: observer, system, assumption, reflection.",
+      slides: [
+        "Theory of Relativity",
+        "Thought Experiments",
+        "First Principles",
+        "Student Reflection"
+      ],
+      sources: [
+        ["Public biographies", "public"],
+        ["Published writings", "public"],
+        ["Wikipedia / public context", "public"],
+        ["Uploaded curriculum", "class"],
+        ["Teacher slides", "class"],
+        ["Zoom transcripts", "class"]
+      ],
+      speakingLine:
+        "If the model feels complicated, return to the frame. Ask what changes when the observer changes."
+    },
+
+    confucius: {
+      initials: "C",
+      name: "Confucius",
+      transcriptName: "Confucius",
+      subtitle:
+        "Public-source historical avatar for ethics, learning, social order, leadership, and reflective practice.",
+      userSample:
+        "How should a leader teach a team without making people feel small?",
+      avatarSample:
+        "Begin by correcting yourself in public and others in private. A culture learns most from what leaders repeat calmly.",
+      generatedTitle: "Leadership Through Ritual",
+      generatedCopy:
+        "Gemini structures the lesson around habits, role modeling, reflective questions, and ethical decision-making.",
+      slides: [
+        "Learning as Practice",
+        "Ritual and Role Modeling",
+        "Ethics in Leadership",
+        "Reflection Prompt"
+      ],
+      sources: [
+        ["Public biographies", "public"],
+        ["Analects references", "public"],
+        ["Historical context", "public"],
+        ["Leadership curriculum", "class"],
+        ["Teacher discussion guide", "class"],
+        ["Student reflections", "class"]
+      ],
+      speakingLine:
+        "The leader is not only the person who speaks. The leader is the person whose habits become the room."
+    },
+
+    chen: {
+      initials: "PC",
+      name: "Professor Chen",
+      transcriptName: "Professor Chen",
+      subtitle:
+        "MBA Strategy Professor Avatar built from uploaded syllabus, slides, Zoom transcripts, readings, and assignments.",
+      userSample:
+        "I understand Porter's Five Forces, but I do not know how to apply it to AI startups.",
+      avatarSample:
+        "Good. Start with the force that feels invisible: supplier power. In AI, compute, data, and distribution often become the real suppliers.",
+      generatedTitle: "Week 3 — Competitive Advantage",
+      generatedCopy:
+        "Gemini generates lecture slides, study prompts, and discussion questions from uploaded strategy material.",
+      slides: [
+        "Competitive Advantage",
+        "Porter's Five Forces",
+        "Case Discussion",
+        "Student Reflection"
+      ],
+      sources: [
+        ["strategy_syllabus.pdf", "class"],
+        ["week_03_slides.pptx", "class"],
+        ["zoom_transcript_week_3.vtt", "class"],
+        ["case_reading_packet.pdf", "class"],
+        ["Professor notes", "class"],
+        ["Student check-ins", "class"]
+      ],
+      speakingLine:
+        "In this case, the moat is not the model alone. It is distribution, workflow ownership, data feedback, and switching cost."
+    },
+
+    cleopatra: {
+      initials: "CL",
+      name: "Cleopatra",
+      transcriptName: "Cleopatra",
+      subtitle:
+        "Public-source historical avatar for diplomacy, persuasion, power, coalition-building, and statecraft.",
+      userSample:
+        "How should a founder negotiate when they have less leverage than the other side?",
+      avatarSample:
+        "Do not arrive as the smaller party. Arrive as the missing piece in a larger map. Power is often a question of framing the table.",
+      generatedTitle: "Diplomacy and Leverage",
+      generatedCopy:
+        "Gemini turns the conversation into negotiation frames, stakeholder maps, and reflection prompts.",
+      slides: [
+        "Political Leverage",
+        "Coalition Building",
+        "Narrative and Power",
+        "Negotiation Reflection"
+      ],
+      sources: [
+        ["Public biographies", "public"],
+        ["Historical accounts", "public"],
+        ["Ancient world context", "public"],
+        ["Negotiation curriculum", "class"],
+        ["Teacher slides", "class"],
+        ["Student roleplay notes", "class"]
+      ],
+      speakingLine:
+        "When leverage is weak, widen the frame. Make the negotiation about what only you can unlock."
+    }
+  };
+
+  const els = {
+    choices: document.querySelectorAll("[data-avatar-choice]"),
+    status: document.querySelector("[data-avatar-status]"),
+    initials: document.querySelector("[data-avatar-initials]"),
+    name: document.querySelector("[data-avatar-name]"),
+    subtitle: document.querySelector("[data-avatar-subtitle]"),
+    transcriptAvatar: document.querySelector("[data-transcript-avatar]"),
+    userSample: document.querySelector("[data-user-sample]"),
+    avatarSample: document.querySelector("[data-avatar-sample]"),
+    transcriptBox: document.querySelector("[data-transcript-box]"),
+    slideTitles: document.querySelectorAll("[data-slide-title]"),
+    slideCards: document.querySelectorAll(".proof-slide"),
+    sourceChips: document.querySelector("[data-source-chips]"),
+    generatedTitle: document.querySelector("[data-generated-title]"),
+    generatedCopy: document.querySelector("[data-generated-copy]"),
+    startVoice: document.querySelector("[data-start-voice]"),
+    sendText: document.querySelector("[data-send-text]"),
+    uploadMaterial: document.querySelector("[data-upload-material]"),
+    endSession: document.querySelector("[data-end-session]"),
+    regenerateSlides: document.querySelector("[data-regenerate-slides]")
+  };
+
+  let currentAvatarKey = "einstein";
+  let timers = [];
+
+  function clearTimers() {
+    timers.forEach((timer) => window.clearTimeout(timer));
+    timers = [];
+  }
+
+  function setStatus(label) {
+    if (!els.status) return;
+    els.status.innerHTML = `<span class="status-dot"></span>${label}`;
+  }
+
+  function setRoomState(state) {
+    room.classList.remove("ready", "listening", "thinking", "speaking");
+    room.classList.add(state);
+  }
+
+  function clearActiveSlides() {
+    els.slideCards.forEach((card) => card.classList.remove("active"));
+  }
+
+  function activateSlide(index) {
+    clearActiveSlides();
+    const slide = els.slideCards[index] || els.slideCards[0];
+    if (slide) slide.classList.add("active");
+  }
+
+  function renderSources(sources) {
+    if (!els.sourceChips) return;
+
+    els.sourceChips.innerHTML = sources
+      .map(([label, type]) => {
+        const safeType = type === "public" ? "public" : "class";
+        return `<span class="source-chip ${safeType}">${label}</span>`;
+      })
+      .join("");
+  }
+
+  function resetTranscript(avatar) {
+    if (!els.transcriptBox) return;
+
+    els.transcriptBox.innerHTML = `
+      <div class="transcript-line user">
+        <strong>Student</strong>
+        <p data-user-sample>${avatar.userSample}</p>
+      </div>
+
+      <div class="transcript-line avatar">
+        <strong data-transcript-avatar>${avatar.transcriptName}</strong>
+        <p data-avatar-sample>${avatar.avatarSample}</p>
+      </div>
+    `;
+  }
+
+  function appendTranscriptLine(role, speaker, text) {
+    if (!els.transcriptBox) return;
+
+    const line = document.createElement("div");
+    line.className = `transcript-line ${role}`;
+    line.innerHTML = `
+      <strong>${speaker}</strong>
+      <p>${text}</p>
+    `;
+
+    els.transcriptBox.appendChild(line);
+    line.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function renderAvatar(key) {
+    const avatar = avatars[key] || avatars.einstein;
+    currentAvatarKey = key;
+
+    els.choices.forEach((choice) => {
+      choice.classList.toggle("active", choice.dataset.avatarChoice === key);
+    });
+
+    if (els.initials) els.initials.textContent = avatar.initials;
+    if (els.name) els.name.textContent = avatar.name;
+    if (els.subtitle) els.subtitle.textContent = avatar.subtitle;
+    if (els.generatedTitle) els.generatedTitle.textContent = avatar.generatedTitle;
+    if (els.generatedCopy) els.generatedCopy.textContent = avatar.generatedCopy;
+
+    els.slideTitles.forEach((title, index) => {
+      title.textContent = avatar.slides[index] || avatar.slides[0];
+    });
+
+    renderSources(avatar.sources);
+    resetTranscript(avatar);
+    activateSlide(0);
+
+    clearTimers();
+    setRoomState("ready");
+    setStatus("Ready");
+  }
+
+  function startVoiceDemo() {
+    const avatar = avatars[currentAvatarKey] || avatars.einstein;
+
+    clearTimers();
+    setRoomState("listening");
+    setStatus("Listening");
+    activateSlide(0);
+
+    timers.push(window.setTimeout(() => {
+      setRoomState("thinking");
+      setStatus("Thinking");
+      activateSlide(1);
+    }, 1800));
+
+    timers.push(window.setTimeout(() => {
+      setRoomState("speaking");
+      setStatus("Speaking");
+      activateSlide(2);
+      appendTranscriptLine("avatar", avatar.transcriptName, avatar.speakingLine);
+    }, 3600));
+
+    timers.push(window.setTimeout(() => {
+      setRoomState("ready");
+      setStatus("Ready");
+      activateSlide(3);
+    }, 7600));
+  }
+
+  function sendTextDemo() {
+    const avatar = avatars[currentAvatarKey] || avatars.einstein;
+
+    clearTimers();
+    appendTranscriptLine(
+      "user",
+      "Student",
+      "Can you turn that into one practical takeaway for class discussion?"
+    );
+
+    setRoomState("thinking");
+    setStatus("Thinking");
+    activateSlide(1);
+
+    timers.push(window.setTimeout(() => {
+      setRoomState("speaking");
+      setStatus("Speaking");
+      activateSlide(3);
+      appendTranscriptLine(
+        "avatar",
+        avatar.transcriptName,
+        "Yes. State the idea in one sentence, apply it to a real decision, then ask what evidence would change your mind."
+      );
+    }, 1200));
+
+    timers.push(window.setTimeout(() => {
+      setRoomState("ready");
+      setStatus("Ready");
+    }, 4600));
+  }
+
+  function uploadMaterialDemo() {
+    renderAvatar("chen");
+    appendTranscriptLine(
+      "user",
+      "Teacher",
+      "Uploaded strategy_syllabus.pdf, week_03_slides.pptx, and zoom_transcript_week_3.vtt."
+    );
+
+    setRoomState("thinking");
+    setStatus("Structuring class");
+    activateSlide(0);
+
+    timers.push(window.setTimeout(() => {
+      setRoomState("speaking");
+      setStatus("Professor avatar ready");
+      activateSlide(1);
+      appendTranscriptLine(
+        "avatar",
+        "Professor Chen",
+        "I built a Week 3 lesson around competitive advantage, supplier power, switching costs, and AI startup defensibility."
+      );
+    }, 1600));
+
+    timers.push(window.setTimeout(() => {
+      setRoomState("ready");
+      setStatus("Ready");
+    }, 5200));
+  }
+
+  function regenerateSlidesDemo() {
+    const avatar = avatars[currentAvatarKey] || avatars.einstein;
+
+    clearTimers();
+    setRoomState("thinking");
+    setStatus("Regenerating slides");
+    activateSlide(0);
+
+    timers.push(window.setTimeout(() => {
+      setRoomState("speaking");
+      setStatus("Slides updated");
+      activateSlide(2);
+      appendTranscriptLine(
+        "avatar",
+        avatar.transcriptName,
+        "I regenerated the slide sequence to move from concept, to example, to reflection."
+      );
+    }, 1300));
+
+    timers.push(window.setTimeout(() => {
+      setRoomState("ready");
+      setStatus("Ready");
+    }, 4300));
+  }
+
+  function endSession() {
+    clearTimers();
+    setRoomState("ready");
+    setStatus("Ready");
+    activateSlide(0);
+  }
+
+  els.choices.forEach((choice) => {
+    choice.addEventListener("click", () => {
+      renderAvatar(choice.dataset.avatarChoice);
+    });
+  });
+
+  if (els.startVoice) els.startVoice.addEventListener("click", startVoiceDemo);
+  if (els.sendText) els.sendText.addEventListener("click", sendTextDemo);
+  if (els.uploadMaterial) els.uploadMaterial.addEventListener("click", uploadMaterialDemo);
+  if (els.endSession) els.endSession.addEventListener("click", endSession);
+  if (els.regenerateSlides) els.regenerateSlides.addEventListener("click", regenerateSlidesDemo);
+
+  renderAvatar(currentAvatarKey);
+})();
