@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pricing | Dinner With Anyone</title>
-  <meta name="description" content="Simple plans for individuals, expert creators, and teams. Start a conversation in the beta and scale when it works." />
+  <meta name="description" content="Free, Pro, Team, and Enterprise plans for AI-powered expert conversations. Session-based, transparent pricing — pay only for the conversations you have." />
   <meta name="theme-color" content="#0b4dff" />
   <meta name="color-scheme" content="light" />
   <meta name="robots" content="index, follow" />
@@ -14,13 +14,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Dinner With Anyone" />
   <meta property="og:title" content="Pricing | Dinner With Anyone" />
-  <meta property="og:description" content="Simple plans for individuals, expert creators, and teams." />
+  <meta property="og:description" content="Free, Pro, Team, and Enterprise plans. Simple, session-based pricing." />
   <meta property="og:url" content="https://dinnerwithanyone.ai/pricing.html" />
   <meta property="og:locale" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Pricing | Dinner With Anyone" />
-  <meta name="twitter:description" content="Start with a conversation. Scale when it works." />
+  <meta name="twitter:description" content="Start free. Upgrade when the conversation pays for itself." />
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="apple-touch-icon" href="assets/favicon.svg" />
@@ -65,51 +65,204 @@
     <section class="page-hero">
       <div class="wrap">
         <span class="eyebrow">Pricing</span>
-        <h1>Start with a conversation. Scale when it works.</h1>
-        <p class="lead">Simple plans for individuals, expert creators, and teams. Pricing can be adjusted before launch.</p>
+        <h1>Start free. Upgrade when the conversation pays for itself.</h1>
+        <p class="lead">Simple, session-based plans for individuals, teams, and enterprises. Every plan includes voice-ready experts, conversation summaries, and a real decision memo at the end.</p>
+
+        <div class="billing-toggle" data-billing-toggle role="group" aria-label="Billing period">
+          <button type="button" data-period="monthly" aria-pressed="true">Monthly</button>
+          <button type="button" data-period="annual" aria-pressed="false">Annual <span class="save-pill">Save 20%</span></button>
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <div class="wrap grid">
-        <article class="card price">
-          <h3>Starter</h3>
-          <p class="muted">For curious operators testing expert conversations.</p>
-          <div class="amount">Free</div>
-          <ul class="clean">
-            <li>Limited monthly sessions</li>
-            <li>Core expert table</li>
-            <li>Conversation summaries</li>
-            <li>No credit card for beta</li>
-          </ul>
-          <a class="btn" href="contact.html">Join beta</a>
-        </article>
+      <div class="wrap">
+        <div class="grid-4">
+          <article class="card price">
+            <h3>Free</h3>
+            <p class="muted">Try a real expert conversation, no credit card.</p>
+            <div class="amount">$<span data-price data-monthly="0" data-annual="0">0</span><span class="per" data-per>/mo</span></div>
+            <ul class="clean">
+              <li>3 sessions per month</li>
+              <li>One expert at a time</li>
+              <li>Conversation summaries</li>
+              <li>Community support</li>
+            </ul>
+            <a class="btn" href="contact.html">Join the beta</a>
+          </article>
 
-        <article class="card price featured">
-          <h3>Pro</h3>
-          <p class="muted">For founders, executives, and serious builders.</p>
-          <div class="amount">$49<span class="per">/mo</span></div>
-          <ul class="clean">
-            <li>More expert sessions</li>
-            <li>Voice-ready conversations</li>
-            <li>Document context</li>
-            <li>Decision memos and outputs</li>
-          </ul>
-          <a class="btn primary" href="contact.html">Request access</a>
-        </article>
+          <article class="card price featured">
+            <h3>Pro</h3>
+            <p class="muted">For founders, executives, and serious operators.</p>
+            <div class="amount">$<span data-price data-monthly="49" data-annual="39">49</span><span class="per" data-per>/mo</span></div>
+            <ul class="clean">
+              <li>30 sessions per month</li>
+              <li>Voice &amp; text conversations</li>
+              <li>Document context uploads</li>
+              <li>Decision memos &amp; exports</li>
+              <li>Multi-expert tables</li>
+              <li>Email support</li>
+            </ul>
+            <a class="btn primary" href="contact.html">Request access</a>
+          </article>
 
-        <article class="card price">
-          <h3>Enterprise</h3>
-          <p class="muted">For teams deploying experts across the organization.</p>
-          <div class="amount">Custom</div>
-          <ul class="clean">
-            <li>Private expert spaces</li>
-            <li>Governance and auditability</li>
-            <li>Team workflows</li>
-            <li>Custom expert creation</li>
-          </ul>
-          <a class="btn" href="contact.html">Talk to us</a>
-        </article>
+          <article class="card price">
+            <h3>Team</h3>
+            <p class="muted">For small teams turning judgment into a ritual.</p>
+            <div class="amount">$<span data-price data-monthly="199" data-annual="159">199</span><span class="per" data-per>/mo</span></div>
+            <ul class="clean">
+              <li>5 seats included</li>
+              <li>100 pooled sessions per month</li>
+              <li>Everything in Pro</li>
+              <li>Team workflows &amp; decision rituals</li>
+              <li>Shared knowledge bubble</li>
+              <li>Admin dashboard</li>
+            </ul>
+            <a class="btn" href="contact.html">Start a team</a>
+          </article>
+
+          <article class="card price">
+            <h3>Enterprise</h3>
+            <p class="muted">For organizations deploying experts at scale.</p>
+            <div class="amount">Custom</div>
+            <ul class="clean">
+              <li>Unlimited sessions</li>
+              <li>Everything in Team</li>
+              <li>SSO &amp; SAML</li>
+              <li>Audit logs &amp; retention controls</li>
+              <li>Custom expert creation</li>
+              <li>Dedicated CSM &amp; SLA</li>
+            </ul>
+            <a class="btn" href="contact.html">Talk to sales</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap two">
+        <div>
+          <span class="eyebrow">What's in a session</span>
+          <h2 style="margin-top:14px">One session, one better decision.</h2>
+          <p class="muted">A session is up to 30 minutes of focused conversation with one or more experts — voice or text — plus context upload, follow-up Q&amp;A, and an exportable decision memo. Sessions don't expire mid-month; they reset on your billing date.</p>
+          <a class="btn" href="how-it-works.html" style="margin-top:8px">See how a session works →</a>
+        </div>
+        <div>
+          <div class="sessions-strip">
+            <div class="stat"><b>30 min</b><span class="tiny">Focused conversation</span></div>
+            <div class="stat"><b>Voice + text</b><span class="tiny">Switch any time</span></div>
+            <div class="stat"><b>Docs in</b><span class="tiny">Notes, PDFs, links</span></div>
+            <div class="stat"><b>Memo out</b><span class="tiny">Share with your team</span></div>
+          </div>
+          <div class="card" style="margin-top:14px">
+            <h3 style="margin-bottom:4px">What counts as a session?</h3>
+            <p class="muted" style="margin:0">A single, end-to-end conversation with one expert table. If you start a new topic with a new expert, that's a new session. Quick follow-up questions in the same thread are free.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <span class="eyebrow">Add-ons</span>
+        <h2 style="margin-top:14px">Scale exactly what you need.</h2>
+        <div class="grid" style="margin-top:24px">
+          <article class="card">
+            <div class="icon" aria-hidden="true">+</div>
+            <h3>Extra seats</h3>
+            <p class="muted">Add teammates to the Team plan as you grow.</p>
+            <div class="amount" style="font-size:28px;margin-top:8px">$25<span class="per" style="font-size:14px;color:var(--muted)">/seat/mo</span></div>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">⌁</div>
+            <h3>Extra session pack</h3>
+            <p class="muted">Top up any plan with additional sessions, no commitment.</p>
+            <div class="amount" style="font-size:28px;margin-top:8px">$19<span class="per" style="font-size:14px;color:var(--muted)">/pack of 5</span></div>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">★</div>
+            <h3>Custom expert creation</h3>
+            <p class="muted">We build a digital advisor from your team's IP, voice, and frameworks.</p>
+            <div class="amount" style="font-size:28px;margin-top:8px">from $5,000<span class="per" style="font-size:14px;color:var(--muted)"> one-time</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap">
+        <span class="eyebrow">Compare plans</span>
+        <h2 style="margin-top:14px">Everything side by side.</h2>
+        <div class="comparison" style="margin-top:24px">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Free</th>
+                <th class="col-pop">Pro</th>
+                <th>Team</th>
+                <th>Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Sessions per month</td><td>3</td><td class="col-pop">30</td><td>100 pooled</td><td>Unlimited</td></tr>
+              <tr><td>Seats included</td><td>1</td><td class="col-pop">1</td><td>5</td><td>Custom</td></tr>
+              <tr><td>Voice mode</td><td><span class="dash">—</span></td><td class="col-pop"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Document context</td><td><span class="dash">—</span></td><td class="col-pop"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Decision memos</td><td><span class="dash">—</span></td><td class="col-pop"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Multi-expert tables</td><td><span class="dash">—</span></td><td class="col-pop"><span class="check">✓</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Team workflows</td><td><span class="dash">—</span></td><td class="col-pop"><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Shared knowledge bubble</td><td><span class="dash">—</span></td><td class="col-pop"><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Admin dashboard</td><td><span class="dash">—</span></td><td class="col-pop"><span class="dash">—</span></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>SSO / SAML</td><td><span class="dash">—</span></td><td class="col-pop"><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Audit logs</td><td><span class="dash">—</span></td><td class="col-pop"><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Custom expert creation</td><td><span class="dash">—</span></td><td class="col-pop"><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>SLA &amp; uptime guarantee</td><td><span class="dash">—</span></td><td class="col-pop"><span class="dash">—</span></td><td><span class="dash">—</span></td><td><span class="check">✓</span></td></tr>
+              <tr><td>Support</td><td>Community</td><td class="col-pop">Email</td><td>Email + Slack</td><td>Dedicated CSM</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <span class="eyebrow">FAQ</span>
+        <h2 style="margin-top:14px">Questions, answered.</h2>
+        <div class="faq" style="margin-top:24px">
+          <details>
+            <summary>What counts as a session?</summary>
+            <div class="faq-body">A session is up to 30 minutes of focused conversation with one or more experts — voice or text — plus context upload, follow-up Q&amp;A, and an exportable decision memo. Quick follow-ups inside the same thread are free.</div>
+          </details>
+          <details>
+            <summary>Can I try it before paying?</summary>
+            <div class="faq-body">Yes. Free is free forever, no credit card. You can start a real conversation in under a minute and keep the decision memo even if you never upgrade.</div>
+          </details>
+          <details>
+            <summary>Do you offer annual discounts?</summary>
+            <div class="faq-body">Yes — switch to the Annual toggle above to see prices. Pro and Team save 20% billed annually. Enterprise has custom annual terms based on usage and seats.</div>
+          </details>
+          <details>
+            <summary>Can I cancel anytime?</summary>
+            <div class="faq-body">Yes. Monthly plans cancel at the end of the billing cycle and you keep access until then. No phone tree, no friction.</div>
+          </details>
+          <details>
+            <summary>What about data privacy?</summary>
+            <div class="faq-body">Conversations are encrypted in transit and at rest. Team and Enterprise plans include private knowledge bubbles and audit-ready logs. We never train shared models on customer data.</div>
+          </details>
+          <details>
+            <summary>Do you have non-profit or education pricing?</summary>
+            <div class="faq-body">Yes. Email <a href="mailto:hello@dinnerwithanyone.ai" style="color:var(--blue);font-weight:700">hello@dinnerwithanyone.ai</a> with a short note about your work and we'll get back to you with a discount.</div>
+          </details>
+          <details>
+            <summary>What happens if I run out of sessions mid-month?</summary>
+            <div class="faq-body">You can grab an Extra session pack ($19 for 5 sessions) without changing plans, or upgrade and keep going. Sessions don't expire mid-month — they reset on your billing date.</div>
+          </details>
+          <details>
+            <summary>Can I build a custom expert for my company?</summary>
+            <div class="faq-body">Yes. The Custom expert creation add-on (from $5,000 one-time) builds a digital advisor from your team's IP, voice, frameworks, and decision history. Available on Team and Enterprise plans.</div>
+          </details>
+        </div>
       </div>
     </section>
   </main>
@@ -119,11 +272,11 @@
       <div>
         <span class="eyebrow" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)">Private beta</span>
         <h2>Have the conversation before the decision matters.</h2>
-        <p class="lead">Use Dinner With Anyone to pressure-test strategy, learn from expert perspectives, and turn scattered research into a focused conversation.</p>
+        <p class="lead">Tell us who you want to have dinner with — we'll get you a seat at the table.</p>
       </div>
       <div class="panel" style="color:var(--ink)">
         <h3>Request early access</h3>
-        <p class="muted">Tell us who you want at the table and what decision you are working through.</p>
+        <p class="muted">Pick a plan or just describe what you're working on. We'll handle the rest.</p>
         <a class="btn primary" href="contact.html">Get started</a>
       </div>
     </div>

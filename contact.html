@@ -86,7 +86,25 @@
         </div>
 
         <div class="card">
-          <form class="form" action="mailto:hello@dinnerwithanyone.ai" method="post" enctype="text/plain">
+          <!--
+            Formspree setup:
+              1. Sign up at https://formspree.io and create a new form.
+              2. Copy your endpoint (looks like https://formspree.io/f/abcdwxyz).
+              3. Replace YOUR_FORM_ID in the form action below.
+            That's the only change needed. The ajax handler in assets/site.js
+            already takes care of submit, success state, and error messages.
+          -->
+          <form
+            id="contactForm"
+            class="form"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            data-formspree
+            data-success="#formSuccess"
+          >
+            <input type="hidden" name="_subject" value="New Dinner With Anyone request" />
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-5000px" aria-hidden="true" />
+
             <label for="name" class="tiny" style="color:var(--muted)">Name</label>
             <input id="name" name="name" placeholder="Name" required autocomplete="name" />
 
@@ -102,11 +120,17 @@
             </select>
 
             <label for="message" class="tiny" style="color:var(--muted)">Your message</label>
-            <textarea id="message" name="message" placeholder="Who do you want to have dinner with, and what decision are you working through?"></textarea>
+            <textarea id="message" name="message" placeholder="Who do you want to have dinner with, and what decision are you working through?" required></textarea>
 
             <button class="btn primary" type="submit">Send request</button>
-            <p class="tiny">This uses a simple mailto form so it works on GitHub Pages without a backend. For production, swap to a form service (Formspree, Netlify Forms, etc.).</p>
+            <p data-form-error class="form-error" hidden role="alert"></p>
+            <p class="tiny">We reply within one business day. You can also email <a href="mailto:hello@dinnerwithanyone.ai" style="color:var(--blue);font-weight:700">hello@dinnerwithanyone.ai</a> directly.</p>
           </form>
+
+          <div id="formSuccess" class="form-success" hidden>
+            <h3>Got it — talk soon.</h3>
+            <p>Your request is in. We&rsquo;ll reply within one business day with next steps. In the meantime, you can <a href="how-it-works.html" style="color:var(--blue);font-weight:800">see how a session works</a> or <a href="experts.html" style="color:var(--blue);font-weight:800">browse the expert table</a>.</p>
+          </div>
         </div>
       </div>
     </section>
