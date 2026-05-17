@@ -1,27 +1,46 @@
 # Dinner With Anyone
 
-AI avatars for conversation and learning. Talk, text, and interact with AI avatars of famous historical figures, expert thinkers, and custom professor avatars built from real curriculum, lectures, and trusted source material.
+Voice-first AI avatars for conversation and learning. Talk by voice, text, or video with AI avatars of famous historical figures, expert thinkers, and custom professor avatars built from real curriculum, slides, transcripts, and lecture recordings.
 
 This repository is the marketing site for **Dinner With Anyone**, built as a small set of static HTML pages with one shared stylesheet and one shared JS file. No build step, no framework.
 
 Live: https://spencerbrown1717.github.io/dinner_with_anyone/
 
+> ⚠️ **The current site is a static front-end prototype.** It does not yet call OpenAI, Gemini, HeyGen, or any backend service. The avatar demo page simulates Ready → Listening → Thinking → Speaking states locally in JavaScript so the product experience can be shown, sold, and pressure-tested before backend work begins.
+
 ## Two product paths
 
-1. **Historical & famous avatars** — Einstein, Caesar, Cleopatra, Confucius, Alexander the Great, da Vinci, and a growing library of historical figures with rich public records. All avatars are AI simulations built from publicly available material — not affiliated with any individual or estate.
+1. **Historical & famous avatars** — Einstein, Caesar, Cleopatra, Confucius, Alexander the Great, da Vinci, and a growing library of historical figures with rich public records. All avatars are educational AI simulations built from public-source material — not affiliated with any individual or estate.
 2. **Custom professor avatars** — teachers upload curriculum, slides, readings, transcripts, or Zoom recordings and the system generates a professor avatar a whole cohort can talk to, text, or send voice and video check-ins to.
+
+## Planned AI stack
+
+Dinner With Anyone is being designed around a clear, vendor-explicit architecture:
+
+| Layer                          | Vendor / approach                                  |
+|--------------------------------|----------------------------------------------------|
+| Voice (STT, reasoning, TTS)    | **OpenAI**                                         |
+| Slide generation & understanding | **Gemini**                                       |
+| Curriculum summarization & structure | **Gemini**                                   |
+| 3D / lifelike avatar rendering | **HeyGen** or Gemini-style avatar tooling          |
+| Hosting for sensitive workloads | **Private servers** (Institution / Enterprise)    |
+| Marketing site (this repo)     | Static GitHub Pages site — no backend, no API keys |
+
+The positioning is deliberate: privacy-first, education-grade, and built so institutions can take the whole stack onto their own infrastructure when they're ready.
 
 ## Pages
 
-| URL                  | What it is                                                                |
-|----------------------|---------------------------------------------------------------------------|
-| `/`                  | Home — hero, dinner table visual, two product paths, expert preview       |
-| `/experts.html`      | Historical avatar library (Einstein, Caesar, Cleopatra, Confucius, etc.)  |
-| `/education.html`    | AI Professor Avatars for Classrooms — upload → avatar → cohort interacts  |
-| `/how-it-works.html` | 3-step explainer + sample session + two-product split                     |
-| `/enterprise.html`   | Custom expert avatars, SSO/SAML, audit logs, internal SME twins           |
-| `/pricing.html`      | Explorer / Student-Class / Institution / Enterprise + comparison + FAQ    |
-| `/contact.html`      | Book-a-demo page (links to Google Calendar)                               |
+| URL                    | What it is                                                                       |
+|------------------------|----------------------------------------------------------------------------------|
+| `/`                    | Home — hero, trust chips, "more than a chatbot" 3-card, dinner table visual      |
+| `/experts.html`        | Historical avatar library (Einstein, Cleopatra, Confucius, da Vinci, Caesar, …)  |
+| `/education.html`      | Professor avatars for classrooms — upload → avatar → cohort interacts            |
+| `/demo.html`           | 4-step static product walkthrough (Choose → Ask → Ground → Export)               |
+| `/avatar-demo.html`    | **Flagship prototype** — voice + slides + transcript + simulated state machine   |
+| `/how-it-works.html`   | User-facing 3-step + 5-step architecture flow + privacy block + 8-phase roadmap  |
+| `/enterprise.html`     | Custom expert avatars + private AI avatar infrastructure for institutions        |
+| `/pricing.html`        | Explorer / Classroom / Institution / Enterprise + add-ons + comparison + FAQ     |
+| `/contact.html`        | Book-a-demo page (links to Google Calendar)                                      |
 
 ## Project structure
 
@@ -30,20 +49,35 @@ Live: https://spencerbrown1717.github.io/dinner_with_anyone/
 ├── index.html            # home
 ├── experts.html          # historical & famous avatars
 ├── education.html        # AI professor avatars for classrooms
-├── how-it-works.html
-├── enterprise.html
-├── pricing.html
+├── demo.html             # 4-step static product walkthrough
+├── avatar-demo.html      # voice/slides/transcript flagship demo (interactive)
+├── how-it-works.html     # 3-step + 5-step architecture + privacy + 8-phase roadmap
+├── enterprise.html       # custom expert avatars + private AI infrastructure
+├── pricing.html          # 4 tiers + add-ons + comparison + FAQ
 ├── contact.html          # book-a-demo
-├── sitemap.xml           # all 6 URLs for search engine crawlers
+├── sitemap.xml           # all URLs for search engine crawlers
 ├── robots.txt            # allow all, points to sitemap
 ├── assets/
 │   ├── styles.css        # shared stylesheet for every page
 │   ├── site.js           # mobile menu, sticky-nav shadow, smooth scroll,
-│   │                     # pricing billing toggle
+│   │                     # pricing billing toggle, avatar-demo state machine
 │   ├── favicon.svg       # brand mark
 │   └── og-image.png      # 1200×630 social share preview
 └── README.md
 ```
+
+## Implementation roadmap (from prototype to product)
+
+The website is **Phase 1**. The eight-phase plan looks like this:
+
+1. **Static demo** — show avatar, slides, voice states, and classroom upload flow (this repo).
+2. **Real uploads** — teachers upload syllabi, slides, PDFs, transcripts, and lecture notes.
+3. **Source-grounded professor avatar** — generate a private course knowledge base; avatar answers from uploaded material with citations.
+4. **Voice interaction** — OpenAI speech-to-text, conversation, and text-to-speech.
+5. **Slide generation** — Gemini turns transcripts and readings into lesson slides, summaries, and study guides.
+6. **Avatar rendering** — HeyGen or Gemini-style avatar tooling brings the professor / historical figure / SME to life.
+7. **Student feedback loop** — voice memos, text reflections, and 30-second video check-ins feed a teacher dashboard (confusion clusters, recurring questions, sentiment, suggested next topics).
+8. **Private-server deployment** — Institution and Enterprise customers run the stack on their own infrastructure with admin-controlled access and clear retention.
 
 ## Book-a-demo CTA
 
@@ -90,10 +124,23 @@ When you buy the domain and connect it via GitHub Pages → Settings → Pages �
 
 ## SEO
 
-- `sitemap.xml` lists all 6 URLs with priorities and `lastmod` dates.
+- `sitemap.xml` lists every page with priorities and `lastmod` dates (`avatar-demo.html` is priority `1.0`).
 - `robots.txt` allows all crawlers and points to the sitemap.
 - Every page ships per-page `<title>`, description, canonical URL, Open Graph, and Twitter card meta.
 - `assets/og-image.png` is a 1200×630 share preview used on every page.
+
+## Disclaimers & wording rules
+
+The footer disclaimer that ships on every page:
+
+> **Educational AI simulations.** Dinner With Anyone creates educational AI simulations inspired by public-source or teacher-provided material. Avatars are not the real person and may not represent exact views, words, or private thoughts. Private-server deployment is available for sensitive classroom, enterprise, and institutional workflows.
+
+When writing copy for this site, avoid overclaiming compliance. **Do not say "SOC 2 / HIPAA / FERPA / GDPR compliant"** unless those certifications have actually been implemented. Use:
+
+- "designed for privacy-first deployments"
+- "private-server hosting available"
+- "institution-controlled deployment path"
+- "built to support stronger compliance work as the platform matures"
 
 ## Design system
 

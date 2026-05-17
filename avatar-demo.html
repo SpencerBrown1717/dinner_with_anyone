@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avatar demo | Dinner With Anyone</title>
+  <meta name="description" content="Speak with an AI avatar of Albert Einstein in a live learning room. OpenAI-powered voice, Gemini-generated slides, HeyGen-style avatar — a static prototype of the immersive classroom experience." />
+  <meta name="theme-color" content="#0b4dff" />
+  <meta name="color-scheme" content="light" />
+  <meta name="robots" content="index, follow" />
+
+  <link rel="canonical" href="https://spencerbrown1717.github.io/dinner_with_anyone/avatar-demo.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Dinner With Anyone" />
+  <meta property="og:title" content="Avatar demo | Dinner With Anyone" />
+  <meta property="og:description" content="Speak with an avatar. Watch the lesson come alive. OpenAI voice + Gemini slides + 3D avatar in a live learning room." />
+  <meta property="og:url" content="https://spencerbrown1717.github.io/dinner_with_anyone/avatar-demo.html" />
+  <meta property="og:image" content="https://spencerbrown1717.github.io/dinner_with_anyone/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Dinner With Anyone — speak with an avatar in a live learning room." />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Avatar demo | Dinner With Anyone" />
+  <meta name="twitter:description" content="Speak with an avatar. Watch the lesson come alive." />
+  <meta name="twitter:image" content="https://spencerbrown1717.github.io/dinner_with_anyone/assets/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="index.html" aria-label="Dinner With Anyone home">
+          <span class="mark" aria-hidden="true">D</span>
+          <span>Dinner With Anyone</span>
+        </a>
+        <div class="links">
+          <a href="experts.html">Experts</a>
+          <a href="education.html">Education</a>
+          <a href="demo.html">Demo</a>
+          <a href="avatar-demo.html" aria-current="page">Avatar demo</a>
+          <a href="how-it-works.html">How it works</a>
+          <a href="enterprise.html">Enterprise</a>
+          <a href="pricing.html">Pricing</a>
+          <a class="btn primary" href="contact.html">Book a demo</a>
+        </div>
+        <button class="menu-btn" type="button">Menu</button>
+      </nav>
+      <div class="mobile" id="mobile-nav">
+        <a href="experts.html">Experts</a>
+        <a href="education.html">Education</a>
+        <a href="demo.html">Demo</a>
+        <a href="avatar-demo.html">Avatar demo</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="enterprise.html">Enterprise</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="contact.html">Book a demo</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">Avatar demo · static prototype</span>
+        <h1>Speak with an avatar. Watch the lesson come alive.</h1>
+        <p class="lead">OpenAI-powered voice, Gemini-generated slides, and 3D avatar experiences create a live learning room for historical figures, expert thinkers, and custom professor avatars.</p>
+        <div class="trust-chips" aria-label="Planned technology stack">
+          <span class="chip"><span class="chip-icon">◉</span>Voice powered by <b>OpenAI</b></span>
+          <span class="chip"><span class="chip-icon">✦</span>Slides generated with <b>Gemini</b></span>
+          <span class="chip"><span class="chip-icon">◈</span>3D avatars via <b>HeyGen</b> or Gemini</span>
+          <span class="chip"><span class="chip-icon">⌂</span>Private-server deployment</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="demo-layout">
+          <div class="stage" id="avatar-stage" data-state="ready">
+            <div class="stage-head">
+              <div>
+                <h3>Albert Einstein</h3>
+                <small>Educational AI simulation</small>
+              </div>
+              <span class="state-pill"><span class="dot" aria-hidden="true"></span><span data-state-label>Ready</span></span>
+            </div>
+
+            <div class="stage-frame" aria-label="Avatar visual">
+              <div class="pulse-ring r1" aria-hidden="true"></div>
+              <div class="pulse-ring r2" aria-hidden="true"></div>
+              <div class="head" aria-hidden="true">
+                <span class="monogram">AE</span>
+                <div class="mouth"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+              <div class="thinking" aria-hidden="true"><span></span><span></span><span></span></div>
+            </div>
+
+            <div class="stage-controls">
+              <button class="btn primary" type="button" data-action="start">Start voice chat</button>
+              <button class="btn" type="button" data-action="text">Send text</button>
+              <button class="btn" type="button" data-action="upload">Upload class material</button>
+              <button class="btn ghost" type="button" data-action="end">End session</button>
+            </div>
+
+            <div class="tech-badges" aria-label="Planned vendor stack">
+              <span><b>OpenAI</b> voice</span>
+              <span><b>Gemini</b> slides</span>
+              <span><b>HeyGen</b> / Gemini avatar</span>
+              <span><b>Private server</b> option</span>
+            </div>
+          </div>
+
+          <div class="panel-stack">
+            <div class="slides-panel" aria-label="Live slide context">
+              <div class="panel-head">
+                <span>Live slide context</span>
+                <span class="tiny-meta">Slide <b id="slide-num">1</b> of 4</span>
+              </div>
+              <div class="slide-list" id="slide-list">
+                <article class="slide is-active" data-slide="1">
+                  <span class="num" aria-hidden="true">01</span>
+                  <div>
+                    <h4>Theory of Relativity</h4>
+                    <p>Frames of reference, the speed of light, and why time is not a constant.</p>
+                  </div>
+                </article>
+                <article class="slide" data-slide="2">
+                  <span class="num" aria-hidden="true">02</span>
+                  <div>
+                    <h4>Thought Experiments</h4>
+                    <p>Trains, clocks, and the discipline of imagining the impossible until the math catches up.</p>
+                  </div>
+                </article>
+                <article class="slide" data-slide="3">
+                  <span class="num" aria-hidden="true">03</span>
+                  <div>
+                    <h4>First Principles</h4>
+                    <p>Strip the problem down to its simplest assumptions and build the answer from there.</p>
+                  </div>
+                </article>
+                <article class="slide" data-slide="4">
+                  <span class="num" aria-hidden="true">04</span>
+                  <div>
+                    <h4>Student Reflection</h4>
+                    <p>Where in your work are you assuming the wrong frame of reference?</p>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="gemini-card">
+              <div class="gemini-head">
+                <span class="gemini-tag">Generated by Gemini</span>
+                <button class="btn ghost btn-xs" type="button" data-action="regenerate">Regenerate</button>
+              </div>
+              <p>Slides can be created from a syllabus, lecture transcript, reading packet, or professor notes. Every generated deck is grounded in the underlying source material.</p>
+            </div>
+
+            <div class="sources-panel" aria-label="Source grounding">
+              <h4>Grounded in</h4>
+              <ul>
+                <li><span class="src-tag">Public</span>Public biographies</li>
+                <li><span class="src-tag">Public</span>Published writings</li>
+                <li><span class="src-tag">Public</span>Wikipedia / public-source context</li>
+                <li><span class="src-tag private">Class</span>Uploaded curriculum</li>
+                <li><span class="src-tag private">Class</span>Teacher-provided slides</li>
+                <li><span class="src-tag private">Class</span>Zoom transcripts</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap">
+        <span class="eyebrow">Transcript</span>
+        <h2 style="margin-top:14px">A simulated session.</h2>
+        <p class="muted" style="margin-top:-2px">Text, voice memos, uploads, and avatar responses appear here as the conversation builds. Click <b>Start voice chat</b> or <b>Send text</b> above to populate it.</p>
+        <div class="transcript" id="transcript">
+          <div class="t-row user"><span class="who">Student</span><p>Explain relativity like I am preparing for an MBA class on systems thinking.</p></div>
+          <div class="t-row avatar"><span class="who">Albert Einstein-inspired avatar</span><p>Imagine that every decision is made from a frame of reference. The question is not only what you see, but where you are standing when you see it.</p></div>
+        </div>
+        <p class="disclaimer-line"><strong>Educational AI simulation.</strong> Dinner With Anyone creates educational AI simulations inspired by public-source or teacher-provided material. Avatars are not the real person and may not represent exact views, words, or private thoughts.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <span class="eyebrow">From prototype to product</span>
+        <h2 style="margin-top:14px">The build path behind this demo.</h2>
+        <p class="lead">This page is a static front-end prototype today. Here is the eight-phase roadmap that turns it into a real product.</p>
+        <div class="roadmap">
+          <div class="phase"><span class="phase-num">1</span><div><h3>Static demo</h3><p>Show the avatar, slides, voice states, and classroom upload flow — this page.</p></div></div>
+          <div class="phase"><span class="phase-num">2</span><div><h3>Real uploads</h3><p>Teachers upload syllabi, slides, PDFs, transcripts, and lecture notes.</p></div></div>
+          <div class="phase"><span class="phase-num">3</span><div><h3>Source-grounded professor avatar</h3><p>Generate a private course knowledge base and a professor avatar that answers from uploaded material.</p></div></div>
+          <div class="phase"><span class="phase-num">4</span><div><h3>Voice interaction</h3><p>OpenAI voice for speech input and spoken responses.</p></div></div>
+          <div class="phase"><span class="phase-num">5</span><div><h3>Slide generation</h3><p>Gemini turns lectures and readings into slides, summaries, and visual teaching aids.</p></div></div>
+          <div class="phase"><span class="phase-num">6</span><div><h3>Avatar rendering</h3><p>HeyGen or Gemini-style avatar generation creates lifelike professor and historical-figure avatars.</p></div></div>
+          <div class="phase"><span class="phase-num">7</span><div><h3>Student feedback loop</h3><p>Voice memos, text reflections, and 30-second video check-ins flow into the teacher dashboard.</p></div></div>
+          <div class="phase"><span class="phase-num">8</span><div><h3>Private-server deployment</h3><p>Sensitive institutional workflows hosted on private infrastructure.</p></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="cta">
+    <div class="wrap two">
+      <div>
+        <span class="eyebrow" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)">Book a demo</span>
+        <h2>See it run with your real material.</h2>
+        <p class="lead">In 20 minutes we'll walk through this demo live, bring your syllabus or your question, and talk through what a private-server deployment would look like for your team or institution.</p>
+      </div>
+      <div class="panel" style="color:var(--ink)">
+        <h3>Tell us who you want to have dinner with.</h3>
+        <p class="muted">Pick a historical figure, share a class outline, or describe the team you want an avatar of. We'll meet you at the table.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+          <a class="btn primary" href="contact.html">Book a demo →</a>
+          <a class="btn" href="mailto:hello@dinnerwithanyone.ai">Email us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand"><span class="mark" aria-hidden="true">D</span><span>Dinner With Anyone</span></div>
+        <p class="tiny">AI avatars for conversation and learning — historical figures, expert thinkers, and custom professor avatars.</p>
+      </div>
+      <div>
+        <b>Product</b>
+        <a href="experts.html">Experts</a>
+        <a href="education.html">Education</a>
+        <a href="demo.html">Demo</a>
+        <a href="avatar-demo.html">Avatar demo</a>
+        <a href="how-it-works.html">How it works</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div>
+        <b>Solutions</b>
+        <a href="enterprise.html">Enterprise</a>
+        <a href="contact.html">Book a demo</a>
+        <a href="index.html#use-cases">Sample tables</a>
+      </div>
+      <div>
+        <b>Company</b>
+        <a href="index.html">Home</a>
+        <a href="contact.html">Book a demo</a>
+        <a href="mailto:hello@dinnerwithanyone.ai">Email us</a>
+      </div>
+    </div>
+    <div class="wrap tiny footer-legal">
+      <p><strong>Educational AI simulations.</strong> Dinner With Anyone creates educational AI simulations inspired by public-source or teacher-provided material. Avatars are not the real person and may not represent exact views, words, or private thoughts. Private-server deployment is available for sensitive classroom, enterprise, and institutional workflows.</p>
+      <p>© <span id="year">2026</span> Dinner With Anyone. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="assets/site.js" defer></script>
+</body>
+</html>
