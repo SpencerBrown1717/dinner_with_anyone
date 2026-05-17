@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Avatars | Dinner With Anyone</title>
-  <meta name="description" content="Talk, text, or interact with AI avatars inspired by Einstein, Caesar, Alexander the Great, Confucius, Cleopatra, da Vinci, and other historical figures — built from publicly available source material." />
+  <title>60 Avatars | Dinner With Anyone</title>
+  <meta name="description" content="60 AI avatars inspired by the world's greatest scientists, philosophers, leaders, artists, writers, civil rights icons, and founders. Built from public-source biographies, writings, speeches, and trusted references." />
   <meta name="theme-color" content="#0b4dff" />
   <meta name="color-scheme" content="light" />
   <meta name="robots" content="index, follow" />
@@ -13,8 +13,8 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Dinner With Anyone" />
-  <meta property="og:title" content="Avatars | Dinner With Anyone" />
-  <meta property="og:description" content="Talk with AI avatars inspired by Einstein, Caesar, Cleopatra, Confucius, Alexander, da Vinci, and more." />
+  <meta property="og:title" content="60 Avatars | Dinner With Anyone" />
+  <meta property="og:description" content="If you could have dinner with anyone, alive or dead — 60 AI avatars across science, philosophy, leadership, arts, literature, civil rights, business, strategy, and spirituality." />
   <meta property="og:url" content="https://spencerbrown1717.github.io/dinner_with_anyone/experts.html" />
   <meta property="og:image" content="https://spencerbrown1717.github.io/dinner_with_anyone/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -23,8 +23,8 @@
   <meta property="og:locale" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Avatars | Dinner With Anyone" />
-  <meta name="twitter:description" content="Sit at a table with AI avatars of historical figures." />
+  <meta name="twitter:title" content="60 Avatars | Dinner With Anyone" />
+  <meta name="twitter:description" content="If you could have dinner with anyone, alive or dead — 60 AI avatars across science, philosophy, leadership, arts, literature, civil rights, business, strategy, and spirituality." />
   <meta name="twitter:image" content="https://spencerbrown1717.github.io/dinner_with_anyone/assets/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -74,103 +74,925 @@
   </header>
 
   <main id="main">
-    <section class="page-hero">
+    <section class="page-hero expert-page-hero">
       <div class="wrap">
-        <span class="eyebrow">Historical &amp; famous avatars</span>
-        <h1>Sit at a table with the people who changed the world.</h1>
-        <p class="lead">Talk, text, or interact with AI avatars built from publicly available historical context — biographies, speeches, writings, and trusted reference material. Pick one, or seat several around the table at once.</p>
+        <span class="eyebrow">60 avatars · global library</span>
+        <h1>If you could have dinner with anyone, alive or dead, who would it be?</h1>
+        <p class="lead">
+          Explore AI simulations inspired by the people who shaped science, art, politics,
+          philosophy, business, literature, mathematics, leadership, spirituality, and social
+          change.
+        </p>
+        <p class="question-quote">
+          Each avatar below is an educational AI simulation built from public-source material
+          such as biographies, writings, speeches, interviews, and trusted references. Avatars
+          are not the real person and are not affiliated with any person, estate, institution,
+          or descendant.
+        </p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:18px">
+          <a class="btn primary" href="avatar-demo.html">Try the live avatar demo</a>
+          <a class="btn" href="contact.html?path=avatar">Build my dinner table</a>
+        </div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <p class="disclaimer">
-          Each avatar below is an AI simulation inspired by publicly available historical material. Avatars are not affiliated with, endorsed by, or representative of any living individual, descendant, or estate. Conversations are interpretive — useful for learning and exploration, not a substitute for primary sources.
-        </p>
+        <div class="section-head">
+          <span class="eyebrow">Browse 60 minds</span>
+          <h2>Filter by what you want to learn.</h2>
+          <p class="muted">
+            Tap a category to filter. All 60 avatars run on the same conversation engine — voice,
+            text, and slides — and all are built from public-source material.
+          </p>
+        </div>
 
-        <div class="grid grid-3">
-          <article class="avatar-card">
-            <div class="avatar-mark" aria-hidden="true">AE</div>
-            <span class="domain">Physics · Creativity · First principles</span>
+        <div class="expert-filters" role="tablist" aria-label="Filter avatars by category">
+          <button class="expert-filter active" type="button" data-expert-filter="all" data-label="All" aria-pressed="true">All <span class="count">60</span></button>
+          <button class="expert-filter" type="button" data-expert-filter="science" data-label="Science" aria-pressed="false">Science</button>
+          <button class="expert-filter" type="button" data-expert-filter="philosophy" data-label="Philosophy" aria-pressed="false">Philosophy</button>
+          <button class="expert-filter" type="button" data-expert-filter="leadership" data-label="Leadership" aria-pressed="false">Leadership</button>
+          <button class="expert-filter" type="button" data-expert-filter="arts" data-label="Arts" aria-pressed="false">Arts</button>
+          <button class="expert-filter" type="button" data-expert-filter="literature" data-label="Literature" aria-pressed="false">Literature</button>
+          <button class="expert-filter" type="button" data-expert-filter="civil-rights" data-label="Civil rights" aria-pressed="false">Civil Rights</button>
+          <button class="expert-filter" type="button" data-expert-filter="business" data-label="Business" aria-pressed="false">Business</button>
+          <button class="expert-filter" type="button" data-expert-filter="strategy" data-label="Strategy" aria-pressed="false">Strategy</button>
+          <button class="expert-filter" type="button" data-expert-filter="spirituality" data-label="Spirituality" aria-pressed="false">Spirituality</button>
+        </div>
+
+        <p class="expert-count-line" data-expert-count>Showing all 60 avatars.</p>
+
+        <div class="expert-grid" data-expert-grid>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">AE</div>
+            <p class="domain">Physics · Creativity · First principles</p>
             <h3>Albert Einstein</h3>
-            <p class="muted">Physics, imagination, scientific intuition, first-principles thinking.</p>
-            <ul class="checks">
-              <li>Ask about creativity and problem-solving</li>
+            <p>Scientific intuition, imagination, and how to question assumptions before the math arrives.</p>
+            <ul>
+              <li>Practice first-principles thinking</li>
               <li>Explore physics in plain English</li>
-              <li>Pressure-test your assumptions</li>
+              <li>Ask how creativity and rigor work together</li>
             </ul>
-            <p class="channels">Talk by <b>text, voice, or video</b>. Built from public-source historical context.</p>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
           </article>
 
-          <article class="avatar-card">
-            <div class="avatar-mark" aria-hidden="true">CL</div>
-            <span class="domain">Diplomacy · Charisma · Statecraft</span>
+          <article class="expert-card" data-expert-card data-category="leadership strategy">
+            <div class="expert-avatar" aria-hidden="true">CL</div>
+            <p class="domain">Diplomacy · Power · Statecraft</p>
             <h3>Cleopatra</h3>
-            <p class="muted">Diplomacy, charisma, statecraft, and building influence without the larger army.</p>
-            <ul class="checks">
+            <p>Diplomacy, charisma, multilingual statecraft, and influence built without the larger army.</p>
+            <ul>
               <li>Lead with less leverage than the other side</li>
               <li>Practice high-stakes negotiation</li>
-              <li>Explore strategy from a multilingual ruler</li>
+              <li>Study power from a multilingual ruler</li>
             </ul>
-            <p class="channels">Talk by <b>text, voice, or video</b>. Built from public-source historical context.</p>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
           </article>
 
-          <article class="avatar-card">
-            <div class="avatar-mark" aria-hidden="true">KF</div>
-            <span class="domain">Ethics · Learning · Leadership</span>
+          <article class="expert-card" data-expert-card data-category="philosophy leadership spirituality">
+            <div class="expert-avatar" aria-hidden="true">CF</div>
+            <p class="domain">Ethics · Learning · Leadership</p>
             <h3>Confucius</h3>
-            <p class="muted">Ethics, learning, leadership, and the long view of a good life.</p>
-            <ul class="checks">
+            <p>Ethics, learning, and what makes a good life, a good leader, and a good society.</p>
+            <ul>
               <li>Work through questions of duty and integrity</li>
               <li>Sharpen your philosophy of leadership</li>
               <li>Reflect on what a meaningful life looks like</li>
             </ul>
-            <p class="channels">Talk by <b>text, voice, or video</b>. Built from public-source historical context.</p>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
           </article>
 
-          <article class="avatar-card">
-            <div class="avatar-mark" aria-hidden="true">LV</div>
-            <span class="domain">Art · Invention · Observation</span>
+          <article class="expert-card" data-expert-card data-category="arts science">
+            <div class="expert-avatar" aria-hidden="true">LV</div>
+            <p class="domain">Art · Invention · Observation</p>
             <h3>Leonardo da Vinci</h3>
-            <p class="muted">Art, invention, anatomy, and the discipline of careful observation.</p>
-            <ul class="checks">
+            <p>Art, invention, anatomy, and the discipline of careful observation across every field at once.</p>
+            <ul>
               <li>Cross-pollinate between art and engineering</li>
               <li>Practice generalist thinking on a hard problem</li>
-              <li>Learn how a true polymath structures their day</li>
+              <li>Learn how a polymath structures their day</li>
             </ul>
-            <p class="channels">Talk by <b>text, voice, or video</b>. Built from public-source historical context.</p>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
           </article>
 
-          <article class="avatar-card">
-            <div class="avatar-mark" aria-hidden="true">JC</div>
-            <span class="domain">Power · Politics · Strategy</span>
+          <article class="expert-card" data-expert-card data-category="strategy leadership">
+            <div class="expert-avatar" aria-hidden="true">JC</div>
+            <p class="domain">Strategy · Power · Politics</p>
             <h3>Julius Caesar</h3>
-            <p class="muted">Power, politics, alliances, and the strategy behind high-stakes campaigns.</p>
-            <ul class="checks">
+            <p>Power, alliances, and the calculations behind high-stakes political and military campaigns.</p>
+            <ul>
               <li>Pressure-test a high-stakes decision</li>
-              <li>Talk through coalition-building and rivalry</li>
-              <li>Explore leadership under public scrutiny</li>
+              <li>Talk through coalitions and rivalry</li>
+              <li>Lead under public scrutiny</li>
             </ul>
-            <p class="channels">Talk by <b>text, voice, or video</b>. Built from public-source historical context.</p>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
           </article>
 
-          <article class="avatar-card">
-            <div class="avatar-mark" aria-hidden="true">AG</div>
-            <span class="domain">Ambition · Conquest · Coalition</span>
+          <article class="expert-card" data-expert-card data-category="strategy leadership">
+            <div class="expert-avatar" aria-hidden="true">AG</div>
+            <p class="domain">Ambition · Conquest · Coalition</p>
             <h3>Alexander the Great</h3>
-            <p class="muted">Ambition, conquest, leading under stretch, holding a coalition together across cultures.</p>
-            <ul class="checks">
+            <p>Ambition, coalition-building, and holding a vision together across many cultures under stretch.</p>
+            <ul>
               <li>Examine ambition and what it costs</li>
               <li>Lead a stretched team across cultures</li>
               <li>Hold a vision together when it starts to crack</li>
             </ul>
-            <p class="channels">Talk by <b>text, voice, or video</b>. Built from public-source historical context.</p>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
           </article>
+
+          <article class="expert-card" data-expert-card data-category="philosophy">
+            <div class="expert-avatar" aria-hidden="true">SO</div>
+            <p class="domain">Questions · Ethics · Self-knowledge</p>
+            <h3>Socrates</h3>
+            <p>The art of the question — exposing what you only thought you knew.</p>
+            <ul>
+              <li>Practice being questioned, not lectured</li>
+              <li>Find the assumption hiding inside your answer</li>
+              <li>Sharpen self-knowledge through dialogue</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="philosophy">
+            <div class="expert-avatar" aria-hidden="true">PL</div>
+            <p class="domain">Philosophy · Justice · Ideal forms</p>
+            <h3>Plato</h3>
+            <p>Justice, the good, and what kind of society lets people think clearly.</p>
+            <ul>
+              <li>Reason about justice and the common good</li>
+              <li>Work through ideal forms vs. messy reality</li>
+              <li>Examine education as a public project</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="philosophy science">
+            <div class="expert-avatar" aria-hidden="true">AR</div>
+            <p class="domain">Logic · Science · Virtue</p>
+            <h3>Aristotle</h3>
+            <p>Logic, observation, virtue, and what it takes to live a flourishing life.</p>
+            <ul>
+              <li>Practice structured reasoning</li>
+              <li>Discuss virtue and habit formation</li>
+              <li>Apply categorical thinking to a hard problem</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science philosophy">
+            <div class="expert-avatar" aria-hidden="true">HY</div>
+            <p class="domain">Mathematics · Astronomy · Teaching</p>
+            <h3>Hypatia</h3>
+            <p>Mathematics, astronomy, and teaching in a world that punished her for it.</p>
+            <ul>
+              <li>Explore mathematics as a way of seeing</li>
+              <li>Teach a hard idea without dumbing it down</li>
+              <li>Stand firm in a hostile environment</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science philosophy">
+            <div class="expert-avatar" aria-hidden="true">IS</div>
+            <p class="domain">Medicine · Philosophy · Reason</p>
+            <h3>Ibn Sina</h3>
+            <p>Medicine, metaphysics, and how to reason carefully from evidence.</p>
+            <ul>
+              <li>Reason from observation to diagnosis</li>
+              <li>Integrate science and philosophy</li>
+              <li>Build a knowledge map across disciplines</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="philosophy">
+            <div class="expert-avatar" aria-hidden="true">IK</div>
+            <p class="domain">History · Sociology · Civilization</p>
+            <h3>Ibn Khaldun</h3>
+            <p>History, society, and the long arc of how civilizations rise and decline.</p>
+            <ul>
+              <li>Take the long view on institutions</li>
+              <li>Identify what holds a society together</li>
+              <li>Spot patterns of decline early</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="strategy">
+            <div class="expert-avatar" aria-hidden="true">ST</div>
+            <p class="domain">Strategy · Conflict · Timing</p>
+            <h3>Sun Tzu</h3>
+            <p>Strategy, timing, terrain, and how to win before the conflict starts.</p>
+            <ul>
+              <li>Read a competitive situation cleanly</li>
+              <li>Find the move that avoids the fight</li>
+              <li>Practice patience as strategy</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="philosophy spirituality">
+            <div class="expert-avatar" aria-hidden="true">LZ</div>
+            <p class="domain">Simplicity · Tao · Leadership</p>
+            <h3>Laozi</h3>
+            <p>Simplicity, the Way, and quiet leadership that does not force outcomes.</p>
+            <ul>
+              <li>Lead by letting others act</li>
+              <li>Strip a problem to its essence</li>
+              <li>Practice restraint in a high-pressure moment</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="philosophy">
+            <div class="expert-avatar" aria-hidden="true">MN</div>
+            <p class="domain">Human nature · Ethics · Governance</p>
+            <h3>Mencius</h3>
+            <p>Human nature, ethics, and what governments owe ordinary people.</p>
+            <ul>
+              <li>Argue from a hopeful view of human nature</li>
+              <li>Hold leaders accountable to the people</li>
+              <li>Connect ethics to policy</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="spirituality literature">
+            <div class="expert-avatar" aria-hidden="true">RM</div>
+            <p class="domain">Poetry · Love · Spirituality</p>
+            <h3>Rumi</h3>
+            <p>Love, longing, and the spiritual lessons inside ordinary life.</p>
+            <ul>
+              <li>Find meaning in difficult emotions</li>
+              <li>Use poetry to think with</li>
+              <li>Practice presence and surrender</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="literature">
+            <div class="expert-avatar" aria-hidden="true">RT</div>
+            <p class="domain">Poetry · Education · Humanism</p>
+            <h3>Rabindranath Tagore</h3>
+            <p>Poetry, education, and a humanism that crosses cultures.</p>
+            <ul>
+              <li>Think about education as freedom</li>
+              <li>Write about your inner life</li>
+              <li>Hold East and West in one mind</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="literature">
+            <div class="expert-avatar" aria-hidden="true">MS</div>
+            <p class="domain">Literature · Court life · Character</p>
+            <h3>Murasaki Shikibu</h3>
+            <p>Character, court life, and the inner emotional life of women in classical Japan.</p>
+            <ul>
+              <li>Study character through small moments</li>
+              <li>Discuss the first novel and what it asks of us</li>
+              <li>Examine power inside a courtly system</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">AL</div>
+            <p class="domain">Computing · Imagination · Algorithms</p>
+            <h3>Ada Lovelace</h3>
+            <p>Imagination, mathematics, and the first vision of programmable machines.</p>
+            <ul>
+              <li>Imagine what a new machine could really do</li>
+              <li>Practice translating ideas into instructions</li>
+              <li>Hold poetry and math in the same mind</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">AT</div>
+            <p class="domain">Computing · Logic · Codebreaking</p>
+            <h3>Alan Turing</h3>
+            <p>Logic, codebreaking, and the foundation of modern computing.</p>
+            <ul>
+              <li>Reason about what machines can and cannot do</li>
+              <li>Practice breaking a problem into mechanisms</li>
+              <li>Discuss intelligence as a working idea</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">MC</div>
+            <p class="domain">Chemistry · Physics · Persistence</p>
+            <h3>Marie Curie</h3>
+            <p>Radioactivity, persistence, and what it takes to do science nobody believes yet.</p>
+            <ul>
+              <li>Stay with a problem past the point of doubt</li>
+              <li>Work across disciplines as one mind</li>
+              <li>Lead a lab through long failure cycles</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">GG</div>
+            <p class="domain">Astronomy · Evidence · Courage</p>
+            <h3>Galileo Galilei</h3>
+            <p>Observation, evidence, and courage when the institution does not want to hear it.</p>
+            <ul>
+              <li>Argue from evidence under pressure</li>
+              <li>Defend an unpopular idea</li>
+              <li>Build instruments to see what others miss</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">IN</div>
+            <p class="domain">Physics · Mathematics · Gravity</p>
+            <h3>Isaac Newton</h3>
+            <p>Gravity, motion, and a relentless effort to understand the structure of the world.</p>
+            <ul>
+              <li>Build a mathematical model of the world</li>
+              <li>Practice deep concentration on one problem</li>
+              <li>Connect observation to underlying law</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">CD</div>
+            <p class="domain">Evolution · Observation · Science</p>
+            <h3>Charles Darwin</h3>
+            <p>Evolution, observation, and the patience to let evidence rebuild your worldview.</p>
+            <ul>
+              <li>Sit with evidence that changes your mind</li>
+              <li>Practice long-form scientific writing</li>
+              <li>Connect small details to big patterns</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">NT</div>
+            <p class="domain">Electricity · Invention · Vision</p>
+            <h3>Nikola Tesla</h3>
+            <p>Electricity, invention, and an inventor's mind that ran far ahead of its time.</p>
+            <ul>
+              <li>Think in systems instead of parts</li>
+              <li>Visualize a working design before you build it</li>
+              <li>Push past what is currently believed possible</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">KJ</div>
+            <p class="domain">Mathematics · Spaceflight · Precision</p>
+            <h3>Katherine Johnson</h3>
+            <p>Mathematics, spaceflight, and precision under pressure during the early NASA missions.</p>
+            <ul>
+              <li>Practice precision in a high-stakes calculation</li>
+              <li>Hold standards in a room that doubts you</li>
+              <li>Make complex math legible to a team</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">RF</div>
+            <p class="domain">DNA · Evidence · Scientific rigor</p>
+            <h3>Rosalind Franklin</h3>
+            <p>X-ray diffraction, DNA evidence, and the discipline of getting the data right.</p>
+            <ul>
+              <li>Treat the data with the respect it deserves</li>
+              <li>Hold rigorous standards in collaboration</li>
+              <li>Argue from images and measurements</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">JG</div>
+            <p class="domain">Primatology · Patience · Conservation</p>
+            <h3>Jane Goodall</h3>
+            <p>Primatology, patience, and a lifetime of careful field observation.</p>
+            <ul>
+              <li>Practice patient, low-ego observation</li>
+              <li>Take field notes that earn trust</li>
+              <li>Connect conservation to daily action</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="civil-rights leadership">
+            <div class="expert-avatar" aria-hidden="true">WM</div>
+            <p class="domain">Environment · Democracy · Grassroots change</p>
+            <h3>Wangari Maathai</h3>
+            <p>Environmental movement, democracy, and grassroots organizing that planted millions of trees.</p>
+            <ul>
+              <li>Link environmental work to democracy</li>
+              <li>Organize at the village level</li>
+              <li>Stay grounded under political pressure</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="science">
+            <div class="expert-avatar" aria-hidden="true">TY</div>
+            <p class="domain">Medicine · Discovery · Persistence</p>
+            <h3>Tu Youyou</h3>
+            <p>Persistence in the lab, ancient Chinese texts, and the discovery of artemisinin.</p>
+            <ul>
+              <li>Combine old sources with new methods</li>
+              <li>Practice long, quiet experimental work</li>
+              <li>Pursue a discovery that saves lives</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="civil-rights leadership">
+            <div class="expert-avatar" aria-hidden="true">NM</div>
+            <p class="domain">Reconciliation · Courage · Leadership</p>
+            <h3>Nelson Mandela</h3>
+            <p>Reconciliation, courage under decades of pressure, and leadership that held a country together.</p>
+            <ul>
+              <li>Lead from forgiveness, not revenge</li>
+              <li>Hold a long arc through hard years</li>
+              <li>Build trust across deep historical divides</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="civil-rights leadership spirituality">
+            <div class="expert-avatar" aria-hidden="true">MG</div>
+            <p class="domain">Nonviolence · Discipline · Resistance</p>
+            <h3>Mahatma Gandhi</h3>
+            <p>Nonviolence, discipline, and the strategic power of moral clarity.</p>
+            <ul>
+              <li>Use nonviolence as strategy, not just ethics</li>
+              <li>Practice personal discipline as politics</li>
+              <li>Build mass action around a moral idea</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="civil-rights">
+            <div class="expert-avatar" aria-hidden="true">MK</div>
+            <p class="domain">Justice · Oratory · Civil rights</p>
+            <h3>Martin Luther King Jr.</h3>
+            <p>Justice, oratory, and a moral imagination that reshaped a nation.</p>
+            <ul>
+              <li>Frame justice in language people remember</li>
+              <li>Lead a coalition under sustained threat</li>
+              <li>Connect moral vision to concrete action</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="civil-rights">
+            <div class="expert-avatar" aria-hidden="true">FD</div>
+            <p class="domain">Freedom · Rhetoric · Moral clarity</p>
+            <h3>Frederick Douglass</h3>
+            <p>Freedom, rhetoric, and the unflinching argument for human dignity.</p>
+            <ul>
+              <li>Argue for human dignity without hedging</li>
+              <li>Practice rhetoric that moves the room</li>
+              <li>Examine the gap between principle and practice</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="civil-rights leadership">
+            <div class="expert-avatar" aria-hidden="true">HT</div>
+            <p class="domain">Courage · Liberation · Strategy</p>
+            <h3>Harriet Tubman</h3>
+            <p>Courage under threat, operational genius, and the practical work of liberation.</p>
+            <ul>
+              <li>Plan an operation under real risk</li>
+              <li>Lead small teams through hostile terrain</li>
+              <li>Hold a long mission across many trips</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="civil-rights">
+            <div class="expert-avatar" aria-hidden="true">SoT</div>
+            <p class="domain">Justice · Faith · Speech</p>
+            <h3>Sojourner Truth</h3>
+            <p>Justice, faith, and a voice that named injustice without hedging.</p>
+            <ul>
+              <li>Speak plainly to power</li>
+              <li>Hold faith and politics together</li>
+              <li>Practice arguments grounded in lived experience</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="arts">
+            <div class="expert-avatar" aria-hidden="true">FK</div>
+            <p class="domain">Art · Identity · Resilience</p>
+            <h3>Frida Kahlo</h3>
+            <p>Identity, pain, resilience, and a life made into art.</p>
+            <ul>
+              <li>Make meaning out of personal struggle</li>
+              <li>Use self-portrait as a tool of thought</li>
+              <li>Bring politics and intimacy into one frame</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="arts">
+            <div class="expert-avatar" aria-hidden="true">PP</div>
+            <p class="domain">Art · Reinvention · Modernism</p>
+            <h3>Pablo Picasso</h3>
+            <p>Reinvention, modernism, and a long career of refusing to stop changing.</p>
+            <ul>
+              <li>Reinvent your own work on purpose</li>
+              <li>Treat style as a deliberate decision</li>
+              <li>Move between disciplines without fear</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="arts">
+            <div class="expert-avatar" aria-hidden="true">VG</div>
+            <p class="domain">Art · Emotion · Persistence</p>
+            <h3>Vincent van Gogh</h3>
+            <p>Emotion, color, and the persistence of an artist who saw what others missed.</p>
+            <ul>
+              <li>Translate feeling into color and line</li>
+              <li>Work daily even when the world is silent</li>
+              <li>Hold a vision before the world catches up</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="arts">
+            <div class="expert-avatar" aria-hidden="true">MI</div>
+            <p class="domain">Sculpture · Mastery · Beauty</p>
+            <h3>Michelangelo</h3>
+            <p>Sculpture, painting, architecture, and a relentless standard for mastery.</p>
+            <ul>
+              <li>Pursue mastery across multiple crafts</li>
+              <li>Hold a vision through years of work</li>
+              <li>Make beauty the standard, not the bonus</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="arts">
+            <div class="expert-avatar" aria-hidden="true">BE</div>
+            <p class="domain">Music · Discipline · Expression</p>
+            <h3>Ludwig van Beethoven</h3>
+            <p>Music, discipline, and emotional truth carried through every kind of personal pressure.</p>
+            <ul>
+              <li>Practice creative work through hardship</li>
+              <li>Compose with structure and feeling at once</li>
+              <li>Rewrite your own form when you outgrow it</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="arts">
+            <div class="expert-avatar" aria-hidden="true">WA</div>
+            <p class="domain">Music · Genius · Composition</p>
+            <h3>Wolfgang Amadeus Mozart</h3>
+            <p>Composition, structure, and an unfathomable ear for what music could be.</p>
+            <ul>
+              <li>Hear an idea through to its full structure</li>
+              <li>Work fast without losing depth</li>
+              <li>Treat craft as play</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="literature">
+            <div class="expert-avatar" aria-hidden="true">WS</div>
+            <p class="domain">Language · Character · Drama</p>
+            <h3>William Shakespeare</h3>
+            <p>Language, character, and the human range — comedy, tragedy, power, doubt.</p>
+            <ul>
+              <li>Write characters who contradict themselves</li>
+              <li>Use language to think, not just describe</li>
+              <li>Stage a hard idea inside a story</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="literature">
+            <div class="expert-avatar" aria-hidden="true">JA</div>
+            <p class="domain">Society · Wit · Human behavior</p>
+            <h3>Jane Austen</h3>
+            <p>Society, wit, marriage, money, and the small decisions that decide a life.</p>
+            <ul>
+              <li>Study character through ordinary scenes</li>
+              <li>Use wit as moral instrument</li>
+              <li>Notice power inside polite conversation</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="literature">
+            <div class="expert-avatar" aria-hidden="true">MSh</div>
+            <p class="domain">Imagination · Ethics · Technology</p>
+            <h3>Mary Shelley</h3>
+            <p>Imagination, ethics, and one of the first serious questions about what we should build.</p>
+            <ul>
+              <li>Ask the ethical question before the technical one</li>
+              <li>Use fiction to test a real worry</li>
+              <li>Think about creation and responsibility together</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="literature">
+            <div class="expert-avatar" aria-hidden="true">VW</div>
+            <p class="domain">Consciousness · Modernism · Voice</p>
+            <h3>Virginia Woolf</h3>
+            <p>Consciousness, modernism, and the inner monologue made visible on the page.</p>
+            <ul>
+              <li>Write the inside of a thought</li>
+              <li>Hold time as a fluid material</li>
+              <li>Examine voice, gender, and the room of one's own</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="literature civil-rights">
+            <div class="expert-avatar" aria-hidden="true">TM</div>
+            <p class="domain">Memory · Identity · Literature</p>
+            <h3>Toni Morrison</h3>
+            <p>Memory, identity, and the moral weight of language.</p>
+            <ul>
+              <li>Write with full moral seriousness</li>
+              <li>Hold history inside character</li>
+              <li>Treat language as a place to live</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="literature">
+            <div class="expert-avatar" aria-hidden="true">CA</div>
+            <p class="domain">Storytelling · Colonialism · Culture</p>
+            <h3>Chinua Achebe</h3>
+            <p>Storytelling, colonialism, and a clear-eyed look at culture under pressure.</p>
+            <ul>
+              <li>Tell your culture in its own voice</li>
+              <li>Resist the borrowed frame</li>
+              <li>Hold complexity without losing clarity</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="leadership strategy">
+            <div class="expert-avatar" aria-hidden="true">E1</div>
+            <p class="domain">Power · Diplomacy · Image</p>
+            <h3>Queen Elizabeth I</h3>
+            <p>Power, diplomacy, public image, and ruling against expectations.</p>
+            <ul>
+              <li>Lead while everyone underestimates you</li>
+              <li>Use image as instrument of state</li>
+              <li>Practice patient long-game diplomacy</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="leadership strategy">
+            <div class="expert-avatar" aria-hidden="true">CG</div>
+            <p class="domain">Reform · Empire · Strategy</p>
+            <h3>Catherine the Great</h3>
+            <p>Reform, empire, and the politics of changing a country from the top.</p>
+            <ul>
+              <li>Plan reform inside an entrenched system</li>
+              <li>Balance ambition with statecraft</li>
+              <li>Use culture as part of national power</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="leadership spirituality">
+            <div class="expert-avatar" aria-hidden="true">AS</div>
+            <p class="domain">Governance · Ethics · Buddhism</p>
+            <h3>Ashoka</h3>
+            <p>Governance after war, ethics, and the public turn toward Buddhism.</p>
+            <ul>
+              <li>Govern with restraint after violence</li>
+              <li>Make ethics a public policy</li>
+              <li>Hold a vast, plural empire together</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="strategy leadership">
+            <div class="expert-avatar" aria-hidden="true">SA</div>
+            <p class="domain">Leadership · Honor · Strategy</p>
+            <h3>Saladin</h3>
+            <p>Leadership, honor in conflict, and strategy across cultures and faiths.</p>
+            <ul>
+              <li>Lead a multi-faith coalition</li>
+              <li>Practice honor as strategy</li>
+              <li>Build trust with an adversary</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="strategy leadership">
+            <div class="expert-avatar" aria-hidden="true">SZ</div>
+            <p class="domain">Military innovation · Leadership · State-building</p>
+            <h3>Shaka Zulu</h3>
+            <p>Military innovation, organization, and the rapid building of a kingdom.</p>
+            <ul>
+              <li>Redesign an organization for new conditions</li>
+              <li>Build training and discipline at scale</li>
+              <li>Lead transformation under time pressure</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="leadership">
+            <div class="expert-avatar" aria-hidden="true">HP</div>
+            <p class="domain">Power · Trade · Monument building</p>
+            <h3>Hatshepsut</h3>
+            <p>Power, trade routes, monumental architecture, and a long, peaceful reign.</p>
+            <ul>
+              <li>Use economic strategy as state power</li>
+              <li>Build legacy through long-term projects</li>
+              <li>Hold a throne against entrenched opposition</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="business arts">
+            <div class="expert-avatar" aria-hidden="true">SJ</div>
+            <p class="domain">Product · Taste · Storytelling</p>
+            <h3>Steve Jobs</h3>
+            <p>Product, taste, storytelling, and the discipline of saying no to almost everything.</p>
+            <ul>
+              <li>Practice taste as a product decision</li>
+              <li>Cut work that distracts from the core</li>
+              <li>Tell a story the team can rally around</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="business arts">
+            <div class="expert-avatar" aria-hidden="true">WD</div>
+            <p class="domain">Imagination · Media · Experience design</p>
+            <h3>Walt Disney</h3>
+            <p>Imagination, character design, and turning storytelling into a complete experience.</p>
+            <ul>
+              <li>Design an end-to-end experience</li>
+              <li>Build characters audiences trust</li>
+              <li>Take a creative bet across years</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="business civil-rights">
+            <div class="expert-avatar" aria-hidden="true">OW</div>
+            <p class="domain">Media · Empathy · Influence</p>
+            <h3>Oprah Winfrey</h3>
+            <p>Media, empathy, interview craft, and influence built on listening.</p>
+            <ul>
+              <li>Practice the interview as care</li>
+              <li>Use a platform without losing the person</li>
+              <li>Build influence through trust at scale</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="civil-rights">
+            <div class="expert-avatar" aria-hidden="true">MA</div>
+            <p class="domain">Confidence · Conviction · Performance</p>
+            <h3>Muhammad Ali</h3>
+            <p>Confidence, conviction, and athletic performance powered by belief.</p>
+            <ul>
+              <li>Train confidence as a daily practice</li>
+              <li>Stand on principle at real cost</li>
+              <li>Perform under maximum public pressure</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="philosophy arts">
+            <div class="expert-avatar" aria-hidden="true">BL</div>
+            <p class="domain">Discipline · Philosophy · Movement</p>
+            <h3>Bruce Lee</h3>
+            <p>Discipline, philosophy, and the integration of mind and body in movement.</p>
+            <ul>
+              <li>Integrate practice across disciplines</li>
+              <li>Use philosophy as training</li>
+              <li>Hold rigor without rigidity</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
+          <article class="expert-card" data-expert-card data-category="leadership">
+            <div class="expert-avatar" aria-hidden="true">AEa</div>
+            <p class="domain">Courage · Aviation · Exploration</p>
+            <h3>Amelia Earhart</h3>
+            <p>Courage, navigation, and aviation that pushed the boundary of what women were allowed to do.</p>
+            <ul>
+              <li>Take on something the field says is impossible</li>
+              <li>Plan a mission with limited margin</li>
+              <li>Use visibility as a tool for the next generation</li>
+            </ul>
+            <p class="source-note">AI simulation inspired by public-source historical material.</p>
+          </article>
+
         </div>
       </div>
     </section>
 
     <section class="section soft">
+      <div class="wrap">
+        <div class="table-builder">
+          <div>
+            <span class="eyebrow">Dinner table builder</span>
+            <h2 style="margin-top:12px">Build your dinner table.</h2>
+          </div>
+          <p class="lead">
+            Choose one person for a focused conversation, or seat multiple minds at the same
+            table — to debate, critique, and stress-test the same question from very different
+            worldviews.
+          </p>
+
+          <div class="table-suggestion-grid">
+            <article class="table-suggestion">
+              <strong>Scientific creativity</strong>
+              <div class="seats">
+                <span class="seat-chip">Einstein</span>
+                <span class="seat-chip">Curie</span>
+                <span class="seat-chip">Turing</span>
+              </div>
+              <p>How intuition, persistence, and logic build a new science together.</p>
+            </article>
+
+            <article class="table-suggestion">
+              <strong>Power</strong>
+              <div class="seats">
+                <span class="seat-chip">Cleopatra</span>
+                <span class="seat-chip">Elizabeth I</span>
+                <span class="seat-chip">Catherine the Great</span>
+              </div>
+              <p>Three rulers on how power is held, projected, and survived.</p>
+            </article>
+
+            <article class="table-suggestion">
+              <strong>Moral courage</strong>
+              <div class="seats">
+                <span class="seat-chip">Mandela</span>
+                <span class="seat-chip">Gandhi</span>
+                <span class="seat-chip">King</span>
+              </div>
+              <p>Three lives on nonviolence, reconciliation, and the long game.</p>
+            </article>
+
+            <article class="table-suggestion">
+              <strong>Strategy</strong>
+              <div class="seats">
+                <span class="seat-chip">Sun Tzu</span>
+                <span class="seat-chip">Caesar</span>
+                <span class="seat-chip">Saladin</span>
+              </div>
+              <p>How to win the conflict — or avoid it — across very different eras.</p>
+            </article>
+
+            <article class="table-suggestion">
+              <strong>Human behavior</strong>
+              <div class="seats">
+                <span class="seat-chip">Austen</span>
+                <span class="seat-chip">Shakespeare</span>
+                <span class="seat-chip">Morrison</span>
+              </div>
+              <p>Three writers on the inner life of people and the worlds they make.</p>
+            </article>
+
+            <article class="table-suggestion">
+              <strong>Product imagination</strong>
+              <div class="seats">
+                <span class="seat-chip">Jobs</span>
+                <span class="seat-chip">Disney</span>
+                <span class="seat-chip">da Vinci</span>
+              </div>
+              <p>Taste, character, and craft across product, media, and invention.</p>
+            </article>
+          </div>
+
+          <div class="actions">
+            <a class="btn primary" href="contact.html?path=avatar">Build my table</a>
+            <a class="btn" href="avatar-demo.html">Try avatar demo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="wrap two">
         <div>
           <span class="eyebrow">How a session works</span>
@@ -189,24 +1011,6 @@
           <li>Source citations from public material</li>
           <li>Available in 30+ languages</li>
         </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <span class="eyebrow">Coming soon</span>
-        <h2 style="margin-top:14px">More minds at the table.</h2>
-        <p class="lead">We're expanding the library — scientists, founders, generals, philosophers, artists. Want a specific avatar at your next dinner? Tell us at the demo.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
-          <span class="tag" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#eaf3ff;color:var(--blue2);font-weight:850;font-size:13px;letter-spacing:0.04em">Marcus Aurelius</span>
-          <span class="tag" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#eaf3ff;color:var(--blue2);font-weight:850;font-size:13px;letter-spacing:0.04em">Ada Lovelace</span>
-          <span class="tag" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#eaf3ff;color:var(--blue2);font-weight:850;font-size:13px;letter-spacing:0.04em">Sun Tzu</span>
-          <span class="tag" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#eaf3ff;color:var(--blue2);font-weight:850;font-size:13px;letter-spacing:0.04em">Maya Angelou</span>
-          <span class="tag" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#eaf3ff;color:var(--blue2);font-weight:850;font-size:13px;letter-spacing:0.04em">Galileo</span>
-          <span class="tag" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#eaf3ff;color:var(--blue2);font-weight:850;font-size:13px;letter-spacing:0.04em">Frederick Douglass</span>
-          <span class="tag" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#eaf3ff;color:var(--blue2);font-weight:850;font-size:13px;letter-spacing:0.04em">Marie Curie</span>
-          <span class="tag" style="display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#eaf3ff;color:var(--blue2);font-weight:850;font-size:13px;letter-spacing:0.04em">Lao Tzu</span>
-        </div>
       </div>
     </section>
   </main>

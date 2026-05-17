@@ -1205,3 +1205,54 @@
   const initial = document.querySelector("[data-roleplay-mode].active")?.dataset.roleplayMode || "teach";
   setMode(initial);
 })();
+
+/* =========================================================
+   Expert library filter (experts.html)
+   ========================================================= */
+
+(function () {
+  const filters = document.querySelectorAll("[data-expert-filter]");
+  const cards = document.querySelectorAll("[data-expert-card]");
+  if (!filters.length || !cards.length) return;
+
+  const countEl = document.querySelector("[data-expert-count]");
+  const totalCount = cards.length;
+
+  function applyFilter(category) {
+    let visible = 0;
+
+    cards.forEach((card) => {
+      const cats = (card.dataset.category || "").split(/\s+/).filter(Boolean);
+      const match = category === "all" || cats.includes(category);
+      card.hidden = !match;
+      if (match) visible += 1;
+    });
+
+    filters.forEach((btn) => {
+      const isActive = btn.dataset.expertFilter === category;
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    if (countEl) {
+      if (category === "all") {
+        countEl.textContent = `Showing all ${totalCount} avatars.`;
+      } else {
+        const label = filters[0]?.parentElement?.querySelector(
+          `[data-expert-filter="${category}"]`
+        )?.dataset.label || category;
+        countEl.textContent = `Showing ${visible} ${label.toLowerCase()} ${
+          visible === 1 ? "avatar" : "avatars"
+        }.`;
+      }
+    }
+  }
+
+  filters.forEach((btn) => {
+    btn.addEventListener("click", () => applyFilter(btn.dataset.expertFilter));
+  });
+
+  const initial =
+    document.querySelector("[data-expert-filter].active")?.dataset.expertFilter || "all";
+  applyFilter(initial);
+})();

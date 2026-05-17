@@ -262,6 +262,88 @@ async function testContactPaths(page) {
   }
 }
 
+async function testExpertLibrary(page) {
+  await page.goto(`${baseURL}/experts.html`, { waitUntil: "networkidle" });
+
+  const cardCount = await page.locator("[data-expert-card]").count();
+  assert(
+    cardCount >= 60,
+    `Expert library has ${cardCount} cards, expected at least 60.`
+  );
+
+  const body = await page.locator("body").innerText();
+
+  const requiredQuote = "If you could have dinner with anyone";
+  assert(body.includes(requiredQuote), `Missing experts hero quote: "${requiredQuote}"`);
+
+  const requiredNames = [
+    "Hypatia",
+    "Ibn Sina",
+    "Rumi",
+    "Murasaki Shikibu",
+    "Katherine Johnson",
+    "Wangari Maathai",
+    "Nelson Mandela",
+    "Frida Kahlo",
+    "Chinua Achebe",
+    "Ashoka",
+    "Hatshepsut",
+    "Bruce Lee"
+  ];
+
+  for (const name of requiredNames) {
+    assert(body.includes(name), `Missing required diverse luminary on experts.html: "${name}"`);
+  }
+
+  await page.locator("[data-expert-filter='science']").click();
+  await page.waitForTimeout(150);
+
+  const visibleScience = await page.locator("[data-expert-card]:not([hidden])").count();
+  assert(
+    visibleScience >= 10,
+    `Science filter showed ${visibleScience} cards, expected at least 10.`
+  );
+
+  const einsteinVisible = await page
+    .locator("[data-expert-card]:not([hidden]) h3", { hasText: "Albert Einstein" })
+    .count();
+  assert(einsteinVisible === 1, "Science filter should keep Einstein visible.");
+
+  const cleopatraHidden = await page
+    .locator("[data-expert-card][hidden] h3", { hasText: "Cleopatra" })
+    .count();
+  assert(cleopatraHidden === 1, "Science filter should hide Cleopatra.");
+
+  await page.locator("[data-expert-filter='all']").click();
+  await page.waitForTimeout(150);
+
+  const visibleAfterReset = await page.locator("[data-expert-card]:not([hidden])").count();
+  assert(
+    visibleAfterReset >= 60,
+    `Reset to All showed ${visibleAfterReset} cards, expected 60.`
+  );
+}
+
+async function testHomepageFirstImpression(page) {
+  await page.goto(`${baseURL}/index.html`, { waitUntil: "networkidle" });
+  const body = await page.locator("body").innerText();
+
+  const markers = [
+    "Have dinner with anyone who ever changed the world",
+    "Explore 60 avatars",
+    "60 minds at the table",
+    "Grounded sources",
+    "Private deployment"
+  ];
+
+  for (const marker of markers) {
+    assert(body.includes(marker), `Missing homepage first-impression marker: "${marker}"`);
+  }
+
+  const mindPillCount = await page.locator(".minds-wall .mind-pill").count();
+  assert(mindPillCount >= 20, `Homepage minds wall has ${mindPillCount} pills, expected at least 20.`);
+}
+
 async function testTrustContent(page) {
   const expectations = [
     {
@@ -599,6 +681,12 @@ async function main() {
 
     await testTrustContent(page);
     console.log("Checked realism, upload trust, deployment, and student-safety content");
+
+    await testExpertLibrary(page);
+    console.log("Checked 60-avatar expert library + filter behavior");
+
+    await testHomepageFirstImpression(page);
+    console.log("Checked homepage first-impression markers and 60 minds wall");
 
     await testTracker(page);
     console.log("Checked outreach tracker");

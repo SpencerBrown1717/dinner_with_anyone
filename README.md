@@ -33,7 +33,7 @@ The positioning is deliberate: privacy-first, education-grade, and built so inst
 | URL                    | What it is                                                                       |
 |------------------------|----------------------------------------------------------------------------------|
 | `/`                    | Home — hero, trust chips, "more than a chatbot" 3-card, dinner table visual      |
-| `/experts.html`        | Historical avatar library (Einstein, Cleopatra, Confucius, da Vinci, Caesar, …)  |
+| `/experts.html`        | 60-avatar global library across science, philosophy, leadership, arts, literature, civil rights, business, strategy, spirituality — with category filters + dinner-table builder |
 | `/education.html`      | Professor avatars for classrooms — upload → avatar → cohort interacts            |
 | `/demo.html`           | 4-step static product walkthrough (Choose → Ask → Ground → Export)               |
 | `/avatar-demo.html`    | **Flagship prototype** — voice + slides + transcript + simulated state machine   |
