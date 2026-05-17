@@ -37,10 +37,12 @@ The positioning is deliberate: privacy-first, education-grade, and built so inst
 | `/education.html`      | Professor avatars for classrooms — upload → avatar → cohort interacts            |
 | `/demo.html`           | 4-step static product walkthrough (Choose → Ask → Ground → Export)               |
 | `/avatar-demo.html`    | **Flagship prototype** — voice + slides + transcript + simulated state machine   |
+| `/pilot.html`          | One-class pilot funnel — brief, timeline, needs, privacy ask                     |
+| `/outreach.html`       | Professor / MBA outreach page with copy-paste invite + walkthrough script        |
 | `/how-it-works.html`   | User-facing 3-step + 5-step architecture flow + privacy block + 8-phase roadmap  |
 | `/enterprise.html`     | Custom expert avatars + private AI avatar infrastructure for institutions        |
 | `/pricing.html`        | Explorer / Classroom / Institution / Enterprise + add-ons + comparison + FAQ     |
-| `/contact.html`        | Book-a-demo page (links to Google Calendar)                                      |
+| `/contact.html`        | Book-a-demo page with buyer paths + Google Calendar booking link                 |
 
 ## Project structure
 
@@ -51,6 +53,8 @@ The positioning is deliberate: privacy-first, education-grade, and built so inst
 ├── education.html        # AI professor avatars for classrooms
 ├── demo.html             # 4-step static product walkthrough
 ├── avatar-demo.html      # voice/slides/transcript flagship demo (interactive)
+├── pilot.html            # one-class pilot funnel for teachers / MBA programs
+├── outreach.html         # professor outreach page + copy-paste invite
 ├── how-it-works.html     # 3-step + 5-step architecture + privacy + 8-phase roadmap
 ├── enterprise.html       # custom expert avatars + private AI infrastructure
 ├── pricing.html          # 4 tiers + add-ons + comparison + FAQ
@@ -113,14 +117,88 @@ Then visit http://localhost:8000.
 - **GitHub Pages** (current setup) — Settings → Pages → Deploy from branch → `main` / root.
 - **Netlify / Vercel / Cloudflare Pages** — point at the repo, no build command, publish directory `.`.
 
-## Wire up a custom domain (e.g. `dinnerwithanyone.ai`)
+## Custom domain checklist
 
-When you buy the domain and connect it via GitHub Pages → Settings → Pages → Custom domain:
+> **Do not create a `CNAME` file yet.** The domain is not purchased. When `dinnerwithanyone.ai` is live, follow this checklist exactly.
 
-1. Add a `CNAME` file at the repo root containing just `dinnerwithanyone.ai`.
-2. Find-and-replace `https://spencerbrown1717.github.io/dinner_with_anyone/` → `https://dinnerwithanyone.ai/` across the repo.
-   This updates the `<link rel="canonical">`, `og:url`, `og:image`, `twitter:image`, `sitemap.xml`, and `robots.txt` in one pass.
-3. Resubmit `sitemap.xml` to Google Search Console under the new domain.
+When `dinnerwithanyone.ai` is purchased:
+
+1. Add a `CNAME` file at the repo root containing:
+
+   ```txt
+   dinnerwithanyone.ai
+   ```
+
+2. In GitHub:
+
+   Settings → Pages → Custom domain → `dinnerwithanyone.ai`
+
+3. Add DNS records at the registrar:
+
+   ```txt
+   A     @     185.199.108.153
+   A     @     185.199.109.153
+   A     @     185.199.110.153
+   A     @     185.199.111.153
+   CNAME www   spencerbrown1717.github.io
+   ```
+
+4. Wait for GitHub Pages certificate provisioning.
+
+5. Turn on **Enforce HTTPS**.
+
+6. Update:
+
+   - canonical URLs
+   - og:url
+   - twitter:url
+   - sitemap.xml
+   - robots.txt
+   - README links
+
+Current GitHub Pages URL:
+
+```txt
+https://spencerbrown1717.github.io/dinner_with_anyone/
+```
+
+Future production URL:
+
+```txt
+https://dinnerwithanyone.ai/
+```
+
+## Demo video checklist
+
+Record a 30–45 second walkthrough of `avatar-demo.html`.
+
+Export as:
+
+```txt
+assets/demo-walkthrough.mp4
+```
+
+Once the file exists, every `.demo-video-card` (homepage, outreach page, future pages) will automatically render the real video instead of the fallback placeholder.
+
+Recommended script:
+
+```txt
+This is Dinner With Anyone.
+
+A student can choose a historical figure like Einstein, or a custom professor avatar built from class material.
+
+They start a voice conversation.
+
+The avatar listens, thinks, and speaks back.
+
+Slides update beside the conversation using Gemini-powered lesson generation.
+
+For teachers, students can submit voice memos, text reflections, or video check-ins.
+
+Then the teacher sees what the class understood, where students are confused, and what to teach next.
+
+This is not just chat. It is an AI learning room.
+```
 
 ## SEO
 

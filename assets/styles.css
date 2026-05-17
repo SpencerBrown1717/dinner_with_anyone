@@ -3385,3 +3385,207 @@ select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px r
     animation: none !important;
   }
 }
+
+/* =========================================================
+   Launch Polish + Outreach Funnel
+   ========================================================= */
+
+.outreach-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.outreach-hero::after {
+  content: "";
+  position: absolute;
+  right: -180px;
+  top: 20px;
+  width: 560px;
+  height: 560px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 38% 42%, rgba(0,184,255,.18), transparent 36%),
+    radial-gradient(circle at 58% 58%, rgba(11,77,255,.18), transparent 60%);
+  z-index: 0;
+}
+
+.outreach-hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.02fr .98fr;
+  gap: 38px;
+  align-items: center;
+}
+
+.outreach-letter-card {
+  border: 1px solid rgba(11,77,255,.15);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0,184,255,.12), transparent 34%),
+    linear-gradient(180deg, #fff, #f5f9ff);
+  border-radius: 34px;
+  padding: 28px;
+  box-shadow: 0 24px 80px rgba(9,44,120,.12);
+}
+
+.outreach-letter-card h3 {
+  margin-top: 18px;
+  font-size: 30px;
+}
+
+.outreach-letter-card p {
+  color: var(--muted);
+}
+
+.outreach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.outreach-script-section {
+  background:
+    radial-gradient(circle at 90% 10%, rgba(0,184,255,.1), transparent 36%),
+    linear-gradient(180deg, #fff, #f7faff);
+}
+
+.copy-block {
+  position: relative;
+  border: 1px solid var(--line);
+  background: #03112b;
+  color: #e9f1ff;
+  border-radius: 28px;
+  padding: 24px;
+  box-shadow: 0 24px 80px rgba(3,17,43,.2);
+  overflow: hidden;
+}
+
+.copy-block::after {
+  content: "";
+  position: absolute;
+  right: -140px;
+  top: -140px;
+  width: 300px;
+  height: 300px;
+  border-radius: 999px;
+  background: rgba(0,184,255,.16);
+}
+
+.copy-block pre {
+  position: relative;
+  z-index: 1;
+  white-space: pre-wrap;
+  margin: 0;
+  font: inherit;
+  line-height: 1.65;
+}
+
+.copy-block code {
+  font: inherit;
+}
+
+.copy-button {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  z-index: 2;
+}
+
+.script-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.script-list p {
+  margin: 0;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 18px;
+  padding: 14px 16px;
+  color: var(--muted);
+}
+
+.script-list strong {
+  color: var(--blue);
+}
+
+.launch-video-card .video-frame {
+  min-height: 380px;
+}
+
+.launch-video-card .video-fallback {
+  max-width: 620px;
+}
+
+.launch-video-card .video-fallback h3 {
+  font-size: clamp(28px, 4vw, 44px);
+  line-height: 1;
+  letter-spacing: -.055em;
+}
+
+.contact-conversion-panel {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: .95fr 1.05fr;
+  gap: 18px;
+  border: 1px solid rgba(11,77,255,.15);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0,184,255,.12), transparent 34%),
+    linear-gradient(180deg, #fff, #f6f9ff);
+  border-radius: 30px;
+  padding: 26px;
+  box-shadow: 0 20px 70px rgba(11,77,255,.08);
+}
+
+.contact-conversion-panel h3 {
+  margin-top: 18px;
+  font-size: 30px;
+}
+
+.contact-next-steps {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-next-steps div {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 20px;
+  padding: 16px;
+}
+
+.contact-next-steps strong {
+  display: block;
+  color: var(--ink);
+  letter-spacing: -.02em;
+}
+
+.contact-next-steps span {
+  display: block;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+@media (max-width: 920px) {
+  .outreach-hero-grid,
+  .outreach-grid,
+  .contact-conversion-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .copy-button {
+    position: static;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .copy-block {
+    padding: 18px;
+  }
+
+  .copy-block pre {
+    font-size: 14px;
+  }
+}

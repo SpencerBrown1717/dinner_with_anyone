@@ -594,3 +594,32 @@
     }
   }
 })();
+
+/* =========================================================
+   Outreach message copy button
+   ========================================================= */
+
+(function () {
+  const button = document.querySelector("[data-copy-outreach]");
+  const message = document.querySelector("[data-outreach-message]");
+
+  if (!button || !message) return;
+
+  button.addEventListener("click", async () => {
+    const text = message.textContent.trim();
+    const original = button.textContent;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      button.textContent = "Copied";
+      window.setTimeout(() => {
+        button.textContent = original;
+      }, 1800);
+    } catch (error) {
+      button.textContent = "Select text to copy";
+      window.setTimeout(() => {
+        button.textContent = original;
+      }, 2200);
+    }
+  });
+})();
