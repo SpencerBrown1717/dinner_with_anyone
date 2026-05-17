@@ -1,0 +1,13 @@
+{
+  "name": "dinner-with-anyone-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static GitHub Pages site for Dinner With Anyone.",
+  "scripts": {
+    "qa": "playwright install chromium && node scripts/qa-site.mjs",
+    "qa:headed": "playwright install chromium && HEADLESS=false node scripts/qa-site.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.2"
+  }
+}
