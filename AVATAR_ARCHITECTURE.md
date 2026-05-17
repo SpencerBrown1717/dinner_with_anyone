@@ -436,7 +436,38 @@ dashboard and are persisted to the avatar's runtime configuration.
 
 ---
 
-## 13. Near-term rule
+## 13. Realism contract
+
+Realism breaks at the mouth. For the avatar to feel real, the system must align the
+following layers in order, with the timing budget driven by the audio:
+
+1. Text response
+2. Voice generation
+3. Audio timing
+4. Phoneme / viseme mapping
+5. Mouth movement
+6. Facial expression
+7. Eye contact + head motion
+8. Student interruption handling
+
+Full detail in [`AVATAR_REALISM.md`](AVATAR_REALISM.md). The product rule: **bad lip sync
+is worse than simple animation**. If high-quality lip sync is not available for a given
+deployment, fall back to a simpler visual style that avoids uncanny mouth movement.
+
+## 14. Deployment surface
+
+Three deployment models are supported (see
+[`DEPLOYMENT_SECURITY.md`](DEPLOYMENT_SECURITY.md)):
+
+1. Hosted pilot (managed environment).
+2. Private cloud (customer-isolated tenant).
+3. On-prem deployment (customer infrastructure).
+
+All three enforce no-training mode, tenant isolation for uploaded professor materials,
+and source-scoped retrieval so the avatar can only answer from material the institution
+provided.
+
+## 15. Near-term rule
 
 Do not build the full avatar backend until one real pilot prospect validates:
 

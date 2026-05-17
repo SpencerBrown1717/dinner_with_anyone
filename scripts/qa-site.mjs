@@ -262,6 +262,77 @@ async function testContactPaths(page) {
   }
 }
 
+async function testTrustContent(page) {
+  const expectations = [
+    {
+      page: "avatar-demo.html",
+      markers: [
+        "Why mouth movement matters",
+        "Why grounding matters"
+      ]
+    },
+    {
+      page: "how-it-works.html",
+      markers: [
+        "Realism breaks at the mouth",
+        "Phoneme-aware lip sync",
+        "Professors should know exactly what the avatar is allowed to say",
+        "Strict mode",
+        "Private deployment for sensitive learning environments",
+        "On-prem deployment",
+        "Private cloud",
+        "No-training mode"
+      ]
+    },
+    {
+      page: "education.html",
+      markers: [
+        "Professor controls",
+        "Strict grounding",
+        "Students learn best when they can safely struggle",
+        "Practice without embarrassment"
+      ]
+    },
+    {
+      page: "index.html",
+      markers: [
+        "Students learn best when they can safely struggle",
+        "Confidence building"
+      ]
+    },
+    {
+      page: "enterprise.html",
+      markers: [
+        "Private deployment for sensitive learning environments",
+        "On-prem deployment",
+        "Private cloud",
+        "No-training mode",
+        "How we talk about security"
+      ]
+    },
+    {
+      page: "pricing.html",
+      markers: [
+        "Private deployment for sensitive learning environments",
+        "On-prem deployment",
+        "No-training mode"
+      ]
+    }
+  ];
+
+  for (const { page: pageName, markers } of expectations) {
+    await page.goto(`${baseURL}/${pageName}`, { waitUntil: "networkidle" });
+    const body = await page.locator("body").innerText();
+
+    for (const marker of markers) {
+      assert(
+        body.includes(marker),
+        `Missing trust content on ${pageName}: "${marker}"`
+      );
+    }
+  }
+}
+
 async function testRoleplayModes(page) {
   await page.goto(`${baseURL}/avatar-demo.html`, { waitUntil: "networkidle" });
 
@@ -525,6 +596,9 @@ async function main() {
 
     await testRoleplayModes(page);
     console.log("Checked roleplay mode switcher");
+
+    await testTrustContent(page);
+    console.log("Checked realism, upload trust, deployment, and student-safety content");
 
     await testTracker(page);
     console.log("Checked outreach tracker");

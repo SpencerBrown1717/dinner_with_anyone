@@ -5021,3 +5021,347 @@ body.cinematic-mode .cinematic-toggle {
     font-size: 20px;
   }
 }
+
+/* =========================================================
+   Trust + realism: avatar realism, upload trust,
+   private deployment, student vulnerability
+   ========================================================= */
+
+.realism-grid,
+.deployment-grid,
+.vulnerability-grid,
+.upload-trust-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.realism-card,
+.deployment-card,
+.vulnerability-card,
+.upload-trust-card {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 16px 50px rgba(11,77,255,.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.realism-card .icon-pill,
+.deployment-card .icon-pill,
+.vulnerability-card .icon-pill,
+.upload-trust-card .icon-pill {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 5px 11px;
+  background: linear-gradient(180deg, #f4f8ff, #e9f1ff);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.vulnerability-card .icon-pill {
+  background: linear-gradient(180deg, #f0f7ff, #d8ecff);
+  color: #007ec2;
+}
+
+.deployment-card .icon-pill {
+  background: linear-gradient(180deg, #eef1ff, #d7defc);
+  color: var(--blue);
+}
+
+.realism-card h3,
+.deployment-card h3,
+.vulnerability-card h3,
+.upload-trust-card h3 {
+  margin: 0;
+  letter-spacing: -.02em;
+}
+
+/* Realism stack — numbered sequence */
+
+.realism-stack {
+  list-style: none;
+  margin: 32px 0 0;
+  padding: 26px;
+  border: 1px solid rgba(11,77,255,.18);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0,184,255,.12), transparent 40%),
+    linear-gradient(180deg, #fff, #f5f9ff);
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(2, 1fr);
+  counter-reset: realism;
+}
+
+.realism-stack li {
+  position: relative;
+  padding: 14px 14px 14px 60px;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 16px;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 14.5px;
+  counter-increment: realism;
+}
+
+.realism-stack li::before {
+  content: counter(realism, decimal-leading-zero);
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font, inherit);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: .08em;
+  color: var(--blue);
+  background: linear-gradient(180deg, #f0f3ff, #e0e7ff);
+  border-radius: 999px;
+  padding: 6px 9px;
+}
+
+/* Realism callout panels under roleplay demo */
+
+.realism-callout-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 28px;
+}
+
+.realism-callout {
+  border: 1px solid rgba(11,77,255,.18);
+  background:
+    linear-gradient(180deg, #fff, #f6f9ff);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 18px 60px rgba(9,44,120,.08);
+  display: grid;
+  gap: 10px;
+}
+
+.realism-callout .eyebrow {
+  margin: 0;
+}
+
+.realism-callout h4 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -.02em;
+}
+
+.realism-callout p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+/* Professor controls mock panel */
+
+.professor-controls-mock {
+  border: 1px solid rgba(11,77,255,.16);
+  border-radius: 26px;
+  padding: 24px;
+  background:
+    linear-gradient(180deg, #fff, #f6f9ff);
+  box-shadow: 0 18px 60px rgba(9,44,120,.08);
+  display: grid;
+  gap: 14px;
+}
+
+.professor-controls-mock h3 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -.02em;
+}
+
+.controls-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.controls-rows li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
+.controls-rows li span:first-child {
+  color: var(--muted);
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.controls-rows li span:last-child {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.controls-rows li .toggle-on {
+  color: var(--blue);
+  background: rgba(11,77,255,.08);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  letter-spacing: .04em;
+}
+
+.controls-rows li .toggle-off {
+  color: var(--muted);
+  background: rgba(91,107,134,.1);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 12px;
+  letter-spacing: .04em;
+}
+
+/* Anti-hallucination promise box */
+
+.promise-stack {
+  border: 1px solid rgba(11,77,255,.18);
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0,184,255,.08), transparent 40%),
+    linear-gradient(180deg, #f6f9ff, #fff);
+  padding: 26px;
+  display: grid;
+  gap: 10px;
+}
+
+.promise-stack p {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -.01em;
+  padding-left: 28px;
+  position: relative;
+}
+
+.promise-stack p::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--blue);
+  font-weight: 900;
+}
+
+/* Safer-language block (private deployment) */
+
+.safer-language {
+  margin-top: 28px;
+  border: 1px solid rgba(91,107,134,.2);
+  border-radius: 20px;
+  padding: 22px;
+  background: rgba(255,255,255,.85);
+  display: grid;
+  gap: 12px;
+}
+
+.safer-language h4 {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: -.01em;
+}
+
+.safer-language .lang-two {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.safer-language .lang-col strong {
+  display: block;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.safer-language ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.safer-language ul li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 13.5px;
+  color: var(--ink);
+}
+
+.safer-language .avoid li::before {
+  content: "✕";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #b1264a;
+  font-weight: 900;
+}
+
+.safer-language .prefer li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--blue);
+  font-weight: 900;
+}
+
+@media (max-width: 980px) {
+  .realism-grid,
+  .deployment-grid,
+  .vulnerability-grid,
+  .upload-trust-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .realism-callout-grid,
+  .safer-language .lang-two {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .realism-grid,
+  .deployment-grid,
+  .vulnerability-grid,
+  .upload-trust-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .realism-stack {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .professor-controls-mock {
+    padding: 18px;
+  }
+}

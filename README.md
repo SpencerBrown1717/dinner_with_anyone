@@ -306,7 +306,10 @@ When writing copy for this site, avoid overclaiming compliance. **Do not say "SO
 
 - [Service Level Agreement](SLA.md)
 - [Avatar Architecture](AVATAR_ARCHITECTURE.md)
+- [Avatar Realism](AVATAR_REALISM.md)
 - [Grounding and Anti-Hallucination Policy](GROUNDING_POLICY.md)
+- [Professor Upload Trust](PROFESSOR_UPLOAD_TRUST.md)
+- [Deployment and Security](DEPLOYMENT_SECURITY.md)
 
 ## License
 

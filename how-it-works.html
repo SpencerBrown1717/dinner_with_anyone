@@ -245,6 +245,271 @@
       </div>
     </section>
 
+    <section class="section soft" id="avatar-realism">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Avatar realism</span>
+          <h2>Realism breaks at the mouth.</h2>
+          <p class="muted">
+            For a 3D professor avatar, the most important realism layer is not just the face
+            model. It is the timing between speech, mouth movement, expression, pauses, and
+            eye contact. If the mouth feels wrong, the whole experience feels fake.
+          </p>
+        </div>
+
+        <div class="realism-grid">
+          <article class="realism-card">
+            <span class="icon-pill">Speech-synced</span>
+            <h3>Speech-synced mouth movement.</h3>
+            <p class="muted">
+              The avatar mouth should move from the actual spoken audio, not from a generic
+              talking animation.
+            </p>
+          </article>
+
+          <article class="realism-card">
+            <span class="icon-pill">Phoneme</span>
+            <h3>Phoneme-aware lip sync.</h3>
+            <p class="muted">
+              The system should map speech sounds to mouth shapes so words feel physically
+              believable.
+            </p>
+          </article>
+
+          <article class="realism-card">
+            <span class="icon-pill">Pauses</span>
+            <h3>Micro-pauses and hesitation.</h3>
+            <p class="muted">
+              A good professor avatar should pause before hard questions, slow down during
+              explanation, and leave room for the student to think.
+            </p>
+          </article>
+
+          <article class="realism-card">
+            <span class="icon-pill">Expression</span>
+            <h3>Expression timing.</h3>
+            <p class="muted">
+              Eyebrows, head movement, eye contact, and smile timing should support the
+              teaching moment.
+            </p>
+          </article>
+
+          <article class="realism-card">
+            <span class="icon-pill">Latency</span>
+            <h3>Low-latency response loop.</h3>
+            <p class="muted">
+              Students should not feel like they are talking to a delayed video. The response
+              loop should feel alive.
+            </p>
+          </article>
+
+          <article class="realism-card">
+            <span class="icon-pill">Fallback</span>
+            <h3>Fallback realism.</h3>
+            <p class="muted">
+              If full lip sync is not available, the system should degrade gracefully instead of
+              showing uncanny mouth movement.
+            </p>
+          </article>
+        </div>
+
+        <ol class="realism-stack" aria-label="Avatar realism stack">
+          <li>Text response</li>
+          <li>Voice generation</li>
+          <li>Audio timing</li>
+          <li>Phoneme / viseme mapping</li>
+          <li>Mouth movement</li>
+          <li>Facial expression</li>
+          <li>Eye contact + head motion</li>
+          <li>Student interruption handling</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="upload-trust">
+      <div class="wrap two">
+        <div>
+          <span class="eyebrow">Professor upload trust</span>
+          <h2>Professors should know exactly what the avatar is allowed to say.</h2>
+          <p class="muted">
+            A professor avatar is only useful if the professor can trust it. Dinner With Anyone
+            should make uploaded materials, source boundaries, difficulty level, and answer
+            behavior visible and controllable.
+          </p>
+
+          <div class="promise-stack" style="margin-top:18px">
+            <p>If the source supports it, the avatar answers.</p>
+            <p>If the source does not support it, the avatar says so.</p>
+            <p>If the professor restricts it, the avatar respects the boundary.</p>
+          </div>
+        </div>
+
+        <aside class="professor-controls-mock" aria-label="Example professor controls">
+          <h3>Professor controls</h3>
+          <ul class="controls-rows">
+            <li><span>Course</span><span>Strategy 201</span></li>
+            <li><span>Difficulty</span><span>College</span></li>
+            <li><span>Sources</span><span>Slides · readings · transcripts</span></li>
+            <li><span>Mode</span><span class="toggle-on">Strict grounding</span></li>
+            <li><span>Allowed topics</span><span>Week 1–6 only</span></li>
+            <li><span>Feedback style</span><span>Socratic · helpful · not answer-giving</span></li>
+            <li><span>Public context</span><span class="toggle-off">Off</span></li>
+            <li><span>Student memory</span><span>Private</span></li>
+          </ul>
+        </aside>
+      </div>
+
+      <div class="wrap" style="margin-top:36px">
+        <div class="upload-trust-grid">
+          <article class="upload-trust-card">
+            <span class="icon-pill">Upload</span>
+            <h3>Upload trusted material.</h3>
+            <p class="muted">
+              Syllabus, slides, readings, transcripts, rubrics, assignments, case packets, and
+              exam review guides.
+            </p>
+          </article>
+
+          <article class="upload-trust-card">
+            <span class="icon-pill">Boundaries</span>
+            <h3>Set source boundaries.</h3>
+            <p class="muted">
+              Professors choose whether the avatar can answer from class-only material, approved
+              public sources, or general reasoning.
+            </p>
+          </article>
+
+          <article class="upload-trust-card">
+            <span class="icon-pill">Preview</span>
+            <h3>Preview before students use it.</h3>
+            <p class="muted">
+              Professors can test the avatar with hard questions before opening it to the class.
+            </p>
+          </article>
+
+          <article class="upload-trust-card">
+            <span class="icon-pill">Confidence</span>
+            <h3>See source confidence.</h3>
+            <p class="muted">
+              Each answer should show whether it came from uploaded curriculum, approved public
+              context, or general reasoning.
+            </p>
+          </article>
+
+          <article class="upload-trust-card">
+            <span class="icon-pill">Strict mode</span>
+            <h3>Strict mode.</h3>
+            <p class="muted">
+              When strict mode is on, the avatar should refuse to answer outside the uploaded
+              material.
+            </p>
+          </article>
+
+          <article class="upload-trust-card">
+            <span class="icon-pill">Correction</span>
+            <h3>Correction loop.</h3>
+            <p class="muted">
+              Professors should be able to flag wrong answers, add source notes, and improve the
+              avatar over time.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft" id="private-deployment">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Private deployment</span>
+          <h2>Private deployment for sensitive learning environments.</h2>
+          <p class="muted">
+            Schools, universities, and enterprises may need Dinner With Anyone deployed in a
+            private environment so curriculum, student practice data, and internal training
+            materials stay under their control.
+          </p>
+        </div>
+
+        <div class="deployment-grid">
+          <article class="deployment-card">
+            <span class="icon-pill">01</span>
+            <h3>Hosted pilot.</h3>
+            <p class="muted">
+              Fastest way to evaluate the product with a small class or training group.
+            </p>
+          </article>
+
+          <article class="deployment-card">
+            <span class="icon-pill">02</span>
+            <h3>Private cloud.</h3>
+            <p class="muted">
+              Dedicated environment for one school, department, or enterprise team.
+            </p>
+          </article>
+
+          <article class="deployment-card">
+            <span class="icon-pill">03</span>
+            <h3>On-prem deployment.</h3>
+            <p class="muted">
+              Run inside the customer's own infrastructure for sensitive academic, enterprise,
+              or government use cases.
+            </p>
+          </article>
+
+          <article class="deployment-card">
+            <span class="icon-pill">No-train</span>
+            <h3>No-training mode.</h3>
+            <p class="muted">
+              Student conversations and uploaded professor materials should not be used for
+              general model training.
+            </p>
+          </article>
+
+          <article class="deployment-card">
+            <span class="icon-pill">Boundaries</span>
+            <h3>Data boundaries.</h3>
+            <p class="muted">
+              Course materials, student conversations, rubrics, and feedback logs should stay
+              scoped to the customer environment.
+            </p>
+          </article>
+
+          <article class="deployment-card">
+            <span class="icon-pill">Admin</span>
+            <h3>Admin controls.</h3>
+            <p class="muted">
+              Institutions should control access, retention, source uploads, and approved avatar
+              behavior.
+            </p>
+          </article>
+        </div>
+
+        <div class="safer-language">
+          <h4>How we talk about security.</h4>
+          <div class="lang-two">
+            <div class="lang-col prefer">
+              <strong>Preferred language</strong>
+              <ul>
+                <li>Designed for private deployment</li>
+                <li>Can support institution-controlled environments</li>
+                <li>Built for data boundary controls</li>
+                <li>Security review available for pilots</li>
+              </ul>
+            </div>
+            <div class="lang-col avoid">
+              <strong>Language we do not use</strong>
+              <ul>
+                <li>HIPAA compliant</li>
+                <li>FERPA compliant</li>
+                <li>SOC 2 certified</li>
+                <li>End-to-end encrypted</li>
+                <li>Guaranteed secure</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section soft">
       <div class="wrap two">
         <div>

@@ -80,3 +80,13 @@ Dinner With Anyone is an educational simulation product. It is **not**:
 - A claim that an avatar represents the real person's exact views, words, or private thoughts.
 - A general-purpose knowledge oracle. Boundaries are set per class, per teacher, per
   product surface.
+
+## Related
+
+- [Professor Upload Trust](PROFESSOR_UPLOAD_TRUST.md) — how professors upload, preview, and
+  correct what the avatar can say.
+- [Avatar Realism](AVATAR_REALISM.md) — speech-synced mouth movement, viseme mapping, and
+  expression timing.
+- [Deployment and Security](DEPLOYMENT_SECURITY.md) — hosted, private cloud, and on-prem
+  deployment paths.
+- [Avatar Architecture](AVATAR_ARCHITECTURE.md) — full system design.
