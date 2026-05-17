@@ -979,3 +979,155 @@
   initChecklist();
   renderContacts();
 })();
+
+/* =========================================================
+   Premium UX Polish
+   ========================================================= */
+
+(function () {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Scroll progress bar
+  const progress = document.createElement("div");
+  progress.className = "scroll-progress";
+  progress.setAttribute("aria-hidden", "true");
+  document.body.appendChild(progress);
+
+  function updateScrollProgress() {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = max > 0 ? Math.min(100, Math.max(0, (scrollTop / max) * 100)) : 0;
+    progress.style.width = `${percent}%`;
+
+    const topbar = document.querySelector(".topbar");
+    if (topbar) topbar.classList.toggle("is-scrolled", scrollTop > 8);
+  }
+
+  window.addEventListener("scroll", updateScrollProgress, { passive: true });
+  window.addEventListener("resize", updateScrollProgress);
+  updateScrollProgress();
+
+  // Reveal animations
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    const revealTargets = document.querySelectorAll(
+      ".section .card, .section h2, .section .lead, .section .muted, .avatar-choice, .proof-slide, .pilot-step-card, .insight-card, .arch-node, .buyer-path-card"
+    );
+
+    revealTargets.forEach((el, index) => {
+      el.classList.add("reveal");
+      if (index % 3 === 1) el.classList.add("reveal-delay-1");
+      if (index % 3 === 2) el.classList.add("reveal-delay-2");
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        rootMargin: "0px 0px -8% 0px",
+        threshold: 0.12
+      }
+    );
+
+    revealTargets.forEach((el) => observer.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+  }
+
+  // Mobile sticky CTA
+  const shouldAddMobileCta =
+    !document.body.classList.contains("no-mobile-cta") &&
+    document.querySelector("a[href='contact.html'], a[href='contact.html?path=teacher'], a[href='pilot.html']");
+
+  if (shouldAddMobileCta) {
+    const sticky = document.createElement("div");
+    sticky.className = "mobile-sticky-cta";
+    sticky.innerHTML = `
+      <div>
+        <strong>Ready to see it?</strong>
+        <span>Book a demo or pilot one class.</span>
+      </div>
+      <a class="btn primary" href="contact.html?path=teacher">Book</a>
+    `;
+    document.body.appendChild(sticky);
+    document.body.classList.add("has-mobile-cta");
+
+    function updateStickyCta() {
+      const isMobile = window.innerWidth <= 760;
+      const show = isMobile && window.scrollY > 520;
+      sticky.classList.toggle("is-visible", show);
+    }
+
+    window.addEventListener("scroll", updateStickyCta, { passive: true });
+    window.addEventListener("resize", updateStickyCta);
+    updateStickyCta();
+  }
+
+  // Button ripple-lite feedback
+  document.addEventListener("pointerdown", (event) => {
+    const button = event.target.closest(".btn, button");
+    if (!button || reduceMotion) return;
+
+    button.animate(
+      [
+        { transform: "scale(1)" },
+        { transform: "scale(.982)" },
+        { transform: "scale(1)" }
+      ],
+      {
+        duration: 180,
+        easing: "cubic-bezier(.2,.8,.2,1)"
+      }
+    );
+  });
+})();
+
+/* =========================================================
+   Avatar Demo Cinematic Mode
+   ========================================================= */
+
+(function () {
+  const room = document.querySelector("[data-proof-room]");
+  if (!room) return;
+
+  const section = room.closest(".section");
+  if (!section) return;
+
+  const wrap = section.querySelector(".wrap");
+  if (!wrap) return;
+
+  const toolbar = document.createElement("div");
+  toolbar.className = "avatar-demo-toolbar";
+  toolbar.innerHTML = `
+    <button class="cinematic-toggle" type="button" data-cinematic-toggle>
+      Enter cinematic mode
+    </button>
+  `;
+
+  wrap.insertBefore(toolbar, wrap.firstElementChild);
+
+  const button = toolbar.querySelector("[data-cinematic-toggle]");
+
+  function setMode(active) {
+    document.body.classList.toggle("cinematic-mode", active);
+    button.textContent = active ? "Exit cinematic mode" : "Enter cinematic mode";
+
+    if (active) {
+      room.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  button.addEventListener("click", () => {
+    setMode(!document.body.classList.contains("cinematic-mode"));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && document.body.classList.contains("cinematic-mode")) {
+      setMode(false);
+    }
+  });
+})();

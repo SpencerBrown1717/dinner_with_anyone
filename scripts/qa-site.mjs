@@ -366,6 +366,19 @@ async function checkHeroVisible(page, pageName, viewportName) {
   assert(box.height > 20, `H1 height too small on ${pageName} at ${viewportName}`);
 }
 
+async function checkPremiumUxElements(page, pageName, viewportName) {
+  const progressExists = await page.locator(".scroll-progress").count();
+  assert(progressExists === 1, `Missing scroll progress bar on ${pageName} at ${viewportName}`);
+
+  if (viewportName.startsWith("mobile")) {
+    await page.evaluate(() => window.scrollTo(0, 700));
+    await page.waitForTimeout(200);
+
+    const stickyCount = await page.locator(".mobile-sticky-cta").count();
+    assert(stickyCount <= 1, `Duplicate mobile sticky CTA on ${pageName} at ${viewportName}`);
+  }
+}
+
 async function checkAvatarMobileExperience(page, viewport) {
   await page.goto(`${baseURL}/avatar-demo.html`, { waitUntil: "networkidle" });
 
@@ -423,6 +436,7 @@ async function collectResponsiveIssues(browser) {
         await page.goto(`${baseURL}/${pageName}`, { waitUntil: "networkidle" });
         await checkNoHorizontalOverflow(page, pageName, viewport.name);
         await checkHeroVisible(page, pageName, viewport.name);
+        await checkPremiumUxElements(page, pageName, viewport.name);
 
         if (viewport.isMobile) {
           await checkTapTargets(page, pageName, viewport.name);
