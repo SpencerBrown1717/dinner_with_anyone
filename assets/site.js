@@ -564,3 +564,33 @@
 
   renderAvatar(currentAvatarKey);
 })();
+
+/* =========================================================
+   Buyer path highlighting for contact page
+   ========================================================= */
+
+(function () {
+  const pathCards = document.querySelectorAll("[data-path-card]");
+  const note = document.querySelector("[data-selected-path-note]");
+
+  if (!pathCards.length) return;
+
+  const copy = {
+    teacher: "Selected: Teacher / professor. The demo will focus on uploading class material and creating a professor avatar.",
+    school: "Selected: School or MBA program. The demo will focus on cohort pilots, private-server options, and teacher insight reports.",
+    avatar: "Selected: Famous / expert avatar. The demo will focus on public-source avatars, voice interaction, and branded expert experiences."
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  const selected = params.get("path");
+
+  if (selected) {
+    pathCards.forEach((card) => {
+      card.classList.toggle("active", card.dataset.pathCard === selected);
+    });
+
+    if (note && copy[selected]) {
+      note.textContent = copy[selected];
+    }
+  }
+})();
