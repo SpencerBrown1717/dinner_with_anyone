@@ -1,32 +1,39 @@
 # Dinner With Anyone
 
-AI-powered expert conversations with world-class advisors — available on demand for operators, founders, executives, and enterprise teams.
+AI avatars for conversation and learning. Talk, text, and interact with AI avatars of famous historical figures, expert thinkers, and custom professor avatars built from real curriculum, lectures, and trusted source material.
 
 This repository is the marketing site for **Dinner With Anyone**, built as a small set of static HTML pages with one shared stylesheet and one shared JS file. No build step, no framework.
 
 Live: https://spencerbrown1717.github.io/dinner_with_anyone/
 
+## Two product paths
+
+1. **Historical & famous avatars** — Einstein, Caesar, Cleopatra, Confucius, Alexander the Great, da Vinci, and a growing library of historical figures with rich public records. All avatars are AI simulations built from publicly available material — not affiliated with any individual or estate.
+2. **Custom professor avatars** — teachers upload curriculum, slides, readings, transcripts, or Zoom recordings and the system generates a professor avatar a whole cohort can talk to, text, or send voice and video check-ins to.
+
 ## Pages
 
-| URL                  | What it is                                                  |
-|----------------------|-------------------------------------------------------------|
-| `/`                  | Home — hero, dinner table visual, why, expert preview, CTA  |
-| `/experts.html`      | Expert marketplace                                          |
-| `/how-it-works.html` | 3-step explainer + sample session                           |
-| `/enterprise.html`   | Enterprise pitch and use cases                              |
-| `/pricing.html`      | Free / Pro / Team / Enterprise + add-ons + comparison + FAQ |
-| `/contact.html`      | Book-a-demo page (links to Google Calendar)                 |
+| URL                  | What it is                                                                |
+|----------------------|---------------------------------------------------------------------------|
+| `/`                  | Home — hero, dinner table visual, two product paths, expert preview       |
+| `/experts.html`      | Historical avatar library (Einstein, Caesar, Cleopatra, Confucius, etc.)  |
+| `/education.html`    | AI Professor Avatars for Classrooms — upload → avatar → cohort interacts  |
+| `/how-it-works.html` | 3-step explainer + sample session + two-product split                     |
+| `/enterprise.html`   | Custom expert avatars, SSO/SAML, audit logs, internal SME twins           |
+| `/pricing.html`      | Explorer / Student-Class / Institution / Enterprise + comparison + FAQ    |
+| `/contact.html`      | Book-a-demo page (links to Google Calendar)                               |
 
 ## Project structure
 
 ```
 .
 ├── index.html            # home
-├── experts.html
+├── experts.html          # historical & famous avatars
+├── education.html        # AI professor avatars for classrooms
 ├── how-it-works.html
 ├── enterprise.html
 ├── pricing.html
-├── contact.html
+├── contact.html          # book-a-demo
 ├── sitemap.xml           # all 6 URLs for search engine crawlers
 ├── robots.txt            # allow all, points to sitemap
 ├── assets/
