@@ -578,7 +578,8 @@
   const copy = {
     teacher: "Selected: Teacher / professor. The demo will focus on uploading class material and creating a professor avatar.",
     school: "Selected: School or MBA program. The demo will focus on cohort pilots, private-server options, and teacher insight reports.",
-    avatar: "Selected: Famous / expert avatar. The demo will focus on public-source avatars, voice interaction, and branded expert experiences."
+    avatar: "Selected: Famous / expert avatar. The demo will focus on public-source avatars, voice interaction, and branded expert experiences.",
+    practice: "Selected: Practice / roleplay. The demo will focus on interview prep, sales practice, negotiation roleplay, and feedback loops."
   };
 
   const params = new URLSearchParams(window.location.search);
@@ -1130,4 +1131,77 @@
       setMode(false);
     }
   });
+})();
+
+/* =========================================================
+   Roleplay mode switcher (avatar-demo and practice pages)
+   ========================================================= */
+
+(function () {
+  const tabs = document.querySelectorAll("[data-roleplay-mode]");
+  if (!tabs.length) return;
+
+  const titleEl = document.querySelector("[data-roleplay-title]");
+  const promptEl = document.querySelector("[data-roleplay-prompt]");
+  const responseEl = document.querySelector("[data-roleplay-response]");
+  const feedbackEl = document.querySelector("[data-roleplay-feedback]");
+
+  const roleplayModes = {
+    teach: {
+      title: "Teach me",
+      prompt: "Teach me this week's concept the way you would in office hours.",
+      response:
+        "Imagine that every decision is made from a frame of reference. The question is not only what you see, but where you are standing when you see it. Walk me through where you are standing on this problem.",
+      feedback: "Concept clarity, examples, follow-up questions."
+    },
+    interview: {
+      title: "Interview me",
+      prompt: "I'm preparing for a product strategy interview. Ask me a hard question.",
+      response:
+        "Good. You are the PM for an AI tutoring product. Retention is falling after week two. What three hypotheses would you test first, and what evidence would change your mind?",
+      feedback: "Structure, assumptions, prioritization, evidence."
+    },
+    sales: {
+      title: "Sell to me",
+      prompt: "I'm practicing a sales discovery call for an enterprise AI product.",
+      response:
+        "I'm the buyer. I do not care about AI. I care about reducing support cost. Ask me a discovery question that earns the right to continue.",
+      feedback: "Discovery, business pain, objection handling, next step."
+    },
+    negotiation: {
+      title: "Negotiate with me",
+      prompt: "I'm negotiating a job offer. Help me practice.",
+      response:
+        "I will play the recruiter. You want a higher salary, but I have budget constraints. Make your opening ask.",
+      feedback: "Leverage, framing, tradeoffs, confidence."
+    },
+    quiz: {
+      title: "Quiz me",
+      prompt: "Quiz me on this week's lecture.",
+      response:
+        "Define switching costs in your own words, then apply the idea to an AI startup that depends on workflow lock-in.",
+      feedback: "Concept mastery, application, evidence."
+    }
+  };
+
+  function setMode(key) {
+    const mode = roleplayModes[key] || roleplayModes.teach;
+
+    tabs.forEach((tab) => {
+      tab.classList.toggle("active", tab.dataset.roleplayMode === key);
+      tab.setAttribute("aria-pressed", tab.dataset.roleplayMode === key ? "true" : "false");
+    });
+
+    if (titleEl) titleEl.textContent = mode.title;
+    if (promptEl) promptEl.textContent = mode.prompt;
+    if (responseEl) responseEl.textContent = mode.response;
+    if (feedbackEl) feedbackEl.textContent = mode.feedback;
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => setMode(tab.dataset.roleplayMode));
+  });
+
+  const initial = document.querySelector("[data-roleplay-mode].active")?.dataset.roleplayMode || "teach";
+  setMode(initial);
 })();

@@ -49,6 +49,7 @@
         <div class="links">
           <a href="experts.html">Experts</a>
           <a href="education.html">Education</a>
+          <a href="practice.html">Practice</a>
           <a href="demo.html">Demo</a>
           <a href="avatar-demo.html" aria-current="page">Avatar demo</a>
           <a href="how-it-works.html">How it works</a>
@@ -61,6 +62,7 @@
       <div class="mobile" id="mobile-nav">
         <a href="experts.html">Experts</a>
         <a href="education.html">Education</a>
+        <a href="practice.html">Practice</a>
         <a href="demo.html">Demo</a>
         <a href="avatar-demo.html">Avatar demo</a>
         <a href="how-it-works.html">How it works</a>
@@ -126,6 +128,36 @@
             <strong>Cleopatra</strong>
             <small>Diplomacy · power · statecraft</small>
           </button>
+        </div>
+
+        <div class="roleplay-mode-tabs" role="tablist" aria-label="Roleplay mode">
+          <button class="roleplay-tab active" type="button" data-roleplay-mode="teach" aria-pressed="true">Teach me</button>
+          <button class="roleplay-tab" type="button" data-roleplay-mode="interview" aria-pressed="false">Interview me</button>
+          <button class="roleplay-tab" type="button" data-roleplay-mode="sales" aria-pressed="false">Sell to me</button>
+          <button class="roleplay-tab" type="button" data-roleplay-mode="negotiation" aria-pressed="false">Negotiate with me</button>
+          <button class="roleplay-tab" type="button" data-roleplay-mode="quiz" aria-pressed="false">Quiz me</button>
+        </div>
+
+        <div class="roleplay-mode-card" data-roleplay-card>
+          <div class="roleplay-head">
+            <span class="eyebrow small">Mode brief</span>
+            <h4 data-roleplay-title>Teach me</h4>
+            <span class="feedback-pill" data-roleplay-feedback>
+              Concept clarity, examples, follow-up questions.
+            </span>
+          </div>
+          <p>
+            <strong>Student prompt</strong>
+            <span data-roleplay-prompt>
+              Teach me this week's concept the way you would in office hours.
+            </span>
+          </p>
+          <p>
+            <strong>Avatar challenge</strong>
+            <span data-roleplay-response>
+              Imagine that every decision is made from a frame of reference. The question is not only what you see, but where you are standing when you see it. Walk me through where you are standing on this problem.
+            </span>
+          </p>
         </div>
 
         <div class="proof-room" data-proof-room>
@@ -234,6 +266,18 @@
                 <span class="source-chip class">Teacher slides</span>
                 <span class="source-chip class">Zoom transcripts</span>
               </div>
+            </div>
+
+            <div class="grounding-panel">
+              <span class="source-confidence">Grounded: uploaded slides + transcript</span>
+              <h4>Answer policy</h4>
+              <ul class="grounding-policy-list">
+                <li>Use uploaded curriculum first</li>
+                <li>Use public-source context second</li>
+                <li>Say when the answer is outside the source material</li>
+                <li>Never invent citations or source references</li>
+                <li>Show source boundaries to the student</li>
+              </ul>
             </div>
           </aside>
 
@@ -483,6 +527,7 @@
         <b>Product</b>
         <a href="experts.html">Experts</a>
         <a href="education.html">Education</a>
+        <a href="practice.html">Practice</a>
         <a href="demo.html">Demo</a>
         <a href="avatar-demo.html">Avatar demo</a>
         <a href="pilot.html">Pilot</a>

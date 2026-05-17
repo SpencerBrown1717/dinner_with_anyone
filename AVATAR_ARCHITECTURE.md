@@ -408,7 +408,35 @@ Build:
 
 ---
 
-## 12. Near-term rule
+## 12. Roleplay practice + anti-hallucination layer
+
+Dinner With Anyone is also a roleplay practice platform. The architecture should
+support five practice modes on top of the conversation loop:
+
+- **Teach me** — patient explanation grounded in uploaded course material.
+- **Interview me** — generates interview-style follow-ups and scores answers.
+- **Sell to me** — runs a buyer persona, asks for discovery, scores objection handling.
+- **Negotiate with me** — runs a counterparty (recruiter, vendor, investor), scores leverage.
+- **Quiz me** — concept-check loop scored on mastery and application.
+
+Difficulty levels (`high_school`, `college`, `graduate`) modulate prompt strength,
+follow-up sharpness, and how much scaffolding the avatar provides.
+
+The anti-hallucination contract (full detail in [`GROUNDING_POLICY.md`](GROUNDING_POLICY.md))
+is enforced at three layers:
+
+1. **Retrieval layer** — uploaded teacher material is searched first; public sources second.
+2. **Reasoning layer** — every response carries a `source_confidence` tag
+   (`uploaded`, `public`, `general`, `outside`) used by the UI source-confidence pill.
+3. **UI layer** — citations rendered in the interface must come from real retrieval
+   results. If retrieval returns nothing, no citations are shown.
+
+Teacher controls (strict mode, allowed topics, feedback style) live on the teacher
+dashboard and are persisted to the avatar's runtime configuration.
+
+---
+
+## 13. Near-term rule
 
 Do not build the full avatar backend until one real pilot prospect validates:
 

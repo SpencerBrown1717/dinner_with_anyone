@@ -37,6 +37,7 @@ The positioning is deliberate: privacy-first, education-grade, and built so inst
 | `/education.html`      | Professor avatars for classrooms — upload → avatar → cohort interacts            |
 | `/demo.html`           | 4-step static product walkthrough (Choose → Ask → Ground → Export)               |
 | `/avatar-demo.html`    | **Flagship prototype** — voice + slides + transcript + simulated state machine   |
+| `/practice.html`       | Roleplay practice — interview, sales, negotiation, office hours, difficulty controls |
 | `/pilot.html`          | One-class pilot funnel — brief, timeline, needs, privacy ask                     |
 | `/outreach.html`       | Professor / MBA outreach page with copy-paste invite + walkthrough script        |
 | `/how-it-works.html`   | User-facing 3-step + 5-step architecture flow + privacy block + 8-phase roadmap  |
@@ -53,6 +54,7 @@ The positioning is deliberate: privacy-first, education-grade, and built so inst
 ├── education.html        # AI professor avatars for classrooms
 ├── demo.html             # 4-step static product walkthrough
 ├── avatar-demo.html      # voice/slides/transcript flagship demo (interactive)
+├── practice.html         # roleplay practice — interview / sales / negotiation / office hours
 ├── pilot.html            # one-class pilot funnel for teachers / MBA programs
 ├── outreach.html         # professor outreach page + copy-paste invite
 ├── how-it-works.html     # 3-step + 5-step architecture + privacy + 8-phase roadmap
@@ -304,6 +306,7 @@ When writing copy for this site, avoid overclaiming compliance. **Do not say "SO
 
 - [Service Level Agreement](SLA.md)
 - [Avatar Architecture](AVATAR_ARCHITECTURE.md)
+- [Grounding and Anti-Hallucination Policy](GROUNDING_POLICY.md)
 
 ## License
 

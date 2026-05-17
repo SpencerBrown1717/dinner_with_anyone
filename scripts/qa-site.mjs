@@ -16,6 +16,7 @@ const pages = [
   "education.html",
   "demo.html",
   "avatar-demo.html",
+  "practice.html",
   "pilot.html",
   "outreach.html",
   "outreach-tracker.html",
@@ -248,7 +249,7 @@ async function testAvatarDemo(page) {
 }
 
 async function testContactPaths(page) {
-  const paths = ["teacher", "school", "avatar"];
+  const paths = ["teacher", "school", "avatar", "practice"];
 
   for (const pathName of paths) {
     await page.goto(`${baseURL}/contact.html?path=${pathName}`, { waitUntil: "networkidle" });
@@ -259,6 +260,49 @@ async function testContactPaths(page) {
     const note = await page.locator("[data-selected-path-note]").innerText();
     assert(note.toLowerCase().includes("selected"), `Contact note did not update for: ${pathName}`);
   }
+}
+
+async function testRoleplayModes(page) {
+  await page.goto(`${baseURL}/avatar-demo.html`, { waitUntil: "networkidle" });
+
+  await page.locator("[data-roleplay-mode='interview']").click();
+  await page.waitForTimeout(150);
+
+  const interviewResponse = await page.locator("[data-roleplay-response]").innerText();
+  assert(
+    /retention|hypotheses/i.test(interviewResponse),
+    "Interview roleplay mode did not update response."
+  );
+
+  const interviewFeedback = await page.locator("[data-roleplay-feedback]").innerText();
+  assert(
+    /structure|assumptions/i.test(interviewFeedback),
+    "Interview roleplay mode did not update feedback."
+  );
+
+  await page.locator("[data-roleplay-mode='sales']").click();
+  await page.waitForTimeout(150);
+
+  const salesResponse = await page.locator("[data-roleplay-response]").innerText();
+  assert(
+    /buyer|discovery|support cost/i.test(salesResponse),
+    "Sales roleplay mode did not update response."
+  );
+
+  await page.locator("[data-roleplay-mode='negotiation']").click();
+  await page.waitForTimeout(150);
+
+  const negotiationResponse = await page.locator("[data-roleplay-response]").innerText();
+  assert(
+    /recruiter|salary|budget/i.test(negotiationResponse),
+    "Negotiation roleplay mode did not update response."
+  );
+
+  const activeTabCount = await page.locator("[data-roleplay-mode='negotiation'].active").count();
+  assert(activeTabCount === 1, "Negotiation roleplay tab was not marked active.");
+
+  const groundingPanelCount = await page.locator(".grounding-panel").count();
+  assert(groundingPanelCount >= 1, "Grounding panel missing on avatar demo.");
 }
 
 async function testTracker(page) {
@@ -478,6 +522,9 @@ async function main() {
 
     await testContactPaths(page);
     console.log("Checked contact path highlighting");
+
+    await testRoleplayModes(page);
+    console.log("Checked roleplay mode switcher");
 
     await testTracker(page);
     console.log("Checked outreach tracker");

@@ -4668,3 +4668,356 @@ body.cinematic-mode .cinematic-toggle {
     display: none !important;
   }
 }
+
+/* =========================================================
+   Roleplay practice + anti-hallucination UX
+   ========================================================= */
+
+.practice-mode-grid,
+.difficulty-grid,
+.feedback-score-grid,
+.policy-card-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.practice-mode-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.difficulty-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.feedback-score-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.policy-card-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.practice-card,
+.difficulty-card,
+.feedback-score-card,
+.answer-policy-card {
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 16px 50px rgba(11,77,255,.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.practice-card .badge,
+.difficulty-card .badge,
+.answer-policy-card .badge {
+  width: fit-content;
+  border-radius: 999px;
+  padding: 5px 11px;
+  background: linear-gradient(180deg, #f4f8ff, #e9f1ff);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.difficulty-card[data-level="hs"] .badge {
+  background: linear-gradient(180deg, #eef9ff, #d8efff);
+  color: #007ec2;
+}
+
+.difficulty-card[data-level="college"] .badge {
+  background: linear-gradient(180deg, #f0f3ff, #d9e2ff);
+  color: var(--blue);
+}
+
+.difficulty-card[data-level="grad"] .badge {
+  background: linear-gradient(180deg, #fff1f3, #ffd9df);
+  color: #b1264a;
+}
+
+.practice-card h3,
+.difficulty-card h3,
+.answer-policy-card h3,
+.feedback-score-card h4 {
+  margin: 0;
+  letter-spacing: -.02em;
+}
+
+.feedback-score-card h4 {
+  font-size: 16px;
+  color: var(--blue2);
+}
+
+.feedback-score-card strong {
+  font-size: 26px;
+  color: var(--ink);
+  letter-spacing: -.04em;
+}
+
+.practice-trust-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.practice-trust-strip span {
+  border: 1px solid rgba(11,77,255,.18);
+  background: rgba(255,255,255,.92);
+  color: var(--blue2);
+  font-weight: 800;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 999px;
+}
+
+/* Roleplay mode tabs on avatar-demo */
+
+.roleplay-mode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 14px;
+}
+
+.roleplay-tab {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.94);
+  color: var(--blue2);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 850;
+  font-size: 13px;
+  cursor: pointer;
+  letter-spacing: .01em;
+  transition:
+    border-color .2s var(--ease-out),
+    color .2s var(--ease-out),
+    background .2s var(--ease-out),
+    transform .2s var(--ease-out);
+}
+
+.roleplay-tab:hover {
+  transform: translateY(-1px);
+}
+
+.roleplay-tab.active {
+  background: linear-gradient(180deg, var(--blue), #003ad6);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(11,77,255,.28);
+}
+
+.roleplay-mode-card {
+  border: 1px solid rgba(11,77,255,.16);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(0,184,255,.1), transparent 38%),
+    linear-gradient(180deg, #fff, #f6f9ff);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 18px 60px rgba(9,44,120,.08);
+  display: grid;
+  gap: 14px;
+}
+
+.roleplay-mode-card .roleplay-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.roleplay-mode-card h4 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -.02em;
+}
+
+.roleplay-mode-card p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.roleplay-mode-card p strong {
+  display: block;
+  color: var(--blue2);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.roleplay-mode-card .feedback-pill {
+  background: linear-gradient(180deg, #f0f3ff, #e0e7ff);
+  color: var(--blue);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .06em;
+}
+
+/* Grounding panel + source confidence */
+
+.grounding-panel {
+  border: 1px solid rgba(11,77,255,.16);
+  background:
+    linear-gradient(180deg, #fff, #f5f9ff);
+  border-radius: 24px;
+  padding: 22px;
+  box-shadow: 0 18px 60px rgba(9,44,120,.08);
+  display: grid;
+  gap: 14px;
+}
+
+.grounding-panel h4 {
+  margin: 0;
+  font-size: 18px;
+  letter-spacing: -.02em;
+}
+
+.grounding-policy-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.grounding-policy-list li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.grounding-policy-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--blue);
+  font-weight: 900;
+}
+
+.source-confidence {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(11,77,255,.2);
+  background: rgba(11,77,255,.06);
+  color: var(--blue);
+  border-radius: 999px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .04em;
+  width: fit-content;
+}
+
+.source-confidence::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--blue);
+  box-shadow: 0 0 0 4px rgba(11,77,255,.16);
+}
+
+.sample-grounded-answer {
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 0;
+  background: white;
+  box-shadow: 0 18px 60px rgba(11,77,255,.08);
+  overflow: hidden;
+}
+
+.sample-grounded-answer .sample-row {
+  padding: 22px;
+  display: grid;
+  gap: 6px;
+}
+
+.sample-grounded-answer .sample-row + .sample-row {
+  border-top: 1px solid var(--line);
+}
+
+.sample-grounded-answer .sample-row strong {
+  color: var(--blue2);
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.sample-grounded-answer .sample-row.avatar {
+  background: linear-gradient(180deg, #f5f9ff, #fff);
+}
+
+.sample-grounded-answer .sample-row p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+/* Practice hero accent */
+
+.practice-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.practice-hero::after {
+  content: "";
+  position: absolute;
+  right: -160px;
+  top: 40px;
+  width: 540px;
+  height: 540px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 38% 38%, rgba(0,184,255,.18), transparent 36%),
+    radial-gradient(circle at 60% 62%, rgba(11,77,255,.18), transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.practice-hero > .wrap {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 980px) {
+  .practice-mode-grid,
+  .difficulty-grid,
+  .feedback-score-grid,
+  .policy-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 620px) {
+  .practice-mode-grid,
+  .difficulty-grid,
+  .feedback-score-grid,
+  .policy-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .roleplay-mode-card {
+    padding: 18px;
+  }
+
+  .roleplay-mode-card h4 {
+    font-size: 20px;
+  }
+}
