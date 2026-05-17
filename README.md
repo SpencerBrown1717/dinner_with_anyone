@@ -15,7 +15,7 @@ Live: https://spencerbrown1717.github.io/dinner_with_anyone/
 | `/how-it-works.html` | 3-step explainer + sample session                           |
 | `/enterprise.html`   | Enterprise pitch and use cases                              |
 | `/pricing.html`      | Free / Pro / Team / Enterprise + add-ons + comparison + FAQ |
-| `/contact.html`      | Request-access form (Formspree-ready)                       |
+| `/contact.html`      | Book-a-demo page (links to Google Calendar)                 |
 
 ## Project structure
 
@@ -32,34 +32,28 @@ Live: https://spencerbrown1717.github.io/dinner_with_anyone/
 ├── assets/
 │   ├── styles.css        # shared stylesheet for every page
 │   ├── site.js           # mobile menu, sticky-nav shadow, smooth scroll,
-│   │                     # Formspree ajax submit, pricing billing toggle
+│   │                     # pricing billing toggle
 │   ├── favicon.svg       # brand mark
 │   └── og-image.png      # 1200×630 social share preview
 └── README.md
 ```
 
-## Wire up the contact form (Formspree)
+## Book-a-demo CTA
 
-The contact form is fully built — it just needs an endpoint.
+Every CTA across the site routes to `contact.html`, which is a dedicated
+booking page with a single primary action: a button that opens the team's
+Google Calendar appointment link in a new tab.
 
-1. Create a free form at https://formspree.io.
-2. Copy the endpoint (it looks like `https://formspree.io/f/abcdwxyz`).
-3. In `contact.html`, replace `YOUR_FORM_ID` in the form's `action` attribute:
+To change the booking link, edit **one** value in `contact.html`:
 
-   ```html
-   <form action="https://formspree.io/f/abcdwxyz" method="POST" data-formspree ...>
-   ```
+```html
+<a class="btn primary book-btn"
+   href="https://calendar.app.google/2uCb1WSip2JsjvPz9"
+   target="_blank" rel="noopener noreferrer">Book your demo →</a>
+```
 
-That's the only change needed. The submit handler in `assets/site.js` already takes care of:
-
-- POSTing as `multipart/form-data` with `Accept: application/json`
-- A button "Sending…" loading state
-- An inline success card on submit (no page reload)
-- Inline error messages on failure
-- A hidden honeypot (`_gotcha`) field for spam
-- A custom email subject line via `_subject`
-
-While `YOUR_FORM_ID` is still in the action, the form intentionally fails fast with an error message so it's obvious it isn't connected.
+That's the only place the calendar URL lives. Swap it whenever the
+booking link changes (e.g. moving to Calendly, Cal.com, Savvycal, etc.).
 
 ## Run locally
 
