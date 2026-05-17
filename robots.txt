@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://spencerbrown1717.github.io/dinner_with_anyone/sitemap.xml

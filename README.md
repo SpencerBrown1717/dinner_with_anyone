@@ -27,11 +27,14 @@ Live: https://spencerbrown1717.github.io/dinner_with_anyone/
 ├── enterprise.html
 ├── pricing.html
 ├── contact.html
+├── sitemap.xml           # all 6 URLs for search engine crawlers
+├── robots.txt            # allow all, points to sitemap
 ├── assets/
 │   ├── styles.css        # shared stylesheet for every page
 │   ├── site.js           # mobile menu, sticky-nav shadow, smooth scroll,
 │   │                     # Formspree ajax submit, pricing billing toggle
-│   └── favicon.svg       # brand mark
+│   ├── favicon.svg       # brand mark
+│   └── og-image.png      # 1200×630 social share preview
 └── README.md
 ```
 
@@ -74,6 +77,22 @@ Then visit http://localhost:8000.
 
 - **GitHub Pages** (current setup) — Settings → Pages → Deploy from branch → `main` / root.
 - **Netlify / Vercel / Cloudflare Pages** — point at the repo, no build command, publish directory `.`.
+
+## Wire up a custom domain (e.g. `dinnerwithanyone.ai`)
+
+When you buy the domain and connect it via GitHub Pages → Settings → Pages → Custom domain:
+
+1. Add a `CNAME` file at the repo root containing just `dinnerwithanyone.ai`.
+2. Find-and-replace `https://spencerbrown1717.github.io/dinner_with_anyone/` → `https://dinnerwithanyone.ai/` across the repo.
+   This updates the `<link rel="canonical">`, `og:url`, `og:image`, `twitter:image`, `sitemap.xml`, and `robots.txt` in one pass.
+3. Resubmit `sitemap.xml` to Google Search Console under the new domain.
+
+## SEO
+
+- `sitemap.xml` lists all 6 URLs with priorities and `lastmod` dates.
+- `robots.txt` allows all crawlers and points to the sitemap.
+- Every page ships per-page `<title>`, description, canonical URL, Open Graph, and Twitter card meta.
+- `assets/og-image.png` is a 1200×630 share preview used on every page.
 
 ## Design system
 
