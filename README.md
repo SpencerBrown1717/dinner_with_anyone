@@ -200,6 +200,78 @@ Then the teacher sees what the class understood, where students are confused, an
 This is not just chat. It is an AI learning room.
 ```
 
+## Launch operations
+
+### Demo video
+
+Record `avatar-demo.html` and export the file as:
+
+```txt
+assets/demo-walkthrough.mp4
+```
+
+The homepage and outreach page automatically show the fallback card until that file exists. Once the file exists, the shared JS loader detects it via a `HEAD` request and displays the video — no HTML changes required.
+
+Recommended script:
+
+```txt
+This is Dinner With Anyone.
+
+A student can choose a historical figure like Einstein, or a custom professor avatar built from class material.
+
+They start a voice conversation.
+
+The avatar listens, thinks, and speaks back.
+
+Slides update beside the conversation using Gemini-powered lesson generation.
+
+For teachers, students can submit voice memos, text reflections, or video check-ins.
+
+Then the teacher sees what the class understood, where students are confused, and what to teach next.
+
+This is not just chat. It is an AI learning room.
+```
+
+### Outreach tracker
+
+Open:
+
+```txt
+outreach-tracker.html
+```
+
+This page stores outreach contacts in browser `localStorage` only. It does not send data to a server. The page ships with `<meta name="robots" content="noindex, nofollow">` and is intentionally **not** in `sitemap.xml` — it's discoverable only by direct link.
+
+Track:
+
+- Name
+- School
+- Email
+- Sent date
+- Status
+- Notes
+- Follow-up date
+
+Export CSV before clearing browser data.
+
+### Custom domain
+
+Do not add `CNAME` until `dinnerwithanyone.ai` is purchased and DNS is ready.
+
+When purchased, create a repo-root file named:
+
+```txt
+CNAME
+```
+
+Contents:
+
+```txt
+dinnerwithanyone.ai
+```
+
+Then set GitHub Pages custom domain and DNS records (see the Custom domain checklist above).
+
 ## SEO
 
 - `sitemap.xml` lists every page with priorities and `lastmod` dates (`avatar-demo.html` is priority `1.0`).

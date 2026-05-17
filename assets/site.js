@@ -623,3 +623,359 @@
     }
   });
 })();
+
+/* =========================================================
+   Demo video auto-loader
+   Shows fallback until assets/demo-walkthrough.mp4 exists.
+   ========================================================= */
+
+(function () {
+  const shells = document.querySelectorAll("[data-demo-video-shell]");
+  if (!shells.length) return;
+
+  shells.forEach(async (shell) => {
+    const video = shell.querySelector("[data-demo-video]");
+    if (!video) return;
+
+    const src = video.dataset.demoSrc;
+    if (!src) return;
+
+    try {
+      const response = await fetch(src, { method: "HEAD", cache: "no-store" });
+      if (!response.ok) return;
+
+      video.src = src;
+      shell.classList.add("video-ready");
+    } catch (error) {
+      // Keep fallback visible.
+    }
+  });
+})();
+
+/* =========================================================
+   Launch checklist + outreach tracker
+   Browser localStorage only. No backend.
+   ========================================================= */
+
+(function () {
+  const form = document.querySelector("[data-tracker-form]");
+  const body = document.querySelector("[data-tracker-body]");
+  const exportButton = document.querySelector("[data-export-tracker]");
+  const seedButton = document.querySelector("[data-seed-tracker]");
+  const clearButton = document.querySelector("[data-clear-tracker]");
+  const copyButton = document.querySelector("[data-copy-tracker-message]");
+  const copyMessage = document.querySelector("[data-tracker-message]");
+  const checks = document.querySelectorAll("[data-launch-check]");
+
+  const totalCount = document.querySelector("[data-total-count]");
+  const sentCount = document.querySelector("[data-sent-count]");
+  const replyCount = document.querySelector("[data-reply-count]");
+  const demoCount = document.querySelector("[data-demo-count]");
+
+  if (!form || !body) return;
+
+  const STORAGE_KEY = "dwa_outreach_tracker_v1";
+  const CHECKLIST_KEY = "dwa_launch_checklist_v1";
+
+  const statuses = [
+    "Not sent",
+    "Sent",
+    "Opened / replied",
+    "Demo booked",
+    "Not interested",
+    "Follow up"
+  ];
+
+  function readContacts() {
+    try {
+      return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    } catch (error) {
+      return [];
+    }
+  }
+
+  function writeContacts(contacts) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(contacts));
+  }
+
+  function readChecklist() {
+    try {
+      return JSON.parse(localStorage.getItem(CHECKLIST_KEY)) || {};
+    } catch (error) {
+      return {};
+    }
+  }
+
+  function writeChecklist(checklist) {
+    localStorage.setItem(CHECKLIST_KEY, JSON.stringify(checklist));
+  }
+
+  function escapeHtml(value) {
+    return String(value || "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function csvEscape(value) {
+    const string = String(value || "");
+    return `"${string.replaceAll('"', '""')}"`;
+  }
+
+  function updateCounts(contacts) {
+    if (totalCount) totalCount.textContent = contacts.length;
+    if (sentCount) {
+      sentCount.textContent = contacts.filter((item) =>
+        ["Sent", "Opened / replied", "Demo booked", "Not interested", "Follow up"].includes(item.status)
+      ).length;
+    }
+    if (replyCount) {
+      replyCount.textContent = contacts.filter((item) =>
+        ["Opened / replied", "Demo booked", "Follow up"].includes(item.status)
+      ).length;
+    }
+    if (demoCount) {
+      demoCount.textContent = contacts.filter((item) => item.status === "Demo booked").length;
+    }
+  }
+
+  function statusOptions(selected) {
+    return statuses
+      .map((status) => {
+        const isSelected = status === selected ? "selected" : "";
+        return `<option ${isSelected}>${status}</option>`;
+      })
+      .join("");
+  }
+
+  function renderContacts() {
+    const contacts = readContacts();
+    updateCounts(contacts);
+
+    if (!contacts.length) {
+      body.innerHTML = `
+        <tr>
+          <td colspan="8" class="tracker-empty">
+            No contacts yet. Add 10 professors or MBA program leads above.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    body.innerHTML = contacts
+      .map((contact) => `
+        <tr data-contact-id="${contact.id}">
+          <td>
+            <input data-field="name" value="${escapeHtml(contact.name)}" aria-label="Name" />
+          </td>
+          <td>
+            <input data-field="school" value="${escapeHtml(contact.school)}" aria-label="School" />
+          </td>
+          <td>
+            <input data-field="email" value="${escapeHtml(contact.email)}" aria-label="Email" />
+          </td>
+          <td>
+            <select data-field="status" aria-label="Status">
+              ${statusOptions(contact.status)}
+            </select>
+          </td>
+          <td>
+            <input data-field="sentDate" type="date" value="${escapeHtml(contact.sentDate)}" aria-label="Sent date" />
+          </td>
+          <td>
+            <input data-field="followUpDate" type="date" value="${escapeHtml(contact.followUpDate)}" aria-label="Follow-up date" />
+          </td>
+          <td>
+            <textarea data-field="notes" aria-label="Notes">${escapeHtml(contact.notes)}</textarea>
+          </td>
+          <td>
+            <button class="row-delete" type="button" data-delete-contact="${contact.id}">
+              Delete
+            </button>
+          </td>
+        </tr>
+      `)
+      .join("");
+  }
+
+  function updateContact(id, field, value) {
+    const contacts = readContacts();
+    const next = contacts.map((contact) => {
+      if (contact.id !== id) return contact;
+      return { ...contact, [field]: value };
+    });
+
+    writeContacts(next);
+    updateCounts(next);
+  }
+
+  function deleteContact(id) {
+    const contacts = readContacts().filter((contact) => contact.id !== id);
+    writeContacts(contacts);
+    renderContacts();
+  }
+
+  function addContact(data) {
+    const contacts = readContacts();
+
+    contacts.unshift({
+      id: String(Date.now()),
+      name: data.get("name") || "",
+      school: data.get("school") || "",
+      email: data.get("email") || "",
+      status: data.get("status") || "Not sent",
+      sentDate: data.get("sentDate") || "",
+      followUpDate: data.get("followUpDate") || "",
+      notes: data.get("notes") || ""
+    });
+
+    writeContacts(contacts);
+    renderContacts();
+  }
+
+  function exportCsv() {
+    const contacts = readContacts();
+    const header = ["Name", "School", "Email", "Status", "Sent date", "Follow-up date", "Notes"];
+
+    const rows = contacts.map((contact) => [
+      contact.name,
+      contact.school,
+      contact.email,
+      contact.status,
+      contact.sentDate,
+      contact.followUpDate,
+      contact.notes
+    ]);
+
+    const csv = [header, ...rows]
+      .map((row) => row.map(csvEscape).join(","))
+      .join("\n");
+
+    const blob = new Blob([csv], { type: "text/csv;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "dinner-with-anyone-outreach.csv";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+
+    URL.revokeObjectURL(url);
+  }
+
+  function seedContacts() {
+    const existing = readContacts();
+    if (existing.length && !window.confirm("Add sample contacts to your existing tracker?")) return;
+
+    const samples = [
+      {
+        id: String(Date.now() + 1),
+        name: "Professor Example 1",
+        school: "MBA Strategy Program",
+        email: "",
+        status: "Not sent",
+        sentDate: "",
+        followUpDate: "",
+        notes: "Good fit: strategy class, case-method discussion, 20–30 students."
+      },
+      {
+        id: String(Date.now() + 2),
+        name: "Program Lead Example",
+        school: "Executive Education",
+        email: "",
+        status: "Not sent",
+        sentDate: "",
+        followUpDate: "",
+        notes: "Potential pilot: leadership communication or innovation cohort."
+      },
+      {
+        id: String(Date.now() + 3),
+        name: "AI Education Contact",
+        school: "Business School",
+        email: "",
+        status: "Not sent",
+        sentDate: "",
+        followUpDate: "",
+        notes: "Ask for feedback on professor avatar and student insight report."
+      }
+    ];
+
+    writeContacts([...samples, ...existing]);
+    renderContacts();
+  }
+
+  function clearContacts() {
+    const ok = window.confirm("Clear all outreach tracker contacts from this browser?");
+    if (!ok) return;
+
+    localStorage.removeItem(STORAGE_KEY);
+    renderContacts();
+  }
+
+  function initChecklist() {
+    const checklist = readChecklist();
+
+    checks.forEach((check) => {
+      const key = check.dataset.launchCheck;
+      check.checked = Boolean(checklist[key]);
+      check.closest("label")?.classList.toggle("done", check.checked);
+
+      check.addEventListener("change", () => {
+        const next = readChecklist();
+        next[key] = check.checked;
+        writeChecklist(next);
+        check.closest("label")?.classList.toggle("done", check.checked);
+      });
+    });
+  }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    addContact(new FormData(form));
+    form.reset();
+  });
+
+  body.addEventListener("input", (event) => {
+    const field = event.target.dataset.field;
+    if (!field) return;
+
+    const row = event.target.closest("[data-contact-id]");
+    if (!row) return;
+
+    updateContact(row.dataset.contactId, field, event.target.value);
+  });
+
+  body.addEventListener("click", (event) => {
+    const id = event.target.dataset.deleteContact;
+    if (!id) return;
+
+    deleteContact(id);
+  });
+
+  if (exportButton) exportButton.addEventListener("click", exportCsv);
+  if (seedButton) seedButton.addEventListener("click", seedContacts);
+  if (clearButton) clearButton.addEventListener("click", clearContacts);
+
+  if (copyButton && copyMessage) {
+    copyButton.addEventListener("click", async () => {
+      const original = copyButton.textContent;
+      try {
+        await navigator.clipboard.writeText(copyMessage.textContent.trim());
+        copyButton.textContent = "Copied";
+      } catch (error) {
+        copyButton.textContent = "Select text to copy";
+      }
+
+      window.setTimeout(() => {
+        copyButton.textContent = original;
+      }, 1800);
+    });
+  }
+
+  initChecklist();
+  renderContacts();
+})();

@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Outreach Tracker | Dinner With Anyone</title>
+  <meta name="description" content="Private browser-based launch tracker for Dinner With Anyone professor and MBA pilot outreach." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0b4dff" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="index.html">
+          <span class="mark">D</span>
+          <span>Dinner With Anyone</span>
+        </a>
+
+        <div class="links">
+          <a href="index.html">Home</a>
+          <a href="pilot.html">Pilot</a>
+          <a href="outreach.html">For professors</a>
+          <a href="contact.html?path=teacher">Book a demo</a>
+        </div>
+
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu">
+          Menu
+        </button>
+      </nav>
+
+      <div class="mobile" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="pilot.html">Pilot</a>
+        <a href="outreach.html">For professors</a>
+        <a href="contact.html?path=teacher">Book a demo</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero tracker-hero">
+      <div class="wrap tracker-hero-grid">
+        <div>
+          <span class="eyebrow">Launch tracker</span>
+          <h1>Send the pilot to 10 professors.</h1>
+          <p class="lead">
+            Track outreach manually, book one pilot call, and learn what the real MVP needs
+            from actual professors, MBA programs, and executive education leads.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="outreach.html">Open outreach page</a>
+            <a class="btn" href="pilot.html">Open pilot page</a>
+          </div>
+
+          <p class="tiny" style="margin-top:18px">
+            This tracker stores data only in your browser using localStorage. It does not send
+            names, emails, or notes anywhere.
+          </p>
+        </div>
+
+        <div class="tracker-scorecard" data-tracker-scorecard>
+          <div>
+            <span>Total contacts</span>
+            <strong data-total-count>0</strong>
+          </div>
+          <div>
+            <span>Sent</span>
+            <strong data-sent-count>0</strong>
+          </div>
+          <div>
+            <span>Replies</span>
+            <strong data-reply-count>0</strong>
+          </div>
+          <div>
+            <span>Demos booked</span>
+            <strong data-demo-count>0</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section launch-checklist-section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Launch checklist</span>
+          <h2>Four things that matter now.</h2>
+          <p class="muted">
+            Do these before building more product. The goal is one real pilot conversation.
+          </p>
+        </div>
+
+        <div class="launch-checklist">
+          <label>
+            <input type="checkbox" data-launch-check="video" />
+            <span>
+              <strong>Record 45-second walkthrough</strong>
+              <small>Record avatar-demo.html and export to assets/demo-walkthrough.mp4.</small>
+            </span>
+          </label>
+
+          <label>
+            <input type="checkbox" data-launch-check="domain" />
+            <span>
+              <strong>Buy dinnerwithanyone.ai</strong>
+              <small>After purchase, add CNAME and update GitHub Pages domain settings.</small>
+            </span>
+          </label>
+
+          <label>
+            <input type="checkbox" data-launch-check="ten" />
+            <span>
+              <strong>Send 10 outreach messages</strong>
+              <small>Use outreach.html or pilot.html and track the sends below.</small>
+            </span>
+          </label>
+
+          <label>
+            <input type="checkbox" data-launch-check="pilot" />
+            <span>
+              <strong>Book one pilot call</strong>
+              <small>One professor, one class, one cohort, one insight report.</small>
+            </span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Add contact</span>
+          <h2>Track each professor or program lead.</h2>
+          <p class="muted">
+            Keep it simple. Add the person, send the message, update the status, and follow up.
+          </p>
+        </div>
+
+        <form class="tracker-form" data-tracker-form>
+          <div class="form-grid">
+            <label>
+              <span>Name</span>
+              <input name="name" placeholder="Professor Jane Smith" required />
+            </label>
+
+            <label>
+              <span>School / organization</span>
+              <input name="school" placeholder="Stanford GSB" />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" placeholder="professor@school.edu" />
+            </label>
+
+            <label>
+              <span>Status</span>
+              <select name="status">
+                <option>Not sent</option>
+                <option>Sent</option>
+                <option>Opened / replied</option>
+                <option>Demo booked</option>
+                <option>Not interested</option>
+                <option>Follow up</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Sent date</span>
+              <input name="sentDate" type="date" />
+            </label>
+
+            <label>
+              <span>Follow-up date</span>
+              <input name="followUpDate" type="date" />
+            </label>
+
+            <label class="full">
+              <span>Notes</span>
+              <textarea name="notes" placeholder="MBA strategy class, 28 students, good fit for professor avatar pilot."></textarea>
+            </label>
+          </div>
+
+          <div class="tracker-actions">
+            <button class="btn primary" type="submit">Add contact</button>
+            <button class="btn" type="button" data-export-tracker>Export CSV</button>
+            <button class="btn subtle" type="button" data-seed-tracker>Add sample contacts</button>
+            <button class="btn danger" type="button" data-clear-tracker>Clear tracker</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Pipeline</span>
+          <h2>Your pilot outreach list.</h2>
+          <p class="muted">
+            Update status as you send messages and get replies. Export CSV when you want a backup.
+          </p>
+        </div>
+
+        <div class="tracker-table-wrap">
+          <table class="tracker-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>School</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Sent</th>
+                <th>Follow-up</th>
+                <th>Notes</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody data-tracker-body>
+              <tr>
+                <td colspan="8" class="tracker-empty">
+                  No contacts yet. Add 10 professors or MBA program leads above.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="outreach-message-card">
+          <div>
+            <span class="eyebrow small">Message</span>
+            <h3>Copy/paste outreach message</h3>
+            <p class="muted">
+              Use this as the first version. Personalize the first line when possible.
+            </p>
+          </div>
+
+          <div class="copy-block compact" data-copy-block>
+            <button class="mini-action copy-button" type="button" data-copy-tracker-message>
+              Copy message
+            </button>
+
+            <pre><code data-tracker-message>Hi Professor,
+
+I built a prototype for Dinner With Anyone — an AI learning room where a professor can upload a syllabus, slides, readings, or class transcript, then students can talk with a professor avatar by voice or text before or after class.
+
+The goal is simple: help students ask more questions, prepare better for discussion, and give the teacher a quick insight report showing where the class is confused.
+
+I'm looking for one small pilot with a 20–30 student class.
+
+Pilot page:
+https://spencerbrown1717.github.io/dinner_with_anyone/pilot.html
+
+Would you be open to a 20-minute demo?</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="cta">
+    <div class="wrap two">
+      <div>
+        <span class="eyebrow" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)">
+          Real-world next step
+        </span>
+        <h2>Send 10 messages. Book one pilot call.</h2>
+        <p class="lead">
+          The website is now strong enough. The next truth comes from professors,
+          program leads, and students.
+        </p>
+      </div>
+
+      <div class="panel" style="color:var(--ink)">
+        <h3>Use the live pages</h3>
+        <p class="muted">
+          Send the outreach page or pilot page depending on the person.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn primary" href="outreach.html">Outreach page</a>
+          <a class="btn" href="pilot.html">Pilot page</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand">
+          <span class="mark">D</span>
+          <span>Dinner With Anyone</span>
+        </div>
+        <p class="tiny">
+          AI learning rooms with famous avatars, professor avatars, voice, slides,
+          and privacy-first deployment paths.
+        </p>
+      </div>
+
+      <div>
+        <b>Product</b>
+        <a href="experts.html">Experts</a>
+        <a href="education.html">Education</a>
+        <a href="demo.html">Demo</a>
+        <a href="avatar-demo.html">Avatar Demo</a>
+        <a href="pilot.html">Pilot</a>
+        <a href="outreach.html">For professors</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+
+      <div>
+        <b>Launch</b>
+        <a href="outreach-tracker.html">Outreach tracker</a>
+        <a href="pilot.html">Class pilots</a>
+        <a href="contact.html?path=teacher">Book a demo</a>
+        <a href="how-it-works.html">How it works</a>
+      </div>
+
+      <div>
+        <b>Company</b>
+        <a href="contact.html">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="mailto:hello@dinnerwithanyone.ai">Email us</a>
+      </div>
+    </div>
+
+    <div class="wrap tiny footer-disclaimer">
+      Dinner With Anyone creates educational AI simulations inspired by public-source or
+      teacher-provided material. Avatars are not the real person and may not represent exact
+      views, words, or private thoughts. Private-server deployment is available for sensitive
+      classroom, enterprise, and institutional workflows.
+      <br /><br />
+      © 2026 Dinner With Anyone. All rights reserved.
+    </div>
+  </footer>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>

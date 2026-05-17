@@ -221,12 +221,18 @@
         </div>
 
         <div class="demo-video-card launch-video-card">
-          <div class="video-frame">
-            <video controls muted playsinline poster="assets/og-image.png">
-              <source src="assets/demo-walkthrough.mp4" type="video/mp4" />
-            </video>
+          <div class="video-frame" data-demo-video-shell>
+            <video
+              class="demo-video"
+              controls
+              muted
+              playsinline
+              poster="assets/og-image.png"
+              data-demo-video
+              data-demo-src="assets/demo-walkthrough.mp4"
+            ></video>
 
-            <div class="video-fallback">
+            <div class="video-fallback" data-demo-fallback>
               <span class="recording-pill">45-second walkthrough</span>
               <h3>Watch the AI learning room in action.</h3>
               <p>
