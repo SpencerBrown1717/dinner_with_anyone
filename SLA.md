@@ -7,12 +7,16 @@ It is an internal product agreement, not a legal service-level promise.
 
 The homepage must make the product obvious within five seconds:
 
-- Have dinner with anyone alive or dead
+- Turn every college course into a living professor avatar
+- Built first for colleges, universities, professors, students, and executive education
+- Professors upload lectures, books, slides, transcripts, assignments, and rubrics
+- Students get a source-grounded mentor in their pocket
+- Have dinner with anyone alive or dead (60 expert avatars)
 - Practice high-stakes conversations
-- Learn from source-grounded avatars
-- Create professor avatars from uploaded material
-- Browse 60 expert avatars
 - Try the avatar demo
+
+The dedicated `college.html` page is the canonical surface for the college-first
+product story; the homepage previews it.
 
 ## 2. Language quality
 
@@ -75,6 +79,8 @@ The site must clearly explain:
 
 Long-form trust docs:
 
+- [College Platform](COLLEGE_PLATFORM.md)
+- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md)
 - [Grounding and Anti-Hallucination Policy](GROUNDING_POLICY.md)
 - [Avatar Realism](AVATAR_REALISM.md)
 - [Professor Upload Trust](PROFESSOR_UPLOAD_TRUST.md)

@@ -12,6 +12,7 @@ const headless = process.env.HEADLESS !== "false";
 
 const pages = [
   "index.html",
+  "college.html",
   "experts.html",
   "education.html",
   "demo.html",
@@ -249,7 +250,7 @@ async function testAvatarDemo(page) {
 }
 
 async function testContactPaths(page) {
-  const paths = ["teacher", "school", "avatar", "practice"];
+  const paths = ["course", "department", "deployment", "teacher", "school", "avatar", "practice"];
 
   for (const pathName of paths) {
     await page.goto(`${baseURL}/contact.html?path=${pathName}`, { waitUntil: "networkidle" });
@@ -287,6 +288,83 @@ async function testForbiddenLanguage(page) {
         );
       }
     }
+  }
+}
+
+async function testCollegePositioning(page) {
+  const expectations = [
+    {
+      page: "index.html",
+      markers: [
+        "Turn every college course into a living professor avatar",
+        "Professors upload lectures, books, slides, transcripts, assignments, and rubrics",
+        "Built first for colleges",
+        "How professors use it",
+        "An executive-level mentor in every student's pocket"
+      ]
+    },
+    {
+      page: "college.html",
+      markers: [
+        "A professor in every student's pocket",
+        "Upload the materials students already learn from",
+        "Students learn by asking, practicing, and trying again",
+        "Professors stay in control",
+        "Better student support without lowering the bar"
+      ]
+    },
+    {
+      page: "education.html",
+      markers: [
+        "For professors, departments, and college programs",
+        "What professors can upload",
+        "What students can do with it",
+        "Not answer-giving. Learning support."
+      ]
+    },
+    {
+      page: "avatar-demo.html",
+      markers: [
+        "Course Professor",
+        "Grounded in uploaded lectures, books, slides, and assignments",
+        "College use cases",
+        "Course mode",
+        "Office hours mode",
+        "Exam prep mode",
+        "Case discussion mode"
+      ]
+    },
+    {
+      page: "pricing.html",
+      markers: [
+        "Course Pilot",
+        "Department",
+        "College / School",
+        "Private Deployment"
+      ]
+    }
+  ];
+
+  for (const { page: pageName, markers } of expectations) {
+    await page.goto(`${baseURL}/${pageName}`, { waitUntil: "networkidle" });
+    const body = await page.locator("body").innerText();
+    for (const marker of markers) {
+      assert(body.includes(marker), `Missing college-positioning marker on ${pageName}: "${marker}"`);
+    }
+  }
+}
+
+function testCollegeDocsExist() {
+  const required = [
+    "COLLEGE_PLATFORM.md",
+    "COURSE_UPLOAD_WORKFLOW.md"
+  ];
+
+  for (const docName of required) {
+    const docPath = path.join(root, docName);
+    assert(fs.existsSync(docPath), `Required college doc missing: ${docName}`);
+    const contents = fs.readFileSync(docPath, "utf8");
+    assert(contents.length > 200, `College doc appears empty: ${docName}`);
   }
 }
 
@@ -630,7 +708,7 @@ async function checkAvatarMobileExperience(page, viewport) {
   await page.goto(`${baseURL}/avatar-demo.html`, { waitUntil: "networkidle" });
 
   const pickerCount = await page.locator("[data-avatar-choice]").count();
-  assert(pickerCount === 4, `Avatar picker missing options at ${viewport.name}`);
+  assert(pickerCount === 5, `Avatar picker missing options at ${viewport.name}`);
 
   await page.locator("[data-avatar-choice='chen']").click();
   await page.waitForTimeout(200);
@@ -743,6 +821,12 @@ async function main() {
 
     await testAvatarDemoClarity(page);
     console.log("Checked avatar demo clarity markers");
+
+    await testCollegePositioning(page);
+    console.log("Checked college-first positioning on home, college, education, avatar-demo, pricing");
+
+    testCollegeDocsExist();
+    console.log("Checked COLLEGE_PLATFORM.md and COURSE_UPLOAD_WORKFLOW.md exist");
 
     await testTracker(page);
     console.log("Checked outreach tracker");

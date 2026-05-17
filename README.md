@@ -32,26 +32,28 @@ The positioning is deliberate: privacy-first, education-grade, and built so inst
 
 | URL                    | What it is                                                                       |
 |------------------------|----------------------------------------------------------------------------------|
-| `/`                    | Home — hero, trust chips, "more than a chatbot" 3-card, dinner table visual      |
+| `/`                    | Home — college-first hero, "How professors use it", "Executive mentor in your pocket", 60 minds strip, more-than-a-chatbot, practice, student safety, dinner table visual |
+| `/college.html`        | **College Platform** — course upload, student experience, professor controls, why colleges care, executive mentor in your pocket |
 | `/experts.html`        | 60-avatar global library across science, philosophy, leadership, arts, literature, civil rights, business, strategy, spirituality — with category filters + dinner-table builder |
-| `/education.html`      | Professor avatars for classrooms — upload → avatar → cohort interacts            |
+| `/education.html`      | Professor / department / college focus — what professors upload, what students do, Not answer-giving / Learning support |
 | `/demo.html`           | 4-step static product walkthrough (Choose → Ask → Ground → Export)               |
-| `/avatar-demo.html`    | **Flagship prototype** — voice + slides + transcript + simulated state machine   |
+| `/avatar-demo.html`    | **Flagship prototype** — Course Professor default + 4 historical avatars, cockpit layout, roleplay modes, why-this-feels-different |
 | `/practice.html`       | Roleplay practice — interview, sales, negotiation, office hours, difficulty controls |
 | `/pilot.html`          | One-class pilot funnel — brief, timeline, needs, privacy ask                     |
 | `/outreach.html`       | Professor / MBA outreach page with copy-paste invite + walkthrough script        |
 | `/how-it-works.html`   | User-facing 3-step + 5-step architecture flow + privacy block + 8-phase roadmap  |
-| `/enterprise.html`     | Custom expert avatars + private AI avatar infrastructure for institutions        |
-| `/pricing.html`        | Explorer / Classroom / Institution / Enterprise + add-ons + comparison + FAQ     |
-| `/contact.html`        | Book-a-demo page with buyer paths + Google Calendar booking link                 |
+| `/enterprise.html`     | Custom expert avatars + private avatar infrastructure for institutions           |
+| `/pricing.html`        | Course Pilot / Department / College / Private Deployment + add-ons + comparison + FAQ |
+| `/contact.html`        | Book-a-demo page with 7 buyer paths (course, department, deployment, teacher, school, avatar, practice) + Google Calendar booking link |
 
 ## Project structure
 
 ```
 .
-├── index.html            # home
-├── experts.html          # historical & famous avatars
-├── education.html        # AI professor avatars for classrooms
+├── index.html            # home — college-first hero
+├── college.html          # college platform (course upload, student experience, professor controls)
+├── experts.html          # historical & famous avatars (60-luminary library + filters + table builder)
+├── education.html        # professor / department / college focus — uploads, student uses, learning-support modes
 ├── demo.html             # 4-step static product walkthrough
 ├── avatar-demo.html      # voice/slides/transcript flagship demo (interactive)
 ├── practice.html         # roleplay practice — interview / sales / negotiation / office hours
@@ -305,6 +307,8 @@ When writing copy for this site, avoid overclaiming compliance. **Do not say "SO
 ## Docs
 
 - [Site Launch Agreement](SLA.md) — quality bar for the public website
+- [College Platform](COLLEGE_PLATFORM.md) — college-first positioning, primary users, professor uploads, student use cases
+- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md) — end-to-end course creation flow
 - [Avatar Architecture](AVATAR_ARCHITECTURE.md)
 - [Avatar Realism](AVATAR_REALISM.md)
 - [Grounding and Anti-Hallucination Policy](GROUNDING_POLICY.md)

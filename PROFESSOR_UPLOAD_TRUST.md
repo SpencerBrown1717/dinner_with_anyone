@@ -65,3 +65,5 @@ Before a professor avatar is opened to students, the professor should be able to
 - [Grounding and Anti-Hallucination Policy](GROUNDING_POLICY.md)
 - [Avatar Architecture](AVATAR_ARCHITECTURE.md)
 - [Deployment and Security](DEPLOYMENT_SECURITY.md)
+- [College Platform](COLLEGE_PLATFORM.md)
+- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md) — preview-before-publish lives here.

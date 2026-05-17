@@ -64,3 +64,5 @@ available".
 - [Avatar Architecture](AVATAR_ARCHITECTURE.md)
 - [Grounding and Anti-Hallucination Policy](GROUNDING_POLICY.md)
 - [Professor Upload Trust](PROFESSOR_UPLOAD_TRUST.md)
+- [College Platform](COLLEGE_PLATFORM.md)
+- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md)

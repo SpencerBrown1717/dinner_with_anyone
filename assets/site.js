@@ -187,6 +187,37 @@
   if (!room) return;
 
   const avatars = {
+    course: {
+      initials: "CP",
+      name: "Course Professor",
+      transcriptName: "Course Professor",
+      subtitle:
+        "Source-grounded professor avatar built from uploaded course lectures, books, slides, transcripts, assignments, and rubrics.",
+      userSample:
+        "I read the chapter and watched the lecture, but I still do not understand switching costs.",
+      avatarSample:
+        "Let's use the course material first. In the Week 3 lecture transcript, switching costs are described as the friction that makes a customer less likely to leave after adopting a workflow. Before we go further, tell me this: what would make it painful for a company to switch away from a tool their whole team uses every day?",
+      generatedTitle: "Week 3 — Switching Costs",
+      generatedCopy:
+        "Slides generated from the uploaded syllabus, week 3 lecture transcript, assigned readings, and professor notes.",
+      slides: [
+        "Switching Costs — Definition",
+        "Examples Students Already Know",
+        "Apply to a Case",
+        "Exam Prep Prompt"
+      ],
+      sources: [
+        ["course_syllabus.pdf", "class"],
+        ["week_03_lecture.vtt", "class"],
+        ["week_03_slides.pptx", "class"],
+        ["reading_packet.pdf", "class"],
+        ["assignment_rubric.pdf", "class"],
+        ["professor_notes.md", "class"]
+      ],
+      speakingLine:
+        "Good question. You are confused in the right place. Next, try explaining switching costs in one sentence, then I will push you with a harder example."
+    },
+
     einstein: {
       initials: "AE",
       name: "Albert Einstein",
@@ -334,7 +365,7 @@
     regenerateSlides: document.querySelector("[data-regenerate-slides]")
   };
 
-  let currentAvatarKey = "einstein";
+  let currentAvatarKey = "course";
   let timers = [];
 
   function clearTimers() {
@@ -576,6 +607,9 @@
   if (!pathCards.length) return;
 
   const copy = {
+    course: "Selected: Course pilot. The demo will focus on uploading lectures, slides, books, assignments, and rubrics so students can learn from a source-grounded professor avatar.",
+    department: "Selected: Department rollout. The demo will focus on multiple courses, professor controls, source boundaries, student practice, and private deployment options.",
+    deployment: "Selected: Private deployment. The demo will focus on private cloud and on-prem options, data boundaries, no-training mode, and admin controls for sensitive academic and enterprise environments.",
     teacher: "Selected: Teacher / professor. The demo will focus on uploading class material and creating a professor avatar.",
     school: "Selected: School or MBA program. The demo will focus on cohort pilots, private-server options, and teacher insight reports.",
     avatar: "Selected: Famous / expert avatar. The demo will focus on public-source avatars, voice interaction, and branded expert experiences.",

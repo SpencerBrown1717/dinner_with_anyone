@@ -4,6 +4,8 @@
 **Status:** Draft implementation architecture
 **Purpose:** Explain how lifelike avatars, voice, slides, and professor/classroom workflows should work after the static prototype.
 
+**Related:** [College Platform](COLLEGE_PLATFORM.md) · [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md) · [Grounding Policy](GROUNDING_POLICY.md) · [Avatar Realism](AVATAR_REALISM.md) · [Professor Upload Trust](PROFESSOR_UPLOAD_TRUST.md) · [Deployment and Security](DEPLOYMENT_SECURITY.md)
+
 ---
 
 ## 1. Product goal

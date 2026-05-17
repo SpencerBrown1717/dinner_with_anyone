@@ -90,3 +90,5 @@ Dinner With Anyone is an educational simulation product. It is **not**:
 - [Deployment and Security](DEPLOYMENT_SECURITY.md) — hosted, private cloud, and on-prem
   deployment paths.
 - [Avatar Architecture](AVATAR_ARCHITECTURE.md) — full system design.
+- [College Platform](COLLEGE_PLATFORM.md) — college-first positioning and primary users.
+- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md) — how professors create a grounded course avatar.
