@@ -303,6 +303,7 @@ When writing copy for this site, avoid overclaiming compliance. **Do not say "SO
 ## Docs
 
 - [Service Level Agreement](SLA.md)
+- [Avatar Architecture](AVATAR_ARCHITECTURE.md)
 
 ## License
 

@@ -3863,3 +3863,444 @@ select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px r
     padding: 18px;
   }
 }
+
+/* =========================================================
+   Responsive QA + Mobile Avatar Polish
+   ========================================================= */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+}
+
+.wrap {
+  max-width: min(1160px, calc(100vw - 32px));
+}
+
+.btn,
+.menu-btn,
+.avatar-choice,
+.mini-action,
+.row-delete {
+  min-height: 44px;
+}
+
+.avatar-stage-card,
+.slide-panel-card,
+.transcript-card,
+.demo-video-card,
+.pilot-brief-card,
+.outreach-letter-card,
+.tracker-form,
+.tracker-scorecard,
+.contact-conversion-panel,
+.privacy-pilot-card {
+  contain: layout paint;
+}
+
+.avatar-frame {
+  isolation: isolate;
+  will-change: transform;
+}
+
+.avatar-head,
+.avatar-mouth span,
+.thinking-dots i,
+.mini-demo-bars i {
+  transform: translateZ(0);
+}
+
+@media (min-width: 1441px) {
+  .wrap {
+    width: min(1280px, 88vw);
+  }
+
+  .hero-grid,
+  .pilot-hero-grid,
+  .outreach-hero-grid,
+  .tracker-hero-grid {
+    gap: 56px;
+  }
+
+  .avatar-frame {
+    min-height: 430px;
+  }
+
+  .avatar-head {
+    width: 220px;
+    height: 220px;
+    border-radius: 56px;
+  }
+
+  .avatar-initials {
+    font-size: 66px;
+  }
+
+  .avatar-orbit {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .links {
+    gap: 14px;
+    font-size: 13px;
+  }
+
+  .nav .btn {
+    padding-inline: 14px;
+  }
+
+  .proof-room {
+    grid-template-columns: 1fr;
+  }
+
+  .avatar-stage-card {
+    min-height: auto;
+  }
+
+  .slide-panel-card {
+    order: 2;
+  }
+
+  .transcript-card {
+    order: 3;
+  }
+}
+
+@media (max-width: 880px) {
+  body {
+    font-size: 16px;
+  }
+
+  .wrap {
+    max-width: min(100% - 24px, 720px);
+  }
+
+  .nav {
+    height: 66px;
+  }
+
+  .brand {
+    font-size: 18px;
+    letter-spacing: -0.035em;
+  }
+
+  .mark {
+    width: 36px;
+    height: 36px;
+    border-radius: 12px;
+  }
+
+  .mobile.open {
+    display: grid;
+  }
+
+  .mobile a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* Footer column links: ensure thumb-friendly tap targets on mobile. */
+  .footer a {
+    min-height: 36px;
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  .page-hero,
+  .hero {
+    padding-top: 54px;
+    padding-bottom: 42px;
+  }
+
+  h1 {
+    font-size: clamp(42px, 12vw, 58px);
+    line-height: 0.98;
+  }
+
+  h2 {
+    font-size: clamp(32px, 9vw, 46px);
+  }
+
+  .lead {
+    font-size: 18px;
+  }
+
+  .section {
+    padding: 58px 0;
+  }
+
+  .avatar-picker {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 4px 4px 14px;
+    margin-left: -4px;
+    margin-right: -4px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .avatar-choice {
+    min-width: 230px;
+    scroll-snap-align: start;
+  }
+
+  .proof-room {
+    gap: 14px;
+  }
+
+  .avatar-stage-card,
+  .slide-panel-card,
+  .transcript-card {
+    border-radius: 26px;
+    padding: 18px;
+  }
+
+  .avatar-frame {
+    min-height: 300px;
+    border-radius: 24px;
+    margin: 18px 0;
+  }
+
+  .avatar-orbit {
+    width: min(330px, 78vw);
+    height: min(330px, 78vw);
+  }
+
+  .avatar-head {
+    width: min(168px, 42vw);
+    height: min(168px, 42vw);
+    border-radius: 42px;
+  }
+
+  .avatar-initials {
+    font-size: clamp(42px, 12vw, 56px);
+  }
+
+  .avatar-identity h3 {
+    font-size: 28px;
+  }
+
+  .voice-controls {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .voice-controls .btn {
+    width: 100%;
+  }
+
+  .tech-mini-grid,
+  .proof-stack,
+  .source-chip-grid {
+    gap: 8px;
+  }
+
+  .tech-mini-grid span,
+  .proof-stack span,
+  .source-chip {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .generated-slide-preview {
+    border-radius: 22px;
+    padding: 18px;
+  }
+
+  .proof-slide {
+    border-radius: 18px;
+  }
+
+  .transcript-line {
+    border-radius: 18px;
+  }
+
+  .upload-flow,
+  .pilot-steps,
+  .pilot-example-grid,
+  .teacher-dashboard,
+  .output-grid,
+  .privacy-points,
+  .buyer-path-grid,
+  .outreach-grid,
+  .launch-checklist,
+  .tracker-scorecard,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .file-row {
+    grid-template-columns: 46px 1fr;
+  }
+
+  .file-row small {
+    grid-column: 2;
+  }
+
+  .video-frame,
+  .video-frame video,
+  .demo-video {
+    min-height: 300px;
+  }
+
+  .video-fallback {
+    padding: 22px;
+  }
+
+  .video-fallback h3 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .wrap {
+    max-width: min(100% - 20px, 480px);
+  }
+
+  .brand span:last-child {
+    max-width: 210px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  h1 {
+    font-size: clamp(38px, 13vw, 48px);
+    letter-spacing: -0.06em;
+  }
+
+  h2 {
+    font-size: clamp(30px, 10vw, 40px);
+  }
+
+  .lead {
+    font-size: 17px;
+  }
+
+  .card,
+  .panel,
+  .avatar-stage-card,
+  .slide-panel-card,
+  .transcript-card,
+  .prototype-disclaimer,
+  .privacy-pilot-card,
+  .contact-conversion-panel {
+    border-radius: 22px;
+    padding: 16px;
+  }
+
+  .avatar-choice {
+    min-width: 212px;
+    padding: 16px;
+  }
+
+  .choice-initials {
+    width: 42px;
+    height: 42px;
+    border-radius: 15px;
+    margin-bottom: 14px;
+  }
+
+  .avatar-frame {
+    min-height: 270px;
+  }
+
+  .avatar-mouth {
+    bottom: 28px;
+  }
+
+  .thinking-dots {
+    bottom: 26px;
+  }
+
+  .stage-topline,
+  .panel-title-row,
+  .transcript-head,
+  .pilot-brief-top {
+    display: grid;
+    justify-items: start;
+  }
+
+  .status-pill,
+  .recording-pill {
+    width: fit-content;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .footer-grid {
+    gap: 22px;
+  }
+
+  .tracker-table {
+    min-width: 900px;
+  }
+
+  .copy-block pre {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand span:last-child {
+    max-width: 174px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  .avatar-frame {
+    min-height: 245px;
+  }
+
+  .avatar-head {
+    width: 142px;
+    height: 142px;
+    border-radius: 36px;
+  }
+
+  .avatar-initials {
+    font-size: 40px;
+  }
+
+  .avatar-orbit {
+    width: 275px;
+    height: 275px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .avatar-frame,
+  .avatar-head,
+  .avatar-mouth span,
+  .thinking-dots i,
+  .mini-demo-bars i,
+  .avatar-choice,
+  .btn,
+  .card {
+    transition: none !important;
+    animation: none !important;
+  }
+}

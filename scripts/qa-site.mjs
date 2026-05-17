@@ -29,6 +29,44 @@ const allowedMissing = new Set([
   "/assets/demo-walkthrough.mp4"
 ]);
 
+const viewports = [
+  {
+    name: "mobile-small",
+    width: 360,
+    height: 740,
+    isMobile: true,
+    hasTouch: true
+  },
+  {
+    name: "mobile-large",
+    width: 430,
+    height: 932,
+    isMobile: true,
+    hasTouch: true
+  },
+  {
+    name: "tablet",
+    width: 768,
+    height: 1024,
+    isMobile: false,
+    hasTouch: true
+  },
+  {
+    name: "desktop",
+    width: 1440,
+    height: 1000,
+    isMobile: false,
+    hasTouch: false
+  },
+  {
+    name: "wide",
+    width: 1920,
+    height: 1080,
+    isMobile: false,
+    hasTouch: false
+  }
+];
+
 function contentType(filePath) {
   if (filePath.endsWith(".html")) return "text/html; charset=utf-8";
   if (filePath.endsWith(".css")) return "text/css; charset=utf-8";
@@ -263,6 +301,149 @@ async function testTracker(page) {
   assert(totalAfterDelete === "0", "Tracker delete did not update count.");
 }
 
+async function checkNoHorizontalOverflow(page, pageName, viewportName) {
+  const overflow = await page.evaluate(() => {
+    const doc = document.documentElement;
+    return {
+      scrollWidth: doc.scrollWidth,
+      clientWidth: doc.clientWidth,
+      bodyScrollWidth: document.body.scrollWidth
+    };
+  });
+
+  const maxAllowed = overflow.clientWidth + 4;
+
+  assert(
+    overflow.scrollWidth <= maxAllowed && overflow.bodyScrollWidth <= maxAllowed,
+    `Horizontal overflow on ${pageName} at ${viewportName}: scrollWidth=${overflow.scrollWidth}, clientWidth=${overflow.clientWidth}`
+  );
+}
+
+async function checkTapTargets(page, pageName, viewportName) {
+  const badTargets = await page.locator("a, button").evaluateAll((nodes) => {
+    return nodes
+      .map((node) => {
+        const rect = node.getBoundingClientRect();
+        const text = (node.textContent || node.getAttribute("aria-label") || "").trim();
+        const style = window.getComputedStyle(node);
+        const display = style.display;
+        const visible =
+          rect.width > 0 &&
+          rect.height > 0 &&
+          style.visibility !== "hidden" &&
+          display !== "none";
+
+        if (!visible) return null;
+
+        // WCAG 2.5.8 exempts inline links inside flowing text from the
+        // minimum target-size rule. We honor that exemption so we only
+        // flag standalone interactive elements.
+        if (display === "inline") return null;
+
+        return {
+          text: text.slice(0, 40),
+          width: Math.round(rect.width),
+          height: Math.round(rect.height)
+        };
+      })
+      .filter(Boolean)
+      .filter((item) => item.width < 36 || item.height < 36)
+      .slice(0, 8);
+  });
+
+  assert(
+    badTargets.length === 0,
+    `Small tap targets on ${pageName} at ${viewportName}: ${JSON.stringify(badTargets)}`
+  );
+}
+
+async function checkHeroVisible(page, pageName, viewportName) {
+  const h1 = page.locator("h1").first();
+  await h1.scrollIntoViewIfNeeded();
+
+  const box = await h1.boundingBox();
+  assert(Boolean(box), `H1 is not visible on ${pageName} at ${viewportName}`);
+  assert(box.height > 20, `H1 height too small on ${pageName} at ${viewportName}`);
+}
+
+async function checkAvatarMobileExperience(page, viewport) {
+  await page.goto(`${baseURL}/avatar-demo.html`, { waitUntil: "networkidle" });
+
+  const pickerCount = await page.locator("[data-avatar-choice]").count();
+  assert(pickerCount === 4, `Avatar picker missing options at ${viewport.name}`);
+
+  await page.locator("[data-avatar-choice='chen']").click();
+  await page.waitForTimeout(200);
+
+  const name = await page.locator("[data-avatar-name]").innerText();
+  assert(name.includes("Professor Chen"), `Mobile avatar picker failed at ${viewport.name}`);
+
+  const avatarFrame = await page.locator(".avatar-frame").boundingBox();
+  assert(Boolean(avatarFrame), `Avatar frame not visible at ${viewport.name}`);
+
+  if (viewport.width <= 430) {
+    assert(
+      avatarFrame.width <= viewport.width,
+      `Avatar frame wider than viewport at ${viewport.name}`
+    );
+
+    assert(
+      avatarFrame.height >= 240,
+      `Avatar frame too short on mobile at ${viewport.name}`
+    );
+  }
+
+  await page.locator("[data-start-voice]").click();
+  await page.waitForTimeout(2100);
+
+  const status = await page.locator("[data-avatar-status]").innerText();
+  assert(
+    /Listening|Thinking|Speaking|Ready/.test(status),
+    `Avatar voice state failed on ${viewport.name}`
+  );
+}
+
+async function collectResponsiveIssues(browser) {
+  const issues = [];
+
+  for (const viewport of viewports) {
+    const context = await browser.newContext({
+      viewport: {
+        width: viewport.width,
+        height: viewport.height
+      },
+      isMobile: viewport.isMobile,
+      hasTouch: viewport.hasTouch
+    });
+
+    const page = await context.newPage();
+
+    for (const pageName of pages) {
+      try {
+        await page.goto(`${baseURL}/${pageName}`, { waitUntil: "networkidle" });
+        await checkNoHorizontalOverflow(page, pageName, viewport.name);
+        await checkHeroVisible(page, pageName, viewport.name);
+
+        if (viewport.isMobile) {
+          await checkTapTargets(page, pageName, viewport.name);
+        }
+      } catch (error) {
+        issues.push(error.message);
+      }
+    }
+
+    try {
+      await checkAvatarMobileExperience(page, viewport);
+    } catch (error) {
+      issues.push(error.message);
+    }
+
+    await context.close();
+  }
+
+  return issues;
+}
+
 async function main() {
   const server = await startServer();
   const browser = await chromium.launch({ headless });
@@ -288,6 +469,10 @@ async function main() {
     console.log("Checked outreach tracker");
 
     await page.close();
+
+    const responsiveIssues = await collectResponsiveIssues(browser);
+    allIssues.push(...responsiveIssues);
+    console.log("Checked responsive layouts across mobile, tablet, desktop, and wide screens");
   } finally {
     await browser.close();
     server.close();
