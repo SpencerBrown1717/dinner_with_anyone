@@ -39,9 +39,23 @@ Drop `index.html` on any static host:
 
 ```
 .
-├── index.html   # entire site (HTML + CSS + small inline JS)
+├── index.html            # home (uses its own inline styles — original hero design)
+├── experts.html          # expert marketplace
+├── how-it-works.html     # 3-step explainer
+├── enterprise.html       # enterprise pitch
+├── pricing.html          # plans
+├── contact.html          # request access form
+├── assets/
+│   ├── styles.css        # shared stylesheet for subpages
+│   ├── site.js           # mobile menu, sticky-nav shadow, smooth scroll, year
+│   └── favicon.svg       # brand mark, inline-loadable SVG
 └── README.md
 ```
+
+> Note: the home page (`index.html`) uses a slightly different visual treatment
+> than the subpages. Pick the direction you want and unify by either porting the
+> home hero into `assets/styles.css` or rebuilding the subpages on top of the
+> home's palette.
 
 ## License
 
