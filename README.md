@@ -10,8 +10,8 @@ Live: https://spencerbrown1717.github.io/dinner_with_anyone/
 
 ## Two product paths
 
-1. **Historical & famous avatars** — Einstein, Caesar, Cleopatra, Confucius, Alexander the Great, da Vinci, and a growing library of historical figures with rich public records. All avatars are educational AI simulations built from public-source material — not affiliated with any individual or estate.
-2. **Custom professor avatars** — teachers upload curriculum, slides, readings, transcripts, or Zoom recordings and the system generates a professor avatar a whole cohort can talk to, text, or send voice and video check-ins to.
+1. **Historical & famous avatars**, Einstein, Caesar, Cleopatra, Confucius, Alexander the Great, da Vinci, and a growing library of historical figures with rich public records. All avatars are educational AI simulations built from public-source material, not affiliated with any individual or estate.
+2. **Custom professor avatars**, teachers upload curriculum, slides, readings, transcripts, or Zoom recordings and the system generates a professor avatar a whole cohort can talk to, text, or send voice and video check-ins to.
 
 ## Planned AI stack
 
@@ -24,7 +24,7 @@ Dinner With Anyone is being designed around a clear, vendor-explicit architectur
 | Curriculum summarization & structure | **Gemini**                                   |
 | 3D / lifelike avatar rendering | **HeyGen** or Gemini-style avatar tooling          |
 | Hosting for sensitive workloads | **Private servers** (Institution / Enterprise)    |
-| Marketing site (this repo)     | Static GitHub Pages site — no backend, no API keys |
+| Marketing site (this repo)     | Static GitHub Pages site, no backend, no API keys |
 
 The positioning is deliberate: privacy-first, education-grade, and built so institutions can take the whole stack onto their own infrastructure when they're ready.
 
@@ -32,14 +32,14 @@ The positioning is deliberate: privacy-first, education-grade, and built so inst
 
 | URL                    | What it is                                                                       |
 |------------------------|----------------------------------------------------------------------------------|
-| `/`                    | Home — college-first hero, "How professors use it", "Executive mentor in your pocket", 60 minds strip, more-than-a-chatbot, practice, student safety, dinner table visual |
-| `/college.html`        | **College Platform** — course upload, student experience, professor controls, why colleges care, executive mentor in your pocket |
-| `/experts.html`        | 60-avatar global library across science, philosophy, leadership, arts, literature, civil rights, business, strategy, spirituality — with category filters + dinner-table builder |
-| `/education.html`      | Professor / department / college focus — what professors upload, what students do, Not answer-giving / Learning support |
+| `/`                    | Home, college-first hero, "How professors use it", "Executive mentor in your pocket", 60 minds strip, more-than-a-chatbot, practice, student safety, dinner table visual |
+| `/college.html`        | **College Platform**, course upload, student experience, professor controls, why colleges care, executive mentor in your pocket |
+| `/experts.html`        | 60-avatar global library across science, philosophy, leadership, arts, literature, civil rights, business, strategy, spirituality, with category filters + dinner-table builder |
+| `/education.html`      | Professor / department / college focus, what professors upload, what students do, Not answer-giving / Learning support |
 | `/demo.html`           | 4-step static product walkthrough (Choose → Ask → Ground → Export)               |
-| `/avatar-demo.html`    | **Flagship prototype** — Course Professor default + 4 historical avatars, cockpit layout, roleplay modes, why-this-feels-different |
-| `/practice.html`       | Roleplay practice — interview, sales, negotiation, office hours, difficulty controls |
-| `/pilot.html`          | One-class pilot funnel — brief, timeline, needs, privacy ask                     |
+| `/avatar-demo.html`    | **Flagship prototype**, Course Professor default + 4 historical avatars, cockpit layout, roleplay modes, why-this-feels-different |
+| `/practice.html`       | Roleplay practice, interview, sales, negotiation, office hours, difficulty controls |
+| `/pilot.html`          | One-class pilot funnel, brief, timeline, needs, privacy ask                     |
 | `/outreach.html`       | Professor / MBA outreach page with copy-paste invite + walkthrough script        |
 | `/how-it-works.html`   | User-facing 3-step + 5-step architecture flow + privacy block + 8-phase roadmap  |
 | `/enterprise.html`     | Custom expert avatars + private avatar infrastructure for institutions           |
@@ -50,13 +50,13 @@ The positioning is deliberate: privacy-first, education-grade, and built so inst
 
 ```
 .
-├── index.html            # home — college-first hero
+├── index.html            # home, college-first hero
 ├── college.html          # college platform (course upload, student experience, professor controls)
 ├── experts.html          # historical & famous avatars (60-luminary library + filters + table builder)
-├── education.html        # professor / department / college focus — uploads, student uses, learning-support modes
+├── education.html        # professor / department / college focus, uploads, student uses, learning-support modes
 ├── demo.html             # 4-step static product walkthrough
 ├── avatar-demo.html      # voice/slides/transcript flagship demo (interactive)
-├── practice.html         # roleplay practice — interview / sales / negotiation / office hours
+├── practice.html         # roleplay practice, interview / sales / negotiation / office hours
 ├── pilot.html            # one-class pilot funnel for teachers / MBA programs
 ├── outreach.html         # professor outreach page + copy-paste invite
 ├── how-it-works.html     # 3-step + 5-step architecture + privacy + 8-phase roadmap
@@ -78,14 +78,14 @@ The positioning is deliberate: privacy-first, education-grade, and built so inst
 
 The website is **Phase 1**. The eight-phase plan looks like this:
 
-1. **Static demo** — show avatar, slides, voice states, and classroom upload flow (this repo).
-2. **Real uploads** — teachers upload syllabi, slides, PDFs, transcripts, and lecture notes.
-3. **Source-grounded professor avatar** — generate a private course knowledge base; avatar answers from uploaded material with citations.
-4. **Voice interaction** — OpenAI speech-to-text, conversation, and text-to-speech.
-5. **Slide generation** — Gemini turns transcripts and readings into lesson slides, summaries, and study guides.
-6. **Avatar rendering** — HeyGen or Gemini-style avatar tooling brings the professor / historical figure / SME to life.
-7. **Student feedback loop** — voice memos, text reflections, and 30-second video check-ins feed a teacher dashboard (confusion clusters, recurring questions, sentiment, suggested next topics).
-8. **Private-server deployment** — Institution and Enterprise customers run the stack on their own infrastructure with admin-controlled access and clear retention.
+1. **Static demo**, show avatar, slides, voice states, and classroom upload flow (this repo).
+2. **Real uploads**, teachers upload syllabi, slides, PDFs, transcripts, and lecture notes.
+3. **Source-grounded professor avatar**, generate a private course knowledge base; avatar answers from uploaded material with citations.
+4. **Voice interaction**, OpenAI speech-to-text, conversation, and text-to-speech.
+5. **Slide generation**, Gemini turns transcripts and readings into lesson slides, summaries, and study guides.
+6. **Avatar rendering**, HeyGen or Gemini-style avatar tooling brings the professor / historical figure / SME to life.
+7. **Student feedback loop**, voice memos, text reflections, and 30-second video check-ins feed a teacher dashboard (confusion clusters, recurring questions, sentiment, suggested next topics).
+8. **Private-server deployment**, Institution and Enterprise customers run the stack on their own infrastructure with admin-controlled access and clear retention.
 
 ## Book-a-demo CTA
 
@@ -118,8 +118,8 @@ Then visit http://localhost:8000.
 
 ## Deploy
 
-- **GitHub Pages** (current setup) — Settings → Pages → Deploy from branch → `main` / root.
-- **Netlify / Vercel / Cloudflare Pages** — point at the repo, no build command, publish directory `.`.
+- **GitHub Pages** (current setup), Settings → Pages → Deploy from branch → `main` / root.
+- **Netlify / Vercel / Cloudflare Pages**, point at the repo, no build command, publish directory `.`.
 
 ## Custom domain checklist
 
@@ -174,7 +174,7 @@ https://dinnerwithanyone.ai/
 
 ## Demo video checklist
 
-Record a 30–45 second walkthrough of `avatar-demo.html`.
+Record a 30 to 45 second walkthrough of `avatar-demo.html`.
 
 Export as:
 
@@ -214,7 +214,7 @@ Record `avatar-demo.html` and export the file as:
 assets/demo-walkthrough.mp4
 ```
 
-The homepage and outreach page automatically show the fallback card until that file exists. Once the file exists, the shared JS loader detects it via a `HEAD` request and displays the video — no HTML changes required.
+The homepage and outreach page automatically show the fallback card until that file exists. Once the file exists, the shared JS loader detects it via a `HEAD` request and displays the video, no HTML changes required.
 
 Recommended script:
 
@@ -244,7 +244,7 @@ Open:
 outreach-tracker.html
 ```
 
-This page stores outreach contacts in browser `localStorage` only. It does not send data to a server. The page ships with `<meta name="robots" content="noindex, nofollow">` and is intentionally **not** in `sitemap.xml` — it's discoverable only by direct link.
+This page stores outreach contacts in browser `localStorage` only. It does not send data to a server. The page ships with `<meta name="robots" content="noindex, nofollow">` and is intentionally **not** in `sitemap.xml`, it's discoverable only by direct link.
 
 Track:
 
@@ -301,14 +301,14 @@ When writing copy for this site, avoid overclaiming compliance. **Do not say "SO
 - Palette: `--blue #0b4dff`, `--cyan #00b8ff`, `--navy #04142f`, `--ink #07152f`, `--muted #5b6b86`.
 - Brand mark: rounded-square gradient (blue → cyan) with white "D".
 - Font: Inter via Google Fonts (variable, with `preconnect`).
-- Components live in `assets/styles.css` — `.card`, `.btn`, `.btn.primary`, `.eyebrow`, `.grid`, `.grid-4`, `.two`, `.comparison`, `.faq`, `.billing-toggle`, etc.
+- Components live in `assets/styles.css`, `.card`, `.btn`, `.btn.primary`, `.eyebrow`, `.grid`, `.grid-4`, `.two`, `.comparison`, `.faq`, `.billing-toggle`, etc.
 - Accessibility: skip link, ARIA labels on the nav and menu button, `:focus-visible` rings, scroll-margin so sticky-nav doesn't hide anchors, full `prefers-reduced-motion` support.
 
 ## Docs
 
-- [Site Launch Agreement](SLA.md) — quality bar for the public website
-- [College Platform](COLLEGE_PLATFORM.md) — college-first positioning, primary users, professor uploads, student use cases
-- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md) — end-to-end course creation flow
+- [Site Launch Agreement](SLA.md), quality bar for the public website
+- [College Platform](COLLEGE_PLATFORM.md), college-first positioning, primary users, professor uploads, student use cases
+- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md), end-to-end course creation flow
 - [Avatar Architecture](AVATAR_ARCHITECTURE.md)
 - [Avatar Realism](AVATAR_REALISM.md)
 - [Grounding and Anti-Hallucination Policy](GROUNDING_POLICY.md)

@@ -1,8 +1,28 @@
-/* Dinner With Anyone — shared interactive bits */
+/* Dinner With Anyone shared interactive bits */
 (function () {
   var topbar = document.querySelector('.topbar');
   var menuBtn = document.querySelector('.menu-btn');
   var mobile = document.querySelector('.mobile');
+
+  if (mobile) {
+    var isAllowedMobileHref = function (href) {
+      var clean = String(href || '').split('#')[0].split('?')[0];
+      return [
+        'college.html',
+        'experts.html',
+        'practice.html',
+        'how-it-works.html',
+        'pricing.html',
+        'contact.html'
+      ].includes(clean);
+    };
+
+    mobile.querySelectorAll('a[href]').forEach(function (link) {
+      if (!isAllowedMobileHref(link.getAttribute('href'))) {
+        link.remove();
+      }
+    });
+  }
 
   if (menuBtn && mobile) {
     var menuId = mobile.id || 'mobile-nav';
@@ -179,7 +199,7 @@
 
 /* =========================================================
    Avatar Demo Proof Mode
-   Static prototype only — no backend/API calls.
+   Static prototype only, no backend/API calls.
    ========================================================= */
 
 (function () {
@@ -197,11 +217,11 @@
         "I read the chapter and watched the lecture, but I still do not understand switching costs.",
       avatarSample:
         "Let's use the course material first. In the Week 3 lecture transcript, switching costs are described as the friction that makes a customer less likely to leave after adopting a workflow. Before we go further, tell me this: what would make it painful for a company to switch away from a tool their whole team uses every day?",
-      generatedTitle: "Week 3 — Switching Costs",
+      generatedTitle: "Week 3, Switching Costs",
       generatedCopy:
         "Slides generated from the uploaded syllabus, week 3 lecture transcript, assigned readings, and professor notes.",
       slides: [
-        "Switching Costs — Definition",
+        "Switching Costs, Definition",
         "Examples Students Already Know",
         "Apply to a Case",
         "Exam Prep Prompt"
@@ -290,7 +310,7 @@
         "I understand Porter's Five Forces, but I do not know how to apply it to AI startups.",
       avatarSample:
         "Good. Start with the force that feels invisible: supplier power. In AI, compute, data, and distribution often become the real suppliers.",
-      generatedTitle: "Week 3 — Competitive Advantage",
+      generatedTitle: "Week 3, Competitive Advantage",
       generatedCopy:
         "Gemini generates lecture slides, study prompts, and discussion questions from uploaded strategy material.",
       slides: [
@@ -309,6 +329,37 @@
       ],
       speakingLine:
         "In this case, the moat is not the model alone. It is distribution, workflow ownership, data feedback, and switching cost."
+    },
+
+    coach: {
+      initials: "IC",
+      name: "Interview Coach",
+      transcriptName: "Interview Coach",
+      subtitle:
+        "Source-grounded coaching avatar built from public interview-prep frameworks across job, MBA, technical, and consulting interviews.",
+      userSample:
+        "I have a product strategy interview next week. Ask me a hard question.",
+      avatarSample:
+        "Good. You are leading a tutoring product. Students love the first session, but week-two retention is falling. Give me three hypotheses, the evidence you would check, and the first experiment you would run.",
+      generatedTitle: "Interview prep, product strategy",
+      generatedCopy:
+        "Slides generated from public interview-prep frameworks (PM, consulting, MBA, technical).",
+      slides: [
+        "Behavioral, structured answers",
+        "Product strategy frameworks",
+        "Technical and case patterns",
+        "Closing strong"
+      ],
+      sources: [
+        ["Public interview-prep frameworks", "public"],
+        ["Product strategy patterns", "public"],
+        ["Consulting case patterns", "public"],
+        ["Technical interview patterns", "public"],
+        ["Public hiring-manager guides", "public"],
+        ["Public negotiation frameworks", "public"]
+      ],
+      speakingLine:
+        "Now sharpen it. Separate user behavior from product friction, name the metric you would move first, and say what result would change your mind."
     },
 
     cleopatra: {
@@ -915,7 +966,7 @@
         status: "Not sent",
         sentDate: "",
         followUpDate: "",
-        notes: "Good fit: strategy class, case-method discussion, 20–30 students."
+        notes: "Good fit: strategy class, case-method discussion, 20 to 30 students."
       },
       {
         id: String(Date.now() + 2),
@@ -1190,7 +1241,7 @@
       prompt:
         "I do not understand switching costs from this week's lecture.",
       response:
-        "Let's slow it down. From the uploaded Week 3 transcript, switching costs mean the friction that makes a customer less likely to leave after adopting a workflow. Before I give examples, tell me — what would make it annoying for a company to switch away from a tool it already uses every day?",
+        "Let's slow it down. From the uploaded Week 3 transcript, switching costs mean the friction that makes a customer less likely to leave after adopting a workflow. Before I give examples, tell me what would make it annoying for a company to switch away from a tool it already uses every day?",
       feedback:
         "Concept clarity, examples, follow-up questions.",
       grounding:
@@ -1232,7 +1283,7 @@
       prompt:
         "I'm negotiating a job offer. Help me practice.",
       response:
-        "I'll play the recruiter. You want a higher salary, but I have budget constraints. Make your opening ask — and tell me what tradeoffs you are willing to consider.",
+        "I'll play the recruiter. You want a higher salary, but I have budget constraints. Make your opening ask, and tell me what tradeoffs you are willing to consider.",
       feedback:
         "Strong opening. Now add leverage: name one competing offer or constraint, then propose a specific tradeoff (equity, sign-on, start date, or scope).",
       grounding:
@@ -1330,4 +1381,80 @@
   const initial =
     document.querySelector("[data-expert-filter].active")?.dataset.expertFilter || "all";
   applyFilter(initial);
+})();
+
+/* =========================================================
+   Avatar discovery (experts.html search demo).
+   Static lookup of a few seeded people, with a graceful
+   fallback message that explains the source policy.
+   ========================================================= */
+
+(function () {
+  const form = document.querySelector("[data-discovery-search]");
+  if (!form) return;
+
+  const input = form.querySelector("[data-discovery-input]");
+  const result = document.querySelector("[data-discovery-result]");
+  if (!result || !input) return;
+
+  const portrait = result.querySelector("[data-discovery-portrait]");
+  const nameEl = result.querySelector("[data-discovery-name]");
+  const domainEl = result.querySelector("[data-discovery-domain]");
+  const statusEl = result.querySelector("[data-discovery-status]");
+
+  const seeded = {
+    "ada lovelace": { initials: "AL", name: "Ada Lovelace", domain: "Mathematics · Computing · Imagination", status: "Wikipedia page found" },
+    "albert einstein": { initials: "AE", name: "Albert Einstein", domain: "Physics · Creativity · First principles", status: "Wikipedia page found" },
+    "marie curie": { initials: "MC", name: "Marie Curie", domain: "Chemistry · Physics · Persistence", status: "Wikipedia page found" },
+    "toni morrison": { initials: "TM", name: "Toni Morrison", domain: "Literature · Memory · Identity", status: "Wikipedia page found" },
+    "nelson mandela": { initials: "NM", name: "Nelson Mandela", domain: "Leadership · Reconciliation · Courage", status: "Wikipedia page found" },
+    "sun tzu": { initials: "ST", name: "Sun Tzu", domain: "Strategy · Timing · Preparation", status: "Wikipedia page found" },
+    "cleopatra": { initials: "CL", name: "Cleopatra", domain: "Diplomacy · Power · Statecraft", status: "Wikipedia page found" },
+    "confucius": { initials: "C", name: "Confucius", domain: "Ethics · Learning · Leadership", status: "Wikipedia page found" },
+    "frida kahlo": { initials: "FK", name: "Frida Kahlo", domain: "Art · Identity · Resilience", status: "Wikipedia page found" },
+    "william shakespeare": { initials: "WS", name: "William Shakespeare", domain: "Language · Character · Drama", status: "Wikipedia page found" },
+    "shakespeare": { initials: "WS", name: "William Shakespeare", domain: "Language · Character · Drama", status: "Wikipedia page found" },
+    "steve jobs": { initials: "SJ", name: "Steve Jobs", domain: "Product · Taste · Storytelling", status: "Wikipedia page found" },
+    "amelia earhart": { initials: "AE", name: "Amelia Earhart", domain: "Courage · Aviation · Exploration", status: "Wikipedia page found" }
+  };
+
+  function initialsOf(name) {
+    return name
+      .trim()
+      .split(/\s+/)
+      .map((part) => part.charAt(0).toUpperCase())
+      .join("")
+      .slice(0, 3);
+  }
+
+  function update(query) {
+    const key = (query || "").trim().toLowerCase();
+    if (!key) return;
+
+    const match = seeded[key];
+
+    if (match) {
+      portrait.textContent = match.initials;
+      nameEl.textContent = match.name;
+      domainEl.textContent = match.domain;
+      statusEl.textContent = match.status;
+      return;
+    }
+
+    const display = query.trim().replace(/\b\w/g, (c) => c.toUpperCase());
+    portrait.textContent = initialsOf(display) || "?";
+    nameEl.textContent = display;
+    domainEl.textContent = "Source check pending";
+    statusEl.textContent =
+      "Static preview. In product, the system will verify Wikipedia and at least one corroborating source before creating an avatar.";
+  }
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    update(input.value);
+  });
+
+  input.addEventListener("input", () => {
+    update(input.value);
+  });
 })();

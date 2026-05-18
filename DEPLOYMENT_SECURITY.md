@@ -5,11 +5,11 @@ stronger data boundaries.
 
 ## Deployment models
 
-1. **Hosted pilot** — Fastest way to evaluate the product with a small class or training
+1. **Hosted pilot**, Fastest way to evaluate the product with a small class or training
    group. Runs on Dinner With Anyone managed infrastructure.
-2. **Private cloud** — Dedicated environment for one school, department, or enterprise
+2. **Private cloud**, Dedicated environment for one school, department, or enterprise
    team. Customer-isolated tenant.
-3. **On-prem deployment** — Runs inside the customer's own infrastructure for sensitive
+3. **On-prem deployment**, Runs inside the customer's own infrastructure for sensitive
    academic, enterprise, or government use cases.
 
 ## Data categories
@@ -54,7 +54,7 @@ available".
 
 ## Pilot path
 
-1. Hosted pilot with one cohort of 20–30 students.
+1. Hosted pilot with one cohort of 20 to 30 students.
 2. Security review (data flow, retention, access controls, vendor list).
 3. Decision on private cloud vs. on-prem for production rollout.
 4. Migration plan for uploaded materials and avatar configuration.

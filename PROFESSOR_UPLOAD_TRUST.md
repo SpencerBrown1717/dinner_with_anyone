@@ -36,12 +36,12 @@ material.
 
 Every professor-avatar session ships with the following visible affordances:
 
-1. **Source confidence pill** — `Grounded: uploaded slides + transcript`,
+1. **Source confidence pill**, `Grounded: uploaded slides + transcript`,
    `Grounded: public-source context`, `General reasoning`, or `Outside available material`.
-2. **Mode indicator** — strict mode vs. mixed mode is shown on the session header.
-3. **Allowed topics** — visible to the student so they know what is in scope.
-4. **Preview pass** — the professor can run hard test questions before the cohort joins.
-5. **Correction loop** — the professor can flag wrong answers and the source notes feed
+2. **Mode indicator**, strict mode vs. mixed mode is shown on the session header.
+3. **Allowed topics**, visible to the student so they know what is in scope.
+4. **Preview pass**, the professor can run hard test questions before the cohort joins.
+5. **Correction loop**, the professor can flag wrong answers and the source notes feed
    back into the retrieval index.
 
 ## Preview-before-publish
@@ -66,4 +66,4 @@ Before a professor avatar is opened to students, the professor should be able to
 - [Avatar Architecture](AVATAR_ARCHITECTURE.md)
 - [Deployment and Security](DEPLOYMENT_SECURITY.md)
 - [College Platform](COLLEGE_PLATFORM.md)
-- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md) — preview-before-publish lives here.
+- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md), preview-before-publish lives here.

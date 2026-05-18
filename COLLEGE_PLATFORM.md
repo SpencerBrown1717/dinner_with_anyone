@@ -58,11 +58,11 @@ Grounding behavior lives in [`GROUNDING_POLICY.md`](GROUNDING_POLICY.md).
 ## Why colleges care
 
 - More help outside office hours, on the student's schedule
-- Better-prepared classes — students arrive ready to discuss, not just listen
+- Better-prepared classes, students arrive ready to discuss, not just listen
 - Less repetitive explanation of common questions
 - More equitable support for quiet, embarrassed, or overloaded students
 - Stronger practice loops through repetition and feedback
-- Professor-controlled rigor — challenge students instead of giving away answers
+- Professor-controlled rigor, challenge students instead of giving away answers
 
 ## Product principle
 

@@ -81,6 +81,8 @@ Long-form trust docs:
 
 - [College Platform](COLLEGE_PLATFORM.md)
 - [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md)
+- [Avatar Discovery](AVATAR_DISCOVERY.md)
+- [Wikipedia Source Policy](WIKIPEDIA_SOURCE_POLICY.md)
 - [Grounding and Anti-Hallucination Policy](GROUNDING_POLICY.md)
 - [Avatar Realism](AVATAR_REALISM.md)
 - [Professor Upload Trust](PROFESSOR_UPLOAD_TRUST.md)
@@ -144,10 +146,59 @@ This document is a quality bar, not:
 - a contract
 - a legal service-level agreement
 - an uptime guarantee
-- a compliance claim (HIPAA / FERPA / SOC 2 / etc. — see
+- a compliance claim (HIPAA / FERPA / SOC 2 / etc., see
   [`DEPLOYMENT_SECURITY.md`](DEPLOYMENT_SECURITY.md) for the language rule)
 
-## 9. Review cycle
+## 9. Dash and punctuation quality
+
+The public website should not use visible em dashes or en dashes. Awkward dash
+separators feel less premium than crisp punctuation.
+
+Avoid:
+
+- "—" (em dash)
+- "–" (en dash)
+
+Use:
+
+- periods
+- commas
+- colons
+- parentheses
+- short sentences
+
+QA enforces this via `testNoVisibleDashes` in `scripts/qa-site.mjs`. The
+forbidden-character list scans every public HTML page. This SLA is allowed to
+quote the characters above because the rule documentation is itself the
+exception.
+
+## 10. Section value rule
+
+Every public page section must pass the value test:
+
+1. Does this section explain the product more clearly?
+2. Does it help a buyer trust the product?
+3. Does it help a student understand the experience?
+4. Does it help a professor understand the workflow?
+5. Does it help a school understand deployment?
+
+If a section repeats information or feels like filler, simplify it or remove it.
+Pages should feel premium, not crowded.
+
+## 11. Discovery surface
+
+Discovery (search anyone with trusted public-source material) is a public-facing
+product surface. See [`AVATAR_DISCOVERY.md`](AVATAR_DISCOVERY.md) and
+[`WIKIPEDIA_SOURCE_POLICY.md`](WIKIPEDIA_SOURCE_POLICY.md).
+
+The discovery experience on the public site must show:
+
+- a search input
+- a verified source status indicator
+- "Educational avatar inspired by public-source material" disclaimer
+- a refusal message when source material is insufficient
+
+## 12. Review cycle
 
 This document should be reviewed whenever:
 

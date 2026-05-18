@@ -48,7 +48,7 @@ Transcript + teacher insights
 
 ## 3. Core providers
 
-### OpenAI — voice and realtime conversation
+### OpenAI, voice and realtime conversation
 
 Use OpenAI for:
 
@@ -74,7 +74,7 @@ Do **not** expose OpenAI API keys in the browser.
 
 ---
 
-### Gemini — slides and course-material intelligence
+### Gemini, slides and course-material intelligence
 
 Use Gemini for:
 
@@ -99,7 +99,7 @@ Uploaded course material
 
 ---
 
-### HeyGen or Gemini-style avatar layer — lifelike visual avatar
+### HeyGen or Gemini-style avatar layer, lifelike visual avatar
 
 Use an avatar vendor for:
 
@@ -323,7 +323,7 @@ unless formally achieved.
 
 ## 11. MVP build sequence
 
-### Phase 1 — Static proof
+### Phase 1, Static proof
 
 Already underway.
 
@@ -333,7 +333,7 @@ Already underway.
 - Simulated teacher dashboard
 - Mobile QA
 
-### Phase 2 — Real upload pipeline
+### Phase 2, Real upload pipeline
 
 Build:
 
@@ -344,7 +344,7 @@ Build:
 - Course material storage
 - Basic document search
 
-### Phase 3 — Source-grounded answers
+### Phase 3, Source-grounded answers
 
 Build:
 
@@ -354,7 +354,7 @@ Build:
 - Source citations
 - Teacher-controlled source rules
 
-### Phase 4 — Real voice
+### Phase 4, Real voice
 
 Build:
 
@@ -365,7 +365,7 @@ Build:
 - Audio playback
 - Interruptions
 
-### Phase 5 — Slide intelligence
+### Phase 5, Slide intelligence
 
 Build:
 
@@ -375,7 +375,7 @@ Build:
 - Teacher recap deck
 - Student reflection prompts
 
-### Phase 6 — Lifelike avatar
+### Phase 6, Lifelike avatar
 
 Build:
 
@@ -386,7 +386,7 @@ Build:
 - Speaking/listening states
 - Mobile fallback mode
 
-### Phase 7 — Teacher dashboard
+### Phase 7, Teacher dashboard
 
 Build:
 
@@ -397,7 +397,7 @@ Build:
 - Suggested next class
 - CSV export
 
-### Phase 8 — Private deployments
+### Phase 8, Private deployments
 
 Build:
 
@@ -415,11 +415,11 @@ Build:
 Dinner With Anyone is also a roleplay practice platform. The architecture should
 support five practice modes on top of the conversation loop:
 
-- **Teach me** — patient explanation grounded in uploaded course material.
-- **Interview me** — generates interview-style follow-ups and scores answers.
-- **Sell to me** — runs a buyer persona, asks for discovery, scores objection handling.
-- **Negotiate with me** — runs a counterparty (recruiter, vendor, investor), scores leverage.
-- **Quiz me** — concept-check loop scored on mastery and application.
+- **Teach me**, patient explanation grounded in uploaded course material.
+- **Interview me**, generates interview-style follow-ups and scores answers.
+- **Sell to me**, runs a buyer persona, asks for discovery, scores objection handling.
+- **Negotiate with me**, runs a counterparty (recruiter, vendor, investor), scores leverage.
+- **Quiz me**, concept-check loop scored on mastery and application.
 
 Difficulty levels (`high_school`, `college`, `graduate`) modulate prompt strength,
 follow-up sharpness, and how much scaffolding the avatar provides.
@@ -427,10 +427,10 @@ follow-up sharpness, and how much scaffolding the avatar provides.
 The anti-hallucination contract (full detail in [`GROUNDING_POLICY.md`](GROUNDING_POLICY.md))
 is enforced at three layers:
 
-1. **Retrieval layer** — uploaded teacher material is searched first; public sources second.
-2. **Reasoning layer** — every response carries a `source_confidence` tag
+1. **Retrieval layer**, uploaded teacher material is searched first; public sources second.
+2. **Reasoning layer**, every response carries a `source_confidence` tag
    (`uploaded`, `public`, `general`, `outside`) used by the UI source-confidence pill.
-3. **UI layer** — citations rendered in the interface must come from real retrieval
+3. **UI layer**, citations rendered in the interface must come from real retrieval
    results. If retrieval returns nothing, no citations are shown.
 
 Teacher controls (strict mode, allowed topics, feedback style) live on the teacher
@@ -476,4 +476,4 @@ Do not build the full avatar backend until one real pilot prospect validates:
 - They want students to talk to the professor avatar.
 - They have class material they can upload.
 - They care about teacher insight reports.
-- They are willing to run a 20–30 student pilot.
+- They are willing to run a 20 to 30 student pilot.

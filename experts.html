@@ -14,17 +14,17 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Dinner With Anyone" />
   <meta property="og:title" content="60 Avatars | Dinner With Anyone" />
-  <meta property="og:description" content="If you could have dinner with anyone, alive or dead — 60 source-grounded avatars across science, philosophy, leadership, arts, literature, civil rights, business, strategy, and spirituality." />
+  <meta property="og:description" content="If you could have dinner with anyone, alive or dead, 60 source-grounded avatars across science, philosophy, leadership, arts, literature, civil rights, business, strategy, and spirituality." />
   <meta property="og:url" content="https://spencerbrown1717.github.io/dinner_with_anyone/experts.html" />
   <meta property="og:image" content="https://spencerbrown1717.github.io/dinner_with_anyone/assets/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Dinner With Anyone — historical avatars at a dinner table." />
+  <meta property="og:image:alt" content="Dinner With Anyone, historical avatars at a dinner table." />
   <meta property="og:locale" content="en_US" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="60 Avatars | Dinner With Anyone" />
-  <meta name="twitter:description" content="If you could have dinner with anyone, alive or dead — 60 source-grounded avatars across science, philosophy, leadership, arts, literature, civil rights, business, strategy, and spirituality." />
+  <meta name="twitter:description" content="If you could have dinner with anyone, alive or dead, 60 source-grounded avatars across science, philosophy, leadership, arts, literature, civil rights, business, strategy, and spirituality." />
   <meta name="twitter:image" content="https://spencerbrown1717.github.io/dinner_with_anyone/assets/og-image.png" />
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -48,13 +48,9 @@
         </a>
         <div class="links">
           <a href="college.html">College</a>
-          <a href="experts.html" aria-current="page">Experts</a>
-          <a href="education.html">Education</a>
+          <a href="experts.html" aria-current="page">Avatars</a>
           <a href="practice.html">Practice</a>
-          <a href="demo.html">Demo</a>
-          <a href="avatar-demo.html">Avatar demo</a>
           <a href="how-it-works.html">How it works</a>
-          <a href="enterprise.html">Enterprise</a>
           <a href="pricing.html">Pricing</a>
           <a class="btn primary" href="contact.html">Book a demo</a>
         </div>
@@ -62,14 +58,15 @@
       </nav>
       <div class="mobile" id="mobile-nav">
         <a href="college.html">College</a>
-        <a href="experts.html">Experts</a>
-        <a href="education.html">Education</a>
+        <a href="experts.html">Avatars</a>
         <a href="practice.html">Practice</a>
-        <a href="demo.html">Demo</a>
-        <a href="avatar-demo.html">Avatar demo</a>
         <a href="how-it-works.html">How it works</a>
-        <a href="enterprise.html">Enterprise</a>
         <a href="pricing.html">Pricing</a>
+        <a href="education.html">Education</a>
+        <a href="avatar-demo.html">Avatar demo</a>
+        <a href="demo.html">Demo</a>
+        <a href="enterprise.html">Enterprise</a>
+        <a href="pilot.html">Pilot</a>
         <a href="contact.html">Book a demo</a>
       </div>
     </div>
@@ -99,14 +96,210 @@
       </div>
     </section>
 
+    <section class="section" id="discovery" aria-labelledby="discovery-h">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Discovery</span>
+          <h2 id="discovery-h">Search anyone with a Wikipedia page.</h2>
+          <p class="muted">
+            Choose a famous person, historical figure, scientist, writer, founder, artist,
+            leader, or expert. Dinner With Anyone can turn trusted public-source material
+            into an educational avatar for conversation and learning.
+          </p>
+        </div>
+
+        <div class="discovery-grid">
+          <form class="discovery-search" data-discovery-search aria-label="Search for a person">
+            <label for="discovery-input" class="discovery-label">Search for a person</label>
+            <div class="discovery-input-row">
+              <input
+                id="discovery-input"
+                type="search"
+                placeholder="e.g. Ada Lovelace, Toni Morrison, Marie Curie"
+                value="Ada Lovelace"
+                data-discovery-input
+                autocomplete="off"
+              />
+              <button class="btn primary" type="submit" data-discovery-submit>Search</button>
+            </div>
+            <p class="discovery-helper">
+              Static preview of the intended flow. In product, the system verifies trusted
+              source material before creating the avatar.
+            </p>
+          </form>
+
+          <article class="discovery-result" data-discovery-result>
+            <div class="discovery-result-head">
+              <span class="discovery-portrait" aria-hidden="true" data-discovery-portrait>AL</span>
+              <div>
+                <h3 data-discovery-name>Ada Lovelace</h3>
+                <p class="domain" data-discovery-domain>Mathematics · Computing · Imagination</p>
+              </div>
+            </div>
+
+            <ul class="discovery-status">
+              <li><strong>Source status</strong><span data-discovery-status>Wikipedia page found</span></li>
+              <li><strong>Avatar type</strong><span>Educational avatar inspired by public-source material</span></li>
+              <li><strong>Disclaimer</strong><span>Not the real person. Not affiliated with any individual or estate.</span></li>
+            </ul>
+
+            <div class="discovery-actions">
+              <a class="btn primary" href="avatar-demo.html">Generate avatar</a>
+              <a class="btn" href="#source-preview">Preview sources</a>
+              <a class="btn" href="avatar-demo.html">Start conversation</a>
+            </div>
+          </article>
+        </div>
+
+        <article class="grounding-promise" id="source-preview" aria-labelledby="source-preview-h">
+          <h3 id="source-preview-h">Source preview</h3>
+          <ul class="source-preview-list">
+            <li>Wikipedia biography</li>
+            <li>Public writings</li>
+            <li>Speeches and interviews</li>
+            <li>Academic references</li>
+            <li>Public archives</li>
+            <li>Known limitations</li>
+          </ul>
+          <p class="grounding-promise-line">
+            The avatar can only be as good as its source set. If the source material does not
+            support an answer, it should say so.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section soft" id="preview-the-avatars" aria-labelledby="preview-the-avatars-h">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Preview the avatars</span>
+          <h2 id="preview-the-avatars-h">Preview the avatars.</h2>
+          <p class="muted">
+            Start with the 60 featured mentors, or search for anyone with trusted
+            public-source material.
+          </p>
+        </div>
+
+        <div class="avatar-preview-grid">
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-einstein">AE</div>
+            <p class="eyebrow small">Physics · Creativity</p>
+            <h3>Albert Einstein</h3>
+            <p>Ask about first principles, imagination, scientific courage, and how to think through hard ideas.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-cleopatra">CL</div>
+            <p class="eyebrow small">Diplomacy · Statecraft</p>
+            <h3>Cleopatra</h3>
+            <p>Ask about diplomacy, multilingual influence, and statecraft without the larger army.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-confucius">C</div>
+            <p class="eyebrow small">Ethics · Education</p>
+            <h3>Confucius</h3>
+            <p>Ask about ethics, leadership by example, and how patient correction shapes a culture.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-ada">AL</div>
+            <p class="eyebrow small">Computing · Imagination</p>
+            <h3>Ada Lovelace</h3>
+            <p>Ask about algorithms, mathematical imagination, and what computing could become.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-curie">MC</div>
+            <p class="eyebrow small">Chemistry · Persistence</p>
+            <h3>Marie Curie</h3>
+            <p>Ask about scientific persistence, working through resistance, and naming the unknown.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-suntzu">ST</div>
+            <p class="eyebrow small">Strategy · Timing</p>
+            <h3>Sun Tzu</h3>
+            <p>Ask about strategy, the right moment, and how preparation shapes outcomes before conflict.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-morrison">TM</div>
+            <p class="eyebrow small">Literature · Memory</p>
+            <h3>Toni Morrison</h3>
+            <p>Ask about voice, memory, identity, and the work of writing what has been left out.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-mandela">NM</div>
+            <p class="eyebrow small">Leadership · Reconciliation</p>
+            <h3>Nelson Mandela</h3>
+            <p>Ask about moral courage, long-game leadership, and how to forgive without forgetting.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-kahlo">FK</div>
+            <p class="eyebrow small">Art · Identity · Resilience</p>
+            <h3>Frida Kahlo</h3>
+            <p>Ask about turning pain into work, identity, and a visual language built from honesty.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-shakespeare">WS</div>
+            <p class="eyebrow small">Language · Drama</p>
+            <h3>William Shakespeare</h3>
+            <p>Ask about character, language, ambition, and the patterns that recur across human conflict.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-jobs">SJ</div>
+            <p class="eyebrow small">Product · Taste</p>
+            <h3>Steve Jobs</h3>
+            <p>Ask about product taste, storytelling, focus, and saying no to a thousand other things.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+
+          <article class="avatar-preview-card">
+            <div class="avatar-portrait avatar-portrait-earhart">AE2</div>
+            <p class="eyebrow small">Courage · Aviation</p>
+            <h3>Amelia Earhart</h3>
+            <p>Ask about courage in new territory, calculated risk, and proving what was claimed impossible.</p>
+            <p class="avatar-status">Wikipedia source available</p>
+            <a href="avatar-demo.html" class="text-link">Start conversation</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="wrap">
         <div class="section-head">
           <span class="eyebrow">Browse 60 minds</span>
           <h2>Filter by what you want to learn.</h2>
           <p class="muted">
-            Tap a category to filter. All 60 avatars run on the same conversation engine — voice,
-            text, and slides — and all are built from public-source material.
+            Tap a category to filter. All 60 avatars run on the same conversation engine
+            (voice, text, and slides), and all are built from public-source material.
           </p>
         </div>
 
@@ -209,7 +402,7 @@
             <div class="expert-avatar" aria-hidden="true">SO</div>
             <p class="domain">Questions · Ethics · Self-knowledge</p>
             <h3>Socrates</h3>
-            <p>The art of the question — exposing what you only thought you knew.</p>
+            <p>The art of the question, exposing what you only thought you knew.</p>
             <ul>
               <li>Practice being questioned, not lectured</li>
               <li>Find the assumption hiding inside your answer</li>
@@ -677,7 +870,7 @@
             <div class="expert-avatar" aria-hidden="true">WS</div>
             <p class="domain">Language · Character · Drama</p>
             <h3>William Shakespeare</h3>
-            <p>Language, character, and the human range — comedy, tragedy, power, doubt.</p>
+            <p>Language, character, and the human range, comedy, tragedy, power, doubt.</p>
             <ul>
               <li>Write characters who contradict themselves</li>
               <li>Use language to think, not just describe</li>
@@ -920,7 +1113,7 @@
           </div>
           <p class="lead">
             Choose one person for a focused conversation, or seat multiple minds at the same
-            table — to debate, critique, and stress-test the same question from very different
+            table, to debate, critique, and stress-test the same question from very different
             worldviews.
           </p>
 
@@ -962,7 +1155,7 @@
                 <span class="seat-chip">Caesar</span>
                 <span class="seat-chip">Saladin</span>
               </div>
-              <p>How to win the conflict — or avoid it — across very different eras.</p>
+              <p>How to win the conflict, or avoid it, across very different eras.</p>
             </article>
 
             <article class="table-suggestion">
@@ -1006,9 +1199,9 @@
           </div>
         </div>
         <ul class="clean">
-          <li>Text conversation — quick questions, fast turnaround</li>
-          <li>Voice mode — real back-and-forth dialogue</li>
-          <li>Multi-avatar tables — different minds, same question</li>
+          <li>Text conversation, quick questions, fast turnaround</li>
+          <li>Voice mode, real back-and-forth dialogue</li>
+          <li>Multi-avatar tables, different minds, same question</li>
           <li>Conversation memos exported after each session</li>
           <li>Source citations from public material</li>
           <li>Available in 30+ languages</li>
@@ -1020,7 +1213,7 @@
   <section class="cta">
     <div class="wrap two">
       <div>
-        <span class="eyebrow" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)">Private beta</span>
+        <span class="eyebrow" style="background:rgba(255,255,255.1);color:#fff;border-color:rgba(255,255,255.2)">Private beta</span>
         <h2>Have the conversation before the decision matters.</h2>
         <p class="lead">Pick a mind, bring a real question, and see what an interpretive AI conversation can actually do.</p>
       </div>
@@ -1036,7 +1229,7 @@
     <div class="wrap footer-grid">
       <div>
         <div class="brand"><span class="mark" aria-hidden="true">D</span><span>Dinner With Anyone</span></div>
-        <p class="tiny">Source-grounded avatars for conversation and learning — historical figures, expert thinkers, and custom professor avatars.</p>
+        <p class="tiny">Source-grounded avatars for conversation and learning, historical figures, expert thinkers, and custom professor avatars.</p>
       </div>
       <div>
         <b>Product</b>

@@ -216,11 +216,11 @@ async function collectPageIssues(pageName, page) {
 async function testAvatarDemo(page) {
   await page.goto(`${baseURL}/avatar-demo.html`, { waitUntil: "networkidle" });
 
-  await page.locator("[data-avatar-choice='chen']").click();
+  await page.locator("[data-avatar-choice='einstein']").click();
   await page.waitForTimeout(200);
 
   const name = await page.locator("[data-avatar-name]").innerText();
-  assert(name.includes("Professor Chen"), "Avatar picker did not switch to Professor Chen.");
+  assert(name.includes("Albert Einstein"), "Avatar picker did not switch to Albert Einstein.");
 
   await page.locator("[data-start-voice]").click();
   await page.waitForTimeout(2100);
@@ -287,6 +287,97 @@ async function testForbiddenLanguage(page) {
           `Forbidden phrase "${name}" on ${pageName}: …${snippet}…`
         );
       }
+    }
+  }
+}
+
+async function testDiscovery(page) {
+  await page.goto(`${baseURL}/experts.html`, { waitUntil: "networkidle" });
+
+  const markers = [
+    "Search anyone with a Wikipedia page",
+    "Source status",
+    "Educational avatar inspired by public-source material",
+    "Preview the avatars",
+    "Wikipedia biography",
+    "The avatar can only be as good as its source set"
+  ];
+
+  const body = await page.locator("body").innerText();
+  for (const marker of markers) {
+    assert(body.includes(marker), `Missing discovery marker on experts.html: "${marker}"`);
+  }
+
+  const previewCount = await page.locator(".avatar-preview-card").count();
+  assert(
+    previewCount >= 12,
+    `Expected at least 12 avatar preview cards, got ${previewCount}`
+  );
+
+  const input = page.locator("[data-discovery-input]");
+  await input.fill("Marie Curie");
+  await input.dispatchEvent("input");
+  await page.waitForTimeout(150);
+
+  const nameAfter = await page.locator("[data-discovery-name]").innerText();
+  assert(
+    nameAfter.includes("Marie Curie"),
+    `Discovery search did not update name: got "${nameAfter}"`
+  );
+
+  await input.fill("Spencer Brown");
+  await input.dispatchEvent("input");
+  await page.waitForTimeout(150);
+
+  const statusAfter = await page.locator("[data-discovery-status]").innerText();
+  assert(
+    /verify|Static preview/i.test(statusAfter),
+    `Discovery fallback message missing for unknown query: got "${statusAfter}"`
+  );
+
+  // Homepage search-anyone block markers
+  await page.goto(`${baseURL}/index.html`, { waitUntil: "networkidle" });
+  const homeBody = await page.locator("body").innerText();
+  assert(
+    homeBody.includes("Search anyone with a Wikipedia page"),
+    "Missing homepage discovery marker."
+  );
+  assert(
+    homeBody.includes("Browse avatars"),
+    "Missing homepage 'Browse avatars' CTA."
+  );
+}
+
+function testDiscoveryDocsExist() {
+  const required = ["AVATAR_DISCOVERY.md", "WIKIPEDIA_SOURCE_POLICY.md"];
+  for (const docName of required) {
+    const docPath = path.join(root, docName);
+    assert(fs.existsSync(docPath), `Required discovery doc missing: ${docName}`);
+    const contents = fs.readFileSync(docPath, "utf8");
+    assert(contents.length > 200, `Discovery doc appears empty: ${docName}`);
+  }
+}
+
+async function testNavConsistency(page) {
+  const expected = ["College", "Avatars", "Practice", "How it works", "Pricing", "Book a demo"];
+  const forbiddenTop = ["Education", "Demo", "Avatar demo", "Enterprise", "Pilot"];
+
+  for (const pageName of pages) {
+    await page.goto(`${baseURL}/${pageName}`, { waitUntil: "networkidle" });
+    const links = await page.locator(".links a").allInnerTexts();
+
+    for (const label of expected) {
+      assert(
+        links.includes(label),
+        `Top nav on ${pageName} missing "${label}". Got: ${JSON.stringify(links)}`
+      );
+    }
+
+    for (const label of forbiddenTop) {
+      assert(
+        !links.includes(label),
+        `Top nav on ${pageName} should not include "${label}" (footer-only). Got: ${JSON.stringify(links)}`
+      );
     }
   }
 }
@@ -365,6 +456,47 @@ function testCollegeDocsExist() {
     assert(fs.existsSync(docPath), `Required college doc missing: ${docName}`);
     const contents = fs.readFileSync(docPath, "utf8");
     assert(contents.length > 200, `College doc appears empty: ${docName}`);
+  }
+}
+
+async function testNoVisibleDashes(page) {
+  const forbiddenVisibleCharacters = ["\u2014", "\u2013"];
+
+  for (const pageName of pages) {
+    await page.goto(`${baseURL}/${pageName}`, { waitUntil: "networkidle" });
+    const body = await page.locator("body").innerText();
+
+    for (const char of forbiddenVisibleCharacters) {
+      const idx = body.indexOf(char);
+      if (idx !== -1) {
+        const start = Math.max(0, idx - 40);
+        const snippet = body
+          .slice(start, idx + 1 + 40)
+          .replace(/\s+/g, " ");
+        const name = char === "\u2014" ? "em dash (\\u2014)" : "en dash (\\u2013)";
+        throw new Error(
+          `Forbidden ${name} on ${pageName}: \u2026${snippet}\u2026`
+        );
+      }
+    }
+  }
+}
+
+function testNoVisibleDashesInMarkdown() {
+  const docs = fs
+    .readdirSync(root)
+    .filter((name) => name.endsWith(".md") && name !== "SLA.md");
+
+  for (const name of docs) {
+    const text = fs.readFileSync(path.join(root, name), "utf8");
+    const idx = Math.max(text.indexOf("\u2014"), text.indexOf("\u2013"));
+    if (idx !== -1) {
+      const start = Math.max(0, idx - 40);
+      const snippet = text.slice(start, idx + 1 + 40).replace(/\s+/g, " ");
+      throw new Error(
+        `Forbidden em/en dash in ${name}: \u2026${snippet}\u2026`
+      );
+    }
   }
 }
 
@@ -710,11 +842,11 @@ async function checkAvatarMobileExperience(page, viewport) {
   const pickerCount = await page.locator("[data-avatar-choice]").count();
   assert(pickerCount === 5, `Avatar picker missing options at ${viewport.name}`);
 
-  await page.locator("[data-avatar-choice='chen']").click();
+  await page.locator("[data-avatar-choice='cleopatra']").click();
   await page.waitForTimeout(200);
 
   const name = await page.locator("[data-avatar-name]").innerText();
-  assert(name.includes("Professor Chen"), `Mobile avatar picker failed at ${viewport.name}`);
+  assert(name.includes("Cleopatra"), `Mobile avatar picker failed at ${viewport.name}`);
 
   const avatarFrame = await page.locator(".avatar-frame").boundingBox();
   assert(Boolean(avatarFrame), `Avatar frame not visible at ${viewport.name}`);
@@ -827,6 +959,21 @@ async function main() {
 
     testCollegeDocsExist();
     console.log("Checked COLLEGE_PLATFORM.md and COURSE_UPLOAD_WORKFLOW.md exist");
+
+    await testNavConsistency(page);
+    console.log("Checked top nav is consistent and premium on every page");
+
+    await testDiscovery(page);
+    console.log("Checked avatar discovery (search, preview gallery, homepage search-anyone)");
+
+    testDiscoveryDocsExist();
+    console.log("Checked AVATAR_DISCOVERY.md and WIKIPEDIA_SOURCE_POLICY.md exist");
+
+    await testNoVisibleDashes(page);
+    console.log("Checked zero em/en dashes on every public HTML page");
+
+    testNoVisibleDashesInMarkdown();
+    console.log("Checked zero em/en dashes in public markdown (SLA.md exempt)");
 
     await testTracker(page);
     console.log("Checked outreach tracker");

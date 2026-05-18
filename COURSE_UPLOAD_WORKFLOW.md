@@ -7,7 +7,7 @@ This document defines the intended course upload experience for Dinner With Anyo
 A professor should be able to upload course material and create a student-facing
 professor avatar that answers from approved sources.
 
-## Step 1 — Create course
+## Step 1, Create course
 
 Professor enters:
 
@@ -18,7 +18,7 @@ Professor enters:
 - Student audience
 - Allowed topics
 
-## Step 2 — Upload material
+## Step 2, Upload material
 
 Supported content types:
 
@@ -36,7 +36,7 @@ Supported content types:
 
 Each upload is tagged with source type so the avatar can label responses correctly.
 
-## Step 3 — Set boundaries
+## Step 3, Set boundaries
 
 Professor chooses:
 
@@ -48,7 +48,7 @@ Professor chooses:
 - Feedback style (Socratic, direct, quiz, exam prep, roleplay)
 - Public context on / off
 
-## Step 4 — Preview avatar
+## Step 4, Preview avatar
 
 Before students see the avatar, the professor tests:
 
@@ -62,7 +62,7 @@ Before students see the avatar, the professor tests:
 Preview-before-publish is the contract between upload and trust. See
 [`PROFESSOR_UPLOAD_TRUST.md`](PROFESSOR_UPLOAD_TRUST.md).
 
-## Step 5 — Publish to students
+## Step 5, Publish to students
 
 Students can:
 
@@ -74,7 +74,7 @@ Students can:
 - Get structured feedback
 - Roleplay high-stakes conversations
 
-## Step 6 — Improve over time
+## Step 6, Improve over time
 
 Professor can:
 

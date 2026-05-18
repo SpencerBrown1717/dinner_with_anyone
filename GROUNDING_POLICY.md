@@ -83,12 +83,12 @@ Dinner With Anyone is an educational simulation product. It is **not**:
 
 ## Related
 
-- [Professor Upload Trust](PROFESSOR_UPLOAD_TRUST.md) — how professors upload, preview, and
+- [Professor Upload Trust](PROFESSOR_UPLOAD_TRUST.md), how professors upload, preview, and
   correct what the avatar can say.
-- [Avatar Realism](AVATAR_REALISM.md) — speech-synced mouth movement, viseme mapping, and
+- [Avatar Realism](AVATAR_REALISM.md), speech-synced mouth movement, viseme mapping, and
   expression timing.
-- [Deployment and Security](DEPLOYMENT_SECURITY.md) — hosted, private cloud, and on-prem
+- [Deployment and Security](DEPLOYMENT_SECURITY.md), hosted, private cloud, and on-prem
   deployment paths.
-- [Avatar Architecture](AVATAR_ARCHITECTURE.md) — full system design.
-- [College Platform](COLLEGE_PLATFORM.md) — college-first positioning and primary users.
-- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md) — how professors create a grounded course avatar.
+- [Avatar Architecture](AVATAR_ARCHITECTURE.md), full system design.
+- [College Platform](COLLEGE_PLATFORM.md), college-first positioning and primary users.
+- [Course Upload Workflow](COURSE_UPLOAD_WORKFLOW.md), how professors create a grounded course avatar.
